@@ -1,7 +1,7 @@
 \documentclass{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx}
+\usepackage{graphicx,bm}
 
 \begin{document}
 
@@ -14,8 +14,9 @@
         \Large Ingeniería Informática de Gestión y Sistemas de Información\\
         \vspace{3cm}
         \Huge Biblioteca\\
-        \vspace{3cm}
+        \vspace{2.5cm}
         \Large Autores:\\
+        \vspace{0.2cm}
         \large Xabier Gabiña\\
         \large Janire Veganzones\\
         \large Ainhize\\
@@ -23,6 +24,8 @@
         \large Kepa Reches\\
         \large Jon Valdes\\
         \large Mohammed El Basri Dehbi\\
+        \vfill
+        \today
     \end{titlepage}
 
     \tableofcontents
@@ -34,19 +37,45 @@
             \end{itemize}   
     \chapter{Introducción}
     \chapter{Casos de Uso}
-        \section{Gestión de reservas}
-        \section{Reseñas}
-        \section{Red de amigos}
-        \section{Administrador}
-        \section{Foros}
-        \section{Recomendaciones del sistema}
-            \begin{table}[t]
-                \begin{center}
-                    \begin{tabular}{}
-                    \end{tabular}
-                \end{center}
-            \end{table}
-        \section{Recomendaciones de amigos}
+        \section{General}
+        \section{Extendidos}
+        \subsection{Gestión de reservas}
+        \subsection{Reseñas}
+        \subsection{Red de amigos}
+        \subsection{Administrador}
+        \subsection{Foros}
+        \clearpage
+        \subsection{Recomendaciones del sistema}
+            \begin{center}
+                \begin{tabular}{|p{\textwidth}|}
+                    \hline
+                    \bm{Responsable:} Xabier Gabiña
+                    \hline
+                    
+                    \hline
+                    Nombre: Ver libros recomendados\\
+                    \hline
+                    Descripción: Muestra una lista en la parte superior del catálogo mostrando los libros con más préstamos del sistema.\\
+                    \hline
+                    Actores: General\\
+                    \hline
+                    Precondiciones: Ninguna\\
+                    \hline
+                    Requisitos no funcionales: Ninguno\\
+                    \hline
+                    Flujo de Eventos: \\
+                    \hline
+                    Poscondiciones: Ninguna\\
+                    \hline
+                    Interfaz Gráfica: \\
+                    \begin{minipage}{\textwidth}
+                        \centering
+                        \includegraphics[width=1.0\textwidth]{./img/recom_sis.png}
+                    \end{minipage}\\
+                    \hline
+                \end{tabular}
+            \end{center}
+        \subsection{Recomendaciones de amigos}
     \chapter{Conclusiones} 
 
 \end{document}
