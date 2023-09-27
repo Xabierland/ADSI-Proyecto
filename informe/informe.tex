@@ -1,13 +1,13 @@
 \documentclass{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx,bm}
+\usepackage{graphicx, tabularx}
 
 \begin{document}
 
     \begin{titlepage}
         \centering
-        \includegraphics[width=0.6\textwidth]{./img/logo.jpg}\\
+        \includegraphics[width=0.6\textwidth]{./img/miscelanio/logo.jpg}\\
         \vspace{1cm}
         \LARGE Análisis y Diseño de Sistemas de Información\\
         \vspace{0.5cm}
@@ -38,43 +38,57 @@
     \chapter{Introducción}
     \chapter{Casos de Uso}
         \section{General}
+        \clearpage
         \section{Extendidos}
+        \clearpage
         \subsection{Gestión de reservas}
+        \clearpage
         \subsection{Reseñas}
+        \clearpage
         \subsection{Red de amigos}
+        \clearpage
         \subsection{Administrador}
+        \clearpage
         \subsection{Foros}
         \clearpage
         \subsection{Recomendaciones del sistema}
             \begin{center}
-                \begin{tabular}{|p{\textwidth}|}
+                \begin{tabular}{|p{\linewidth}|}
                     \hline
-                    \bm{Responsable:} Xabier Gabiña
+                    \textbf{Responsable:} Xabier Gabiña\\
                     \hline
-                    
-                    \hline
-                    Nombre: Ver libros recomendados\\
-                    \hline
-                    Descripción: Muestra una lista en la parte superior del catálogo mostrando los libros con más préstamos del sistema.\\
-                    \hline
-                    Actores: General\\
-                    \hline
-                    Precondiciones: Ninguna\\
-                    \hline
-                    Requisitos no funcionales: Ninguno\\
-                    \hline
-                    Flujo de Eventos: \\
-                    \hline
-                    Poscondiciones: Ninguna\\
-                    \hline
-                    Interfaz Gráfica: \\
                     \begin{minipage}{\textwidth}
                         \centering
-                        \includegraphics[width=1.0\textwidth]{./img/recom_sis.png}
+                        \includegraphics[width=0.4\textwidth]{./img/casos_uso/recom_lib.png}
+                    \end{minipage}\\
+                    \hline
+                    \textbf{Nombre:} Ver libros recomendados\\
+                    \hline
+                    \textbf{Descripción:} Muestra una lista en la parte superior del catálogo mostrando los libros con más préstamos del sistema en funcion de los gustos del usuario.\\
+                    \hline
+                    \textbf{Actores:} Usuario\\
+                    \hline
+                    \textbf{Precondiciones:} Estar identificado en el sistema\\
+                    \hline
+                    \textbf{Requisitos no funcionales:} El Usuario debe de haber tenido al menos una pelicula alquilada\\
+                    \hline
+                    \textbf{Flujo de Eventos:}
+                    \begin{enumerate}
+                        \item El Usuario entra en el catalogo para ver las peliculas disponibles.
+                        \item Se le muestra en la parte superior de la pantalla una serie de peliculas basadas en los generos y peliculas que consume el usuario.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Poscondiciones:} Ninguna\\
+                    \hline
+                    \textbf{Interfaz Gráfica:}\\
+                    \begin{minipage}{\textwidth}
+                        \centering
+                        \includegraphics[width=0.9\textwidth]{./img/grafico/recom_lib.png}
                     \end{minipage}\\
                     \hline
                 \end{tabular}
             \end{center}
+        \clearpage
         \subsection{Recomendaciones de amigos}
     \chapter{Conclusiones} 
 
