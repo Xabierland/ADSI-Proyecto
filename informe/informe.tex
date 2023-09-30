@@ -1,7 +1,7 @@
 \documentclass{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx, longtable}
+\usepackage{graphicx, longtable, float}
 
 \begin{document}
 
@@ -17,12 +17,12 @@
         \vspace{2.5cm}
         \Large Autores:\\
         \vspace{0.2cm}
-        \large Xabier Gabiña\\
-        \large Janire Veganzones\\
-        \large Ainhize\\
-        \large Javier Criado\\
-        \large Kepa Reches\\
-        \large Jon Valdes\\
+        \large Xabier Gabiña Barañano\\
+        \large Janire Veganzones García\\
+        \large Ainhize Martinez Duran\\
+        \large Javier Criado Garcia\\
+        \large Kepa Reches Urrutia\\
+        \large Jon Valdes Granado\\
         \large Mohammed El Basri Dehbi\\
         \vfill
         \today
@@ -38,6 +38,11 @@
     \chapter{Introducción}
     \chapter{Casos de Uso}
         \section{General}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.9\textwidth]{img/casos_uso/general.png}
+                \caption{Diagrama de casos de uso general}
+            \end{figure}
         \clearpage
         \section{Extendidos}
         \subsection{Gestión de reservas}
@@ -56,10 +61,10 @@
                     \hline
                     \textbf{Responsable:} Xabier Gabiña\\
                     \hline
-                    \begin{minipage}{\textwidth}
+                    \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.4\textwidth]{./img/casos_uso/recom_lib.png}
-                    \end{minipage}\\
+                    \end{figure}\\
                     \hline
                     \textbf{Nombre:} Ver libros recomendados\\
                     \hline
@@ -80,15 +85,14 @@
                     \textbf{Poscondiciones:} Ninguna\\
                     \hline
                     \textbf{Interfaz Gráfica:}\\
-                    \begin{minipage}{\textwidth}
+                    \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.9\textwidth]{./img/grafico/recom_lib.png}
-                    \end{minipage}\\
+                        \includegraphics[width=0.8\textwidth]{./img/grafico/recom_lib.png}
+                    \end{figure}\\
                     \hline
                 \end{longtable}
             \end{center}
         \clearpage
         \subsection{Recomendaciones de amigos}
     \chapter{Conclusiones} 
-
 \end{document}
