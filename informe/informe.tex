@@ -7,7 +7,7 @@
 
     \begin{titlepage}
         \centering
-        \includegraphics[width=0.6\textwidth]{./img/miscelanio/logo.jpg}\\
+        \includegraphics[width=0.6\textwidth]{./img/portada/logo.jpg}\\
         \vspace{1cm}
         \LARGE Análisis y Diseño de Sistemas de Información\\
         \vspace{0.5cm}
@@ -36,11 +36,15 @@
                 \item Añadidos los casos de uso extendidos
             \end{itemize}   
     \chapter{Introducción}
+    En un mundo cada vez más digitalizado, las bibliotecas modernas están buscando formas innovadoras de adaptarse a las necesidades cambiantes de sus usuarios. La biblioteca que nos ocupa se encuentra en este proceso de transformación, reconociendo la importancia de expandir sus servicios en línea y brindar a sus usuarios una experiencia más enriquecedora y conectada. Para llevar a cabo esta ambiciosa misión, han solicitado la colaboración de nuestro equipo de desarrollo.\\
+    En su estado actual, la biblioteca cuenta con un servicio web que permite a los usuarios consultar su extenso catálogo de libros. Además, ofrece un apartado de usuarios que pueden acceder a una sección privada. Sin embargo, esta plataforma carece de funcionalidades adicionales que pueden mejorar significativamente la experiencia de los usuarios y promover una mayor interacción entre ellos.\\
+    En este proyecto, nuestro objetivo es expandir y mejorar el servicio web de la biblioteca, dotándolo de una serie de funcionalidades clave. Estas nuevas características incluyen la gestión de reservas, la capacidad de dejar reseñas y comentarios en los libros, la creación de una red de amigos entre los usuarios, la introducción de un rol de administrador con capacidades de gestión, la implementación de foros para discusión y la incorporación de sistemas de recomendación, tanto basados en el historial de lecturas como en la afinidad de intereses entre usuarios.\\
+    A lo largo de este documento, exploraremos en detalle cada una de estas funcionalidades, presentando soluciones técnicas y estratégicas para su implementación. Este proyecto representa una emocionante oportunidad para ayudar a la biblioteca a evolucionar y brindar un servicio en línea más completo y enriquecedor a su comunidad de usuarios ávidos de conocimiento y lectura.\\
     \chapter{Casos de Uso}
         \section{General}
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.9\textwidth]{img/casos_uso/general.png}
+                \includegraphics[scale=0.18]{img/casos_uso/General.jpg}
                 \caption{Diagrama de casos de uso general}
             \end{figure}
         \clearpage
@@ -63,7 +67,7 @@
                     \hline
                     \begin{figure}[H]
                         \centering
-                        \includegraphics[width=0.4\textwidth]{./img/casos_uso/recom_lib.png}
+                        \includegraphics[width=0.8\textwidth]{./img/casos_uso/RecomendacionesDelSistema.jpg}
                     \end{figure}\\
                     \hline
                     \textbf{Nombre:} Ver libros recomendados\\
@@ -72,9 +76,9 @@
                     \hline
                     \textbf{Actores:} Usuario\\
                     \hline
-                    \textbf{Precondiciones:} Estar identificado en el sistema\\
+                    \textbf{Precondiciones:} Estar identificado en el sistema y haber tenido un libro registrado\\
                     \hline
-                    \textbf{Requisitos no funcionales:} El Usuario debe de haber tenido al menos una pelicula alquilada\\
+                    \textbf{Requisitos no funcionales:} Ninguno\\
                     \hline
                     \textbf{Flujo de Eventos:}
                     \begin{enumerate}
