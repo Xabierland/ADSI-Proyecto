@@ -52,126 +52,92 @@
         \subsection{Gestión de reservas}
         \clearpage
         \subsection{Reseñas}
+        \begin{center}
+            \begin{longtable}{|p{\linewidth}|}
+                \hline
+                \textbf{Responsable:} Javier Criado\\
+                \hline
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/casos_uso/Reseñas.jpg}
+                \end{figure}\\
+                \hline
+                \textbf{Nombre:} Reseñas\\
+                \hline
+                \textbf{Descripción:} Permite al cliente puntuar y comentar en un libro una vez lo haya devuelto, también permite modificar estos datos posteriormente.\\
+                \hline
+                \textbf{Actores:} Usuario\\
+                \hline
+                \textbf{Precondiciones:} Estar identificado en el sistema\\
+                \hline
+                \textbf{Requisitos no funcionales:} Ninguno\\
+                \hline
+                \textbf{Flujo de Eventos:}
+                \begin{enumerate}
+                    \item El Usuario entra en el catalogo para ver las peliculas disponibles.
+                    \item El usuario selecciona uno de los libros.
+                    \item Al seleccionar el boton "Ver reseñas", el usuario podrá ver las reseñas sobre el libro y añadir una nueva reseña
+                    \item Al seleccionar "Devolver libro", se devolvera el libro y se podra añadir una nueva reseña
+                    \item Al seleccionar "Escribir reseña", se escribira una reseña sobre el libro  
+                \end{enumerate}\\
+                \hline
+                \textbf{Poscondiciones:} Ninguna\\
+                \hline
+                \textbf{Interfaz Gráfica:}\\
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/grafico/Editar_Reseña.png}
+                \end{figure}\\
+                \hline
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/grafico/Modificar_Reseñas.png}
+                \end{figure}\\
+                \hline
+            \end{longtable}
+        \end{center}
         \clearpage
         \subsection{Red de amigos}
         \clearpage
         \subsection{Administrador}
         \begin{center}
-                \begin{longtable}{|p{\linewidth}|}
-                    \hline
-                    \textbf{Responsable:} Janire Veganzones\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/casos_uso/RecomendacionesDelSistema.jpg}
-                    \end{figure}\\
-                    \hline
-                    \textbf{Nombre:} Gestionar usuarios\\
-                    \hline
-                    \textbf{Descripción:}  Permite crear, eliminar o modificar un usuario en el sistema.\\
-                    \hline
-                    \textbf{Actores:} Admin\\
-                    \hline
-                    \textbf{Precondiciones:} Estar identificado en el sistema y ser usuario.\\
-                    \hline
-                    \textbf{Requisitos no funcionales:} Ninguno\\
-                    \hline
-                    \textbf{Flujo de Eventos:}
-                    \begin{enumerate}
-                        \item El Usuario se identifica mediante su cuenta, en caso de ser un usuario administrador aparecerá el menú “Home” con el apartado de Administrador.
-                        \item El usuario selecciona en su menú Home “Usuarios” para ver las funcionalidades que puede gestionar del usuario.
-                        \item Se muestran las funcionalidades del usuario que puede gestionar el administrador.  
-                        []
-                    \end{enumerate}\\
-                    \hline
-                    \textbf{Poscondiciones:} Ninguna\\
-                    \hline
-                    \textbf{Interfaz Gráfica:}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/recom_lib.png}
-                    \end{figure}\\
-                    \hline
-                \end{longtable}
-            \end{center}\begin{center}
-                \begin{longtable}{|p{\linewidth}|}
-                    \hline
-                    \textbf{Responsable:} Javier Criado\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/casos_uso/Reseñas.jpg}
-                    \end{figure}\\
-                    \hline
-                    \textbf{Nombre:} Reseñas\\
-                    \hline
-                    \textbf{Descripción:} Permite al cliente puntuar y comentar en un libro una vez lo haya devuelto, también permite modificar estos datos posteriormente.\\
-                    \hline
-                    \textbf{Actores:} Usuario\\
-                    \hline
-                    \textbf{Precondiciones:} Estar identificado en el sistema\\
-                    \hline
-                    \textbf{Requisitos no funcionales:} Ninguno\\
-                    \hline
-                    \textbf{Flujo de Eventos:}
-                    \begin{enumerate}
-                        \item El Usuario entra en el catalogo para ver las peliculas disponibles.
-                        \item El usuario selecciona uno de los libros.
-                    	\item Al seleccionar el boton "Ver reseñas", el usuario podrá ver las reseñas sobre el libro y añadir una nueva reseña
-                    	\item Al seleccionar "Devolver libro", se devolvera el libro y se podra añadir una nueva reseña
-                    	\item Al seleccionar "Escribir reseña", se escribira una reseña sobre el libro  
-                    \end{enumerate}\\
-                    \hline
-                    \textbf{Poscondiciones:} Ninguna\\
-                    \hline
-                    \textbf{Interfaz Gráfica:}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/Editar_Reseña.png}
-                    \end{figure}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/Modificar_Reseñas.png}
-                    \end{figure}\\
-                    \hline
-                \end{longtable}
-            \end{center}
-            \begin{center}
-                \begin{longtable}{|p{\linewidth}|}
-                    \hline
-                    \textbf{Responsable:} Xabier Gabiña\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/casos_uso/RecomendacionesDelSistema.jpg}
-                    \end{figure}\\
-                    \hline
-                    \textbf{Nombre:} Ver libros recomendados\\
-                    \hline
-                    \textbf{Descripción:} Muestra una lista en la parte superior del catálogo mostrando los libros con más préstamos del sistema en funcion de los gustos del usuario.\\
-                    \hline
-                    \textbf{Actores:} Usuario\\
-                    \hline
-                    \textbf{Precondiciones:} Estar identificado en el sistema y haber tenido un libro registrado\\
-                    \hline
-                    \textbf{Requisitos no funcionales:} Ninguno\\
-                    \hline
-                    \textbf{Flujo de Eventos:}
-                    \begin{enumerate}
-                        \item El Usuario entra en el catalogo para ver las peliculas disponibles.
-                        \item Se le muestra en la parte superior de la pantalla una serie de peliculas basadas en los generos y peliculas que consume el usuario.
-                    \end{enumerate}\\
-                    \hline
-                    \textbf{Poscondiciones:} Ninguna\\
-                    \hline
-                    \textbf{Interfaz Gráfica:}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/recom_lib.png}
-                    \end{figure}\\
-                    \hline
-                \end{longtable}
-            \end{center}
+            \begin{longtable}{|p{\linewidth}|}
+                \hline
+                \textbf{Responsable:} Janire Veganzones\\
+                \hline
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/casos_uso/RecomendacionesDelSistema.jpg}
+                \end{figure}\\
+                \hline
+                \textbf{Nombre:} Gestionar usuarios\\
+                \hline
+                \textbf{Descripción:}  Permite crear, eliminar o modificar un usuario en el sistema.\\
+                \hline
+                \textbf{Actores:} Admin\\
+                \hline
+                \textbf{Precondiciones:} Estar identificado en el sistema y ser usuario.\\
+                \hline
+                \textbf{Requisitos no funcionales:} Ninguno\\
+                \hline
+                \textbf{Flujo de Eventos:}
+                \begin{enumerate}
+                    \item El Usuario se identifica mediante su cuenta, en caso de ser un usuario administrador aparecerá el menú “Home” con el apartado de Administrador.
+                    \item El usuario selecciona en su menú Home “Usuarios” para ver las funcionalidades que puede gestionar del usuario.
+                    \item Se muestran las funcionalidades del usuario que puede gestionar el administrador.  
+                    []
+                \end{enumerate}\\
+                \hline
+                \textbf{Poscondiciones:} Ninguna\\
+                \hline
+                \textbf{Interfaz Gráfica:}\\
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/grafico/recom_lib.png}
+                \end{figure}\\
+                \hline
+            \end{longtable}
+        \end{center}
         \clearpage
         \subsection{Foros}
         \begin{center}
@@ -217,21 +183,24 @@
                         \centering
                         \includegraphics[width=0.8\textwidth]{./img/grafico/Foro1.png}
                     \end{figure}\\
-                     \begin{figure}[H]
+                    \hline
+                    \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.8\textwidth]{./img/grafico/Foro2.png}
                     \end{figure}\\
-                     \begin{figure}[H]
+                    \hline
+                    \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.8\textwidth]{./img/grafico/Foro3.png}
                     \end{figure}\\
-                     \begin{figure}[H]
+                    \hline
+                    \begin{figure}[H]
                         \centering
                         \includegraphics[width=0.8\textwidth]{./img/grafico/Foro4.png}
                     \end{figure}\\
                     \hline
-                \end{longtable}
-            \end{center}
+            \end{longtable}
+        \end{center}
         \clearpage
         \subsection{Recomendaciones del sistema}
             \begin{center}
