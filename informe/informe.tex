@@ -49,8 +49,48 @@
             \end{figure}
         \clearpage
         \section{Extendidos}
+
         \subsection{Gestión de reservas}
+            \begin{center}
+                \begin{longtable}{|p{\linewidth}|}
+                    \hline
+                    \textbf{Responsable:} Mohamed El Basri\\
+                    \hline
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.8\textwidth]{./img/casos_uso/CasoDeUso_GestionDeReservas.PNG}
+                    \end{figure}\\
+                    \hline
+                    \textbf{Nombre:} Ver libros recomendados\\
+                    \hline
+                    \textbf{Descripción:} Permite al usuario realizar una reserva de libro.\\
+                    \hline
+                    \textbf{Actores:} Usuario\\
+                    \hline
+                    \textbf{Precondiciones:} Estar identificado en el sistema.\\
+                    \hline
+                    \textbf{Requisitos no funcionales:} Ninguno\\
+                    \hline
+                    \textbf{Flujo de Eventos:}
+                    \begin{enumerate}
+                        \item El usuario selecciona el libro deseado en el catálogo y pulsa “Reservar”. Se abre la interfaz de reserva (Ilustración 1).
+                        \item Si el usuario pulsa aceptar, si el tiempo de reserva es menor a 2 meses aparece una interfaz indicando que la reserva se ha realizado con éxito (Ilustración 2).
+                        \item Si el usuario pulsa aceptar, si el tiempo de reserva es mayor a 2 meses aparece una interfaz indicando error (Ilustración 3).
+                        \item Si el usuario pulsa cancelar, se cierra la interfaz.
+                    \end{enumerate}\\
+                    \hline
+                    \textbf{Poscondiciones:} Ninguna\\
+                    \hline
+                    \textbf{Interfaz Gráfica:}\\
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.8\textwidth]{./img/grafico/recom_lib.png}
+                    \end{figure}\\
+                    \hline
+                \end{longtable}
+            \end{center}
         \clearpage
+
         \subsection{Reseñas}
         \begin{center}
             \begin{longtable}{|p{\linewidth}|}
