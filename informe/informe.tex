@@ -146,6 +146,59 @@
         \end{center}
         \clearpage
         \subsection{Red de amigos}
+        \begin{center}
+            \begin{longtable}{|p{\linewidth}|}
+                \hline
+                \textbf{Responsable:} Jon Valdes\\
+                \hline
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/casos_uso/RedDeAmigos.png}
+                \end{figure}\\
+                \hline
+                \textbf{Nombre:} Red de amigos.\\
+                \hline
+                \textbf{Descripción:} Permite al cliente gestionar su perfil, de modo que puede tanto consultar el historial de reservas y de reseñas, como añadir o eliminar amigos. También puede editar sus datos personales.\\
+                \hline
+                \textbf{Actores:} Usuario.\\
+                \hline
+                \textbf{Precondiciones:} Estar identificado en el sistema.\\
+                \hline
+                \textbf{Requisitos no funcionales:} Ninguno\\
+                \hline
+                \textbf{Flujo de Eventos:}
+                \begin{enumerate}
+                    \item El usuario puede consultar todo su historial de reservas realizadas en el sistema, pulsando en el botón “Consultar reservas”.
+                    \item El usuario puede consultar todo su historial de reseñas realizadas en el sistema, pulsando en el botón “Consultar reseñas”.
+                    \item El usuario puede añadir amigos pulsando en el botón “Agregar amigo”. Al pulsar el botón de “Agregar amigo” se abrirá un diálogo de texto donde podremos mandar una solicitud de amigo al usuario proporcionado.
+
+                    \item El usuario puede borrar un amigo de la lista de amigos, seleccionando el nombre del amigo en la lista y pulsando el botón “Borrar amigo”. Al pulsar el botón de “Borrar amigo” se abrirá un Frame con un aviso para confirmar la acción.
+                    \item El usuario puede editar los datos personales que desee pulsando en el botón “Editar perfil”. Al pulsar el botón de “Editar perfil” se abrirá un diálogo de texto en los datos personales donde podremos editarlos a nuestro gusto.  
+                \end{enumerate}\\
+                \hline
+                \textbf{Poscondiciones:} Ninguna\\
+                \hline
+                \textbf{Interfaz Gráfica:}\\
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazMenu.png}
+                \end{figure}\\
+                \hline
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazAnadrAmigo.png}
+                \end{figure}\\
+                \hline
+                 \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/grafico/interfazAlertaBorrarAmigo.png}
+                \end{figure}\\
+                 \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazEditarPerfil.png}
+                \end{figure}\\
+            \end{longtable}
+        \end{center}
         \clearpage
         \subsection{Administrador}
         \begin{center}
