@@ -177,6 +177,7 @@
                         \begin{figure}[H]
                             \centering
                             \includegraphics[width=0.8\textwidth]{./img/casos_uso/RedDeAmigos.png}
+                            \\Figura 3.2.3.1: Diagrama de casos de uso de la subfuncionalidad de red de amigos
                         \end{figure}\\
                         \hline
                         \textbf{Nombre:} Red de amigos.\\
@@ -191,11 +192,16 @@
                         \hline
                         \textbf{Flujo de Eventos:}
                         \begin{enumerate}
-                            \item El usuario puede consultar todo su historial de reservas realizadas en el sistema, pulsando en el botón “Consultar reservas”.
-                            \item El usuario puede consultar todo su historial de reseñas realizadas en el sistema, pulsando en el botón “Consultar reseñas”.
-                            \item El usuario puede añadir amigos pulsando en el botón “Agregar amigo”. Al pulsar el botón de “Agregar amigo” se abrirá un diálogo de texto donde podremos mandar una solicitud de amigo al usuario proporcionado.
-                            \item El usuario puede borrar un amigo de la lista de amigos, seleccionando el nombre del amigo en la lista y pulsando el botón “Borrar amigo”. Al pulsar el botón de “Borrar amigo” se abrirá un Frame con un aviso para confirmar la acción.
-                            \item El usuario puede editar los datos personales que desee pulsando en el botón “Editar perfil”. Al pulsar el botón de “Editar perfil” se abrirá un diálogo de texto en los datos personales donde podremos editarlos a nuestro gusto.  
+                            \item El usuario accede a su perfil. [Figura 3.2.3.2]
+                            \begin{enumerate}
+                                \item El usuario puede pulsar 'Editar perfil' para editar sus datos. [Figura 3.2.3.5]
+                                \item El usuario puede pulsar 'Consultar reservas' para ver su historial de reservas.
+                                \item El usuario puede pulsar 'Consultar reseñas' para ver su historial de reseñas.
+                                \item El usuario puede ver su lista de amigos.
+                                \item El usuario puede pulsar 'Añadir amigo' para añadir un amigo. [Figura 3.2.3.3]
+                                \item El usuario puede pulsar 'Solicutudes de amistad' para ver las solicitudes de amistad pendientes.
+                                \item El usuario puede pulsar 'Eliminar amigo' para eliminar un amigo. [Figura 3.2.3.4]
+                            \end{enumerate}
                         \end{enumerate}\\
                         \hline
                         \textbf{Poscondiciones:} Ninguna\\
@@ -204,10 +210,12 @@
                         \begin{figure}[H]
                             \centering
                             \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazMenu.png}
+                            \\Figura 3.2.3.2: Interfaz del perfil de usuario.
                         \end{figure}\\
                         \begin{figure}[H]
                             \centering
                             \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazAnadrAmigo.png}
+                            \\Figura 3.2.3.3: Interfaz para añadir un amigo.
                         \end{figure}\\
                         \begin{figure}[H]
                             \centering
@@ -217,184 +225,195 @@
                         \begin{figure}[H]
                             \centering
                             \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazEditarPerfil.png}
+                            \\Figura 3.2.3.5: Interfaz para editar el perfil.
                         \end{figure}\\
                         \hline
                     \end{longtable}
                 \end{center}
                 \clearpage
             \subsection{Administrador}
-                \begin{center}
-                    \begin{longtable}{|p{\linewidth}|}
-                        \hline
-                        \textbf{Responsable:} Janire Veganzones\\
-                        \hline
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.45\textwidth]{./img/casos_uso/GestionarUsuarios.png}
-                        \end{figure}\\
-                        \hline
-                        \textbf{Nombre:} Gestionar usuarios\\
-                        \hline
-                        \textbf{Descripción:}  Permite crear, eliminar o modificar un usuario en el sistema.\\
-                        \hline
-                        \textbf{Actores:} Admin\\
-                        \hline
-                        \textbf{Precondiciones:} Estar identificado en el sistema y ser usuario.\\
-                        \hline
-                        \textbf{Requisitos no funcionales:} Ninguno\\
-                        \hline
-                        \textbf{Flujo de Eventos:}
-                        \begin{enumerate}
-                            \item El Usuario se identifica mediante su cuenta, en caso de ser un usuario administrador aparecerá el menú “Home” con el apartado de Administrador.
-                            \item El usuario selecciona en su menú Home “Usuarios” para ver las funcionalidades que puede gestionar del usuario.
-                            \item Se muestran las funcionalidades del usuario que puede gestionar el administrador.
-                            \item[] [Si el usuario pulsa en crear]
-                                \begin{enumerate}
-                                    \item[3.1] Se accede a la interfaz de añadir usuario.
-                                    \item[] [Si el email es incorrecto]
-                                    \begin{enumerate}
-                                        \item[3.1.1] Aparecerá un mensaje que lo indica.
-                                    \end{enumerate}
-                                    \item[] [Si el usuario pulsa en borrar]
-                                    \item[3.2] Se accede a la interfaz de borrar usuario.
-                                    \item[] [Si el usuario no existe]
-                                    \begin{enumerate}
-                                        \item[3.2.1] Aparecerá un mensaje que lo indica.
-                                    \end{enumerate}
-                                    \item[] [Si el usuario pulsa en modificar]
-                                    \item[3.3] Se accede a la interfaz de modificar usuario.
-                                    \item[] [Si alguno de los campos introducidos es incorrecto]
-                                    \begin{enumerate}
-                                        \item[3.3.1] Aparecerá un mensaje que lo indica.
-                                    \end{enumerate}
-                                \end{enumerate}    
-                        \end{enumerate}\\
-                        \hline
-                        \textbf{Poscondiciones:} Ninguna\\
-                        \hline
-                        \textbf{Interfaz Gráfica:}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/MenuAdmin.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/MenuGestorUsu.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/AñadirUsu.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorAñadirUsu.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/BorrarUsu.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorBorrarUsu.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/ModificarUsu.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorModificarUsu.jpg}
-                        \end{figure}\\
-                        \hline
-                    \end{longtable}
-                \end{center}
-                \clearpage
-                \begin{center}
-                    \begin{longtable}{|p{\linewidth}|}
-                        \hline
-                        \textbf{Responsable:} Janire Veganzones\\
-                        \hline
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.45\textwidth]{./img/casos_uso/GestionarLibros.png}
-                        \end{figure}\\
-                        \hline
-                        \textbf{Nombre:} Gestionar libros\\
-                        \hline
-                        \textbf{Descripción:}  Permite añadir, eliminar o modificar un libro en el sistema.\\
-                        \hline
-                        \textbf{Actores:} Admin\\
-                        \hline
-                        \textbf{Precondiciones:} Estar identificado en el sistema y ser usuario.\\
-                        \hline
-                        \textbf{Requisitos no funcionales:} Ninguno\\
-                        \hline
-                        \textbf{Flujo de Eventos:}
-                        \begin{enumerate}
-                            \item El Usuario se identifica mediante su cuenta, en caso de ser un usuario administrador aparecerá el menú “Home” con el apartado de Administrador.
-                            \item El usuario selecciona en su menú Home “Libros” para ver las funcionalidades que puede gestionar de los libros.
-                            \item Se muestran las funcionalidades que puede gestionar el administrador sobre los libros.
-                            \item[] [Si el usuario pulsa en añadir]
+                \subsubsection*{Gestión de usuarios}
+                    \begin{center}
+                        \begin{longtable}{|p{\linewidth}|}
+                            \hline
+                            \textbf{Responsable:} Janire Veganzones\\
+                            \hline
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.45\textwidth]{./img/casos_uso/GestionarUsuarios.png}
+                                \\Figura 3.2.4.1.1: Diagrama de casos de uso de la subfuncionalidad de gestión de usuarios
+                            \end{figure}\\
+                            \hline
+                            \textbf{Nombre:} Gestionar usuarios\\
+                            \hline
+                            \textbf{Descripción:}  Permite crear, eliminar o modificar un usuario en el sistema.\\
+                            \hline
+                            \textbf{Actores:} Admin\\
+                            \hline
+                            \textbf{Precondiciones:} Estar identificado en el sistema y ser administrador.\\
+                            \hline
+                            \textbf{Requisitos no funcionales:} Ninguno\\
+                            \hline
+                            \textbf{Flujo de Eventos:}
                             \begin{enumerate}
-                                \item Se accede a la interfaz de añadir libro.
-                                \item[] [Si el libro introducido ya esta en la página]
+                                \item Se accede al menu de administrador. [Figura 3.2.4.1.2]
                                 \begin{enumerate}
-                                    \item Aparecerá un mensaje que lo indica.
-                                \end{enumerate}
-                                \item[] [Si el usuario pulsa en borrar]
-                                \item Se accede a la interfaz de eliminar un libro.
-                                \item[] [Si el libro no existe]
+                                    \item Se selecciona la opción de gestionar usuarios. [Figura 3.2.4.1.3]
+                                    \begin{enumerate}
+                                        \item El administrador pulsa 'Crear' para crear un nuevo usuario. [Figura 3.2.4.1.4]
+                                        \begin{enumerate}
+                                            \item Si hay un error al crear un usuario saldra un error mostrandolo. [Figura 3.2.4.1.5]
+                                        \end{enumerate}
+                                        \item El administrador pulsa 'Borrar' para borrar un usuario. [Figura 3.2.4.1.6]
+                                        \begin{enumerate}
+                                            \item Si el usuario a borrar no existe mostrara un error. [Figura 3.2.4.1.7]
+                                        \end{enumerate}
+                                        \item El administrador pulsa 'Modificar' para modificar un usuario. [Figura 3.2.4.1.8]
+                                        \begin{enumerate}
+                                            \item Si hay un error al modificar un usuario saldra un error mostrandolo. [Figura 3.2.4.1.9]
+                                        \end{enumerate}
+                                    \end{enumerate}
+                                \end{enumerate} 
+                            \end{enumerate}\\
+                            \hline
+                            \textbf{Poscondiciones:} Ninguna\\
+                            \hline
+                            \textbf{Interfaz Gráfica:}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/MenuAdmin.jpg}
+                                \\Figura 3.2.4.1.2: Interfaz del menú de administrador.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/MenuGestorUsu.jpg}
+                                \\Figura 3.2.4.1.3: Interfaz del menu de gestión de usuarios.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/AñadirUsu.jpg}
+                                \\Figura 3.2.4.1.4: Interfaz para añadir un usuario.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorAñadirUsu.jpg}
+                                \\Figura 3.2.4.1.5: Interfaz de error al añadir un usuario.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/BorrarUsu.jpg}
+                                \\Figura 3.2.4.1.6: Interfaz para borrar un usuario.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorBorrarUsu.jpg}
+                                \\Figura 3.2.4.1.7: Interfaz de error al borrar un usuario.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ModificarUsu.jpg}
+                                \\Figura 3.2.4.1.8: Interfaz para modificar un usuario.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorModificarUsu.jpg}
+                                \\Figura 3.2.4.1.9: Interfaz de error al modificar un usuario.
+                            \end{figure}\\
+                            \hline
+                        \end{longtable}
+                    \end{center}
+                    \clearpage
+                \subsubsection*{Gestión de libros}
+                    \begin{center}
+                        \begin{longtable}{|p{\linewidth}|}
+                            \hline
+                            \textbf{Responsable:} Janire Veganzones\\
+                            \hline
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.45\textwidth]{./img/casos_uso/GestionarLibros.png}
+                                \\Figura 3.2.4.2.1: Diagrama de casos de uso de la subfuncionalidad de gestión de libros
+                            \end{figure}\\
+                            \hline
+                            \textbf{Nombre:} Gestionar libros\\
+                            \hline
+                            \textbf{Descripción:}  Permite añadir, eliminar o modificar un libro en el sistema.\\
+                            \hline
+                            \textbf{Actores:} Admin\\
+                            \hline
+                            \textbf{Precondiciones:} Estar identificado en el sistema y ser usuario.\\
+                            \hline
+                            \textbf{Requisitos no funcionales:} Ninguno\\
+                            \hline
+                            \textbf{Flujo de Eventos:}
+                            \begin{enumerate}
+                                \item Se accede al menu de administrador. [Figura 3.2.4.2.2]
                                 \begin{enumerate}
-                                    \item Aparecerá un mensaje que lo indica.
-                                \end{enumerate}
-                                \item[] [Si el usuario pulsa en modificar]
-                                \item Se accede a la interfaz de modificar libro.
-                                \item[] [Si alguno de los campos introducidos es incorrecto]
-                                \begin{enumerate}
-                                    \item Aparecerá un mensaje que lo indica.
-                                \end{enumerate}
-                            \end{enumerate}
-                        \end{enumerate}\\
-                        \hline
-                        \textbf{Poscondiciones:} Ninguna\\
-                        \hline
-                        \textbf{Interfaz Gráfica:}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/MenuAdmin.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/MenuGestorLibros.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/InsertarLibro.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorInsertarLibro.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/EliminarLibro.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorEliminarLibro.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/ModificarLibro.jpg}
-                        \end{figure}\\
-                        \begin{figure}[H]
-                            \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorModificarLibro.jpg}
-                        \end{figure}\\
-                        \hline
-                    \end{longtable}
-                \end{center}
-                \clearpage
+                                    \item Se selecciona la opción de gestionar libros. [Figura 3.2.4.2.3]
+                                    \begin{enumerate}
+                                        \item El administrador pulsa 'Crear' para crear un nuevo libro. [Figura 3.2.4.2.4]
+                                        \begin{enumerate}
+                                            \item Si hay un error al crear un libro saldra un error mostrandolo. [Figura 3.2.4.2.5]
+                                        \end{enumerate}
+                                        \item El administrador pulsa 'Borrar' para borrar un libro. [Figura 3.2.4.2.6]
+                                        \begin{enumerate}
+                                            \item Si el libro a borrar no existe mostrara un error. [Figura 3.2.4.2.7]
+                                        \end{enumerate}
+                                        \item El administrador pulsa 'Modificar' para modificar un libro. [Figura 3.2.4.2.8]
+                                        \begin{enumerate}
+                                            \item Si hay un error al modificar un libro saldra un error mostrandolo. [Figura 3.2.4.2.9]
+                                        \end{enumerate}
+                                    \end{enumerate}
+                                \end{enumerate} 
+                            \end{enumerate}\\
+                            \hline
+                            \textbf{Poscondiciones:} Ninguna\\
+                            \hline
+                            \textbf{Interfaz Gráfica:}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/MenuAdmin.jpg}
+                                \\Figura 3.2.4.2.2: Interfaz del menú de administrador.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/MenuGestorLibros.jpg}
+                                \\Figura 3.2.4.2.3: Interfaz del menu de gestión de libros.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/InsertarLibro.jpg}
+                                \\Figura 3.2.4.2.4: Interfaz para añadir un libro.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorInsertarLibro.jpg}
+                                \\Figura 3.2.4.2.5: Interfaz de error al añadir un libro.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/EliminarLibro.jpg}
+                                \\Figura 3.2.4.2.6: Interfaz para borrar un libro.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorEliminarLibro.jpg}
+                                \\Figura 3.2.4.2.7: Interfaz de error al borrar un libro.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ModificarLibro.jpg}
+                                \\Figura 3.2.4.2.8: Interfaz para modificar un libro.
+                            \end{figure}\\
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorModificarLibro.jpg}
+                                \\Figura 3.2.4.2.9: Interfaz de error al modificar un libro.
+                            \end{figure}\\
+                            \hline
+                        \end{longtable}
+                    \end{center}
+                    \clearpage
             \subsection{Foros}
                 \begin{center}
                     \begin{longtable}{|p{\linewidth}|}

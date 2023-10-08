@@ -5,39 +5,39 @@ Proyecto de la asignatura Análisis y Diseño de Sistemas de Información
 ## Reparticion de las funcionalidades
 
 * Gestion de reservas
-    * Mohammed El Basri Dehbi
+  * Mohammed El Basri Dehbi
 * Reseñas
-    * Javier Criado Garcia
+  * Javier Criado Garcia
 * Red de amigos
-    * Jon Valdes Granado
+  * Jon Valdes Granado
 * Administrador
-    * Janire Veganzones García
+  * Janire Veganzones García
 * Foros
-    * Ainhize Martinez Duran
+  * Ainhize Martinez Duran
 * Recomendaciones del sistema
-    * Xabier Gabiña Barañano
+  * Xabier Gabiña Barañano
 * Recomendaciones de amigos
-    * Kepa Reches Urrutia
+  * Kepa Reches Urrutia
 
 ## FAQ
 
 ### Control de versiones
 
 * Necesario tener instalado git
-    * https://git-scm.com/download/win
+  * <https://git-scm.com/download/win>
 * Usar GitHub Desktop [Muy aconsejable]
-    * https://desktop.github.com/
+  * <https://desktop.github.com/>
 * Iniciar sesión con vuestra cuenta de GitHub, buscáis el repositorio y os lo descargáis en local. Es la forma más fácil de hacer commit, push y pull y evita problemas como pueden ocurrir por editar varios un mismo archivo.
 
 ### IDE
 
 * Usar Visual Studio Code
-    * https://code.visualstudio.com/download
-    * Es recomendable que lo lanceis desde el GitHub Desktop ya que asi os colocara en el proyecto y en la rama que estais trabajando.
-        * Si no os sale como opcion a la hora de abrir id a : File > Options > Integrations > External editor y seleccionais Visual Studio Code.
+  * <https://code.visualstudio.com/download>
+  * Es recomendable que lo lanceis desde el GitHub Desktop ya que asi os colocara en el proyecto y en la rama que estais trabajando.
+    * Si no os sale como opcion a la hora de abrir id a : File > Options > Integrations > External editor y seleccionais Visual Studio Code.
 * Instalar extensiones
-    * LaTeX Workshop
-    * latexindent
+  * LaTeX Workshop
+  * latexindent
 
 ### Documentación
 
@@ -47,14 +47,14 @@ Proyecto de la asignatura Análisis y Diseño de Sistemas de Información
 * Usad Pascal Case para los nombres de los archivos.
 * Usad Visual Studio Code para editar los archivos .tex
 * Para compilar el documento instalar los siguientes programas:
-    * MikTex
-        * https://miktex.org/download
-    * Perl
-        * https://strawberryperl.com/
-    * LaTeX Workshop (La extension antes dicha)
+  * MikTex
+    * <https://miktex.org/download>
+  * Perl
+    * <https://strawberryperl.com/>
+  * LaTeX Workshop (La extension antes dicha)
 
 ### Diagramas UML
 
 * Para los diagramas usamos Visual Paradigm 17.0 [LA VERSION IMPORTA]
-    * https://www.visual-paradigm.com/download/archive/
+  * <https://www.visual-paradigm.com/download/archive/>
 * Cada uno usar un archivo PROPIO .vpp porque no acepta control de versiones y puede provocar que se corrompa si mas de uno edita a la vez en él. Dentro de artefactos hay una carpeta personal para cada uno. Usadla para guardar vuestros archivos.
