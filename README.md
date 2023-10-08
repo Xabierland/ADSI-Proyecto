@@ -38,7 +38,7 @@ Proyecto de la asignatura Análisis y Diseño de Sistemas de Información
 
 * Necesario tener instalado git
     * https://git-scm.com/download/win
-* Usar GitHub Desktop
+* Usar GitHub Desktop [Muy aconsejable]
     * https://desktop.github.com/
 * Iniciar sesión con vuestra cuenta de GitHub, buscáis el repositorio y os lo descargáis en local. Es la forma más fácil de hacer commit, push y pull y evita problemas como pueden ocurrir por editar varios un mismo archivo.
 
