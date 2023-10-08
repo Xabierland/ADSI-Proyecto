@@ -49,509 +49,505 @@
             \end{figure}
         \clearpage
         \section{Extendidos}
-
-        \subsection{Gestión de reservas}
-            \begin{center}
-                \begin{longtable}{|p{\linewidth}|}
-                    \hline
-                    \textbf{Responsable:} Mohamed El Basri\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/casos_uso/CasoDeUso_GestionDeReservas.PNG}
-                    \end{figure}\\
-                    \hline
-                    \textbf{Nombre:} Ver libros recomendados\\
-                    \hline
-                    \textbf{Descripción:} Permite al usuario realizar una reserva de libro.\\
-                    \hline
-                    \textbf{Actores:} Usuario\\
-                    \hline
-                    \textbf{Precondiciones:} Estar identificado en el sistema.\\
-                    \hline
-                    \textbf{Requisitos no funcionales:} Ninguno\\
-                    \hline
-                    \textbf{Flujo de Eventos:}
-                    \begin{enumerate}
-                        \item El usuario selecciona el libro deseado en el catálogo y pulsa “Reservar”. Se abre la interfaz de reserva (Ilustración 1).
-                        \item Si el usuario pulsa aceptar, si el tiempo de reserva es menor a 2 meses aparece una interfaz indicando que la reserva se ha realizado con éxito (Ilustración 2).
-                        \item Si el usuario pulsa aceptar, si el tiempo de reserva es mayor a 2 meses aparece una interfaz indicando error (Ilustración 3).
-                        \item Si el usuario pulsa cancelar, se cierra la interfaz.
-                    \end{enumerate}\\
-                    \hline
-                    \textbf{Poscondiciones:} Ninguna\\
-                    \hline
-                    \textbf{Interfaz Gráfica:}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/GestionDeReservas1.PNG}
-                    \end{figure}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/GestionDeReservas2.PNG}
-                    \end{figure}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/GestionDeReservas3.PNG}
-                    \end{figure}\\
-                    \hline
-                \end{longtable}
-            \end{center}
-        \clearpage
-
-        \subsection{Reseñas}
-        \begin{center}
-            \begin{longtable}{|p{\linewidth}|}
-                \hline
-                \textbf{Responsable:} Javier Criado\\
-                \hline
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/casos_uso/Reseñas.jpg}
-                \end{figure}\\
-                \hline
-                \textbf{Nombre:} Reseñas\\
-                \hline
-                \textbf{Descripción:} Permite al cliente puntuar y comentar en un libro una vez lo haya devuelto, también permite modificar estos datos posteriormente.\\
-                \hline
-                \textbf{Actores:} Usuario\\
-                \hline
-                \textbf{Precondiciones:} Estar identificado en el sistema\\
-                \hline
-                \textbf{Requisitos no funcionales:} Ninguno\\
-                \hline
-                \textbf{Flujo de Eventos:}
-                \begin{enumerate}
-                    \item El Usuario entra en el catalogo para ver las peliculas disponibles.
-                    \item El usuario selecciona uno de los libros.
-                    \item Al seleccionar el boton "Ver reseñas", el usuario podrá ver las reseñas sobre el libro
-                    \item Al seleccionar "Devolver libro", se devolvera el libro y se podra añadir una nueva reseña
-                    \item Al seleccionar "Escribir reseña", se abrira una pestaña donde se podrá escribir una reseña sobre el libro  
-                \end{enumerate}\\
-                \hline
-                \textbf{Poscondiciones:} Ninguna\\
-                \hline
-                \textbf{Interfaz Gráfica:}\\
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/Ver_Libro.png}
-                \end{figure}\\
-                \hline
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/Escribir_Reseña.png}
-                \end{figure}\\
-                \hline
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/Ver_Una_Reseña.jpg}
-                \end{figure}\\
-                \hline
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/Ver_Reseñas.jpg}
-                \end{figure}\\
-                \hline
-            \end{longtable}
-        \end{center}
-        \clearpage
-        \subsection{Red de amigos}
-        \begin{center}
-            \begin{longtable}{|p{\linewidth}|}
-                \hline
-                \textbf{Responsable:} Jon Valdes\\
-                \hline
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/casos_uso/RedDeAmigos.png}
-                \end{figure}\\
-                \hline
-                \textbf{Nombre:} Red de amigos.\\
-                \hline
-                \textbf{Descripción:} Permite al cliente gestionar su perfil, de modo que puede tanto consultar el historial de reservas y de reseñas, como añadir o eliminar amigos. También puede editar sus datos personales.\\
-                \hline
-                \textbf{Actores:} Usuario.\\
-                \hline
-                \textbf{Precondiciones:} Estar identificado en el sistema.\\
-                \hline
-                \textbf{Requisitos no funcionales:} Ninguno\\
-                \hline
-                \textbf{Flujo de Eventos:}
-                \begin{enumerate}
-                    \item El usuario puede consultar todo su historial de reservas realizadas en el sistema, pulsando en el botón “Consultar reservas”.
-                    \item El usuario puede consultar todo su historial de reseñas realizadas en el sistema, pulsando en el botón “Consultar reseñas”.
-                    \item El usuario puede añadir amigos pulsando en el botón “Agregar amigo”. Al pulsar el botón de “Agregar amigo” se abrirá un diálogo de texto donde podremos mandar una solicitud de amigo al usuario proporcionado.
-
-                    \item El usuario puede borrar un amigo de la lista de amigos, seleccionando el nombre del amigo en la lista y pulsando el botón “Borrar amigo”. Al pulsar el botón de “Borrar amigo” se abrirá un Frame con un aviso para confirmar la acción.
-                    \item El usuario puede editar los datos personales que desee pulsando en el botón “Editar perfil”. Al pulsar el botón de “Editar perfil” se abrirá un diálogo de texto en los datos personales donde podremos editarlos a nuestro gusto.  
-                \end{enumerate}\\
-                \hline
-                \textbf{Poscondiciones:} Ninguna\\
-                \hline
-                \textbf{Interfaz Gráfica:}\\
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazMenu.png}
-                \end{figure}\\
-                \hline
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazAnadrAmigo.png}
-                \end{figure}\\
-                \hline
-                 \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/interfazAlertaBorrarAmigo.png}
-                \end{figure}\\
-                 \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazEditarPerfil.png}
-                \end{figure}\\
-            \end{longtable}
-        \end{center}
-        \clearpage
-
-\subsection{Administrador}
-        \begin{center}
-            \begin{longtable}{|p{\linewidth}|}
-                \hline
-                \textbf{Responsable:} Janire Veganzones\\
-                \hline
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.45\textwidth]{./img/casos_uso/CasoDeUsoGestionUsu.png}
-                \end{figure}\\
-                \hline
-                \textbf{Nombre:} Gestionar usuarios\\
-                \hline
-                \textbf{Descripción:}  Permite crear, eliminar o modificar un usuario en el sistema.\\
-                \hline
-                \textbf{Actores:} Admin\\
-                \hline
-                \textbf{Precondiciones:} Estar identificado en el sistema y ser usuario.\\
-                \hline
-                \textbf{Requisitos no funcionales:} Ninguno\\
-                \hline
-                \textbf{Flujo de Eventos:}
-                \begin{enumerate}
-                    \item El Usuario se identifica mediante su cuenta, en caso de ser un usuario administrador aparecerá el menú “Home” con el apartado de Administrador.
-                    \item El usuario selecciona en su menú Home “Usuarios” para ver las funcionalidades que puede gestionar del usuario.
-                    \item Se muestran las funcionalidades del usuario que puede gestionar el administrador.
-                    \newline
-                        [Si el usuario pulsa en crear]
+            \subsection{Gestión de reservas}
+                \begin{center}
+                    \begin{longtable}{|p{\linewidth}|}
+                        \hline
+                        \textbf{Responsable:} Mohamed El Basri\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/casos_uso/GestionDeReservas.png}
+                            \\Figura 3.2.1.1: Diagrama de casos de uso de la subfuncionalidad de gestión de reservas
+                        \end{figure}\\
+                        \hline
+                        \textbf{Nombre:} Ver libros recomendados\\
+                        \hline
+                        \textbf{Descripción:} Permite a los usuarios realizar reservas de libros.\\
+                        \hline
+                        \textbf{Actores:} Usuario\\
+                        \hline
+                        \textbf{Precondiciones:} Estar identificado en el sistema.\\
+                        \hline
+                        \textbf{Requisitos no funcionales:} Ninguno\\
+                        \hline
+                        \textbf{Flujo de Eventos:}
                         \begin{enumerate}
-                            \item[3a.] Se accede a la interfaz de añadir usuario.
-                        \newline
-                        [Si el email es incorrecto]
+                            \item El usuario selecciona el libro deseado en el catálogo y pulsa “Reservar”. Se abre la interfaz de reserva (Figura 3.2.1.2).
+                            \item Si el usuario pulsa aceptar, si el tiempo de reserva es menor a 2 meses aparece una interfaz indicando que la reserva se ha realizado con éxito (Figura 3.2.1.3).
                             \begin{enumerate}
-                                \item[3a.a.] Aparecerá un mensaje que lo indica.
+                                \item Si el usuario pulsa aceptar, si el tiempo de reserva es mayor a 2 meses aparece una interfaz indicando error (Figura 3.2.1.4).
+                                \item Si el usuario pulsa cancelar, se cierra la interfaz.
                             \end{enumerate}
-                    
-                        [Si el usuario pulsa en borrar]
-                            \item[3b.] Se accede a la interfaz de borrar usuario.
-                        \newline
-                         [Si el usuario no existe]
-                            \begin{enumerate}
-                                \item[3.b.a.] Aparecerá un mensaje que lo indica.
-                            \end{enumerate}
-
-                         [Si el usuario pulsa en modificar]
-                            \item[3c.] Se accede a la interfaz de modificar usuario.
-                        \newline
-                         [Si alguno de los campos introducidos es incorrecto]
-                            \begin{enumerate}
-                                \item[3.b.a.] Aparecerá un mensaje que lo indica.
-                            \end{enumerate}
-                        \end{enumerate}
-                    
-                \end{enumerate}\\
-                \hline
-                \textbf{Poscondiciones:} Ninguna\\
-                \hline
-                \textbf{Interfaz Gráfica:}\\
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/MenuAdmin.jpg}
-                \end{figure}\\
-                \hline
-                \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/MenuGestorUsu.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/AñadirUsu.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorAñadirUsu.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/BorrarUsu.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorBorrarUsu.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/ModificarUsu.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorModificarUsu.jpg}
-                    \end{figure}\\
-                    \hline
-            \end{longtable}
-        \end{center}
-        \clearpage
-
-        \begin{longtable}{|p{\linewidth}|}
-                \hline
-                \textbf{Responsable:} Janire Veganzones\\
-                \hline
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.45\textwidth]{./img/casos_uso/CasoDeUsoGestionUsu.png}
-                \end{figure}\\
-                \hline
-                \textbf{Nombre:} Gestionar libros\\
-                \hline
-                \textbf{Descripción:}  Permite añadir, eliminar o modificar un libro en el sistema.\\
-                \hline
-                \textbf{Actores:} Admin\\
-                \hline
-                \textbf{Precondiciones:} Estar identificado en el sistema y ser usuario.\\
-                \hline
-                \textbf{Requisitos no funcionales:} Ninguno\\
-                \hline
-                \textbf{Flujo de Eventos:}
-                \begin{enumerate}
-                    \item El Usuario se identifica mediante su cuenta, en caso de ser un usuario administrador aparecerá el menú “Home” con el apartado de Administrador.
-                    \item El usuario selecciona en su menú Home “Libros” para ver las funcionalidades que puede gestionar de los libros.
-                    \item Se muestran las funcionalidades que puede gestionar el administrador sobre los libros.
-                    \newline
-                        [Si el usuario pulsa en añadir]
+                        \end{enumerate}\\
+                        \hline
+                        \textbf{Poscondiciones:} Ninguna\\
+                        \hline
+                        \textbf{Interfaz Gráfica:}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/GestionDeReservas1.PNG}
+                            \\Figura 3.2.1.2: Interfaz de reserva
+                        \end{figure}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/GestionDeReservas2.PNG}
+                            \\Figura 3.2.1.3: Interfaz de reserva con éxito
+                        \end{figure}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/GestionDeReservas3.PNG}
+                            \\Figura 3.2.1.4: Interfaz de reserva con error
+                        \end{figure}\\
+                        \hline
+                    \end{longtable}
+                \end{center}
+            \clearpage
+            \subsection{Reseñas}
+                \begin{center}
+                    \begin{longtable}{|p{\linewidth}|}
+                        \hline
+                        \textbf{Responsable:} Javier Criado\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/casos_uso/Reseñas.jpg}
+                            \\Figura 3.2.2.1: Diagrama de casos de uso de la subfuncionalidad de reseñas
+                        \end{figure}\\
+                        \hline
+                        \textbf{Nombre:} Reseñas\\
+                        \hline
+                        \textbf{Descripción:} Permite al cliente puntuar y comentar en un libro una vez lo haya devuelto, también permite modificar estos datos posteriormente.\\
+                        \hline
+                        \textbf{Actores:} Usuario\\
+                        \hline
+                        \textbf{Precondiciones:} Estar identificado en el sistema\\
+                        \hline
+                        \textbf{Requisitos no funcionales:} Ninguno\\
+                        \hline
+                        \textbf{Flujo de Eventos:}
                         \begin{enumerate}
-                            \item[3a.] Se accede a la interfaz de añadir libro.
-                        \newline
-                        [Si el libro introducido ya esta en la página]
+                            \item El usuario entra en el catalogo para ver los libros disponibles.
                             \begin{enumerate}
-                                \item[3a.a.] Aparecerá un mensaje que lo indica.
-                            \end{enumerate}
-                    
-                        [Si el usuario pulsa en borrar]
-                            \item[3b.] Se accede a la interfaz de eliminar un libro.
-                        \newline
-                         [Si el libro no existe]
-                            \begin{enumerate}
-                                \item[3.b.a.] Aparecerá un mensaje que lo indica.
-                            \end{enumerate}
+                                \item El usuario selecciona uno de los libros.
+                                \begin{enumerate}
+                                    \item Al seleccionar "Devolver libro", se devolvera el libro y se podra añadir una nueva reseña.
+                                    \item Al seleccionar "Escribir reseña", se abrira una pestaña donde se podrá escribir una reseña sobre el libro.
+                                    \item Al seleccionar el boton "Ver reseñas", el usuario podrá ver las reseñas sobre el libro.
+                                    \begin{enumerate}
+                                        \item Al hacer click sobre una de las reseñas esta se mostrara en una ventana aparte.
+                                    \end{enumerate}
+                                \end{enumerate}
+                            \end{enumerate} 
+                        \end{enumerate}\\
+                        \hline
+                        \textbf{Poscondiciones:} Ninguna\\
+                        \hline
+                        \textbf{Interfaz Gráfica:}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/Ver_Libro.png}
+                            \\Figura 3.2.2.2: Interfaz de ver libro.
+                        \end{figure}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/Escribir_Reseña.png}
+                            \\Figura 3.2.2.3: Interfaz de escribir reseña.
+                        \end{figure}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/Ver_Reseñas.jpg}
+                            \\Figura 3.2.2.5: Interfaz para ver las reseñas.
+                        \end{figure}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/Ver_Una_Reseña.jpg}
+                            \\Figura 3.2.2.6: Interfaz para ver una reseña.
+                        \end{figure}\\
+                        \hline
+                    \end{longtable}
+                \end{center}
+                \clearpage
+            \subsection{Red de amigos}
+                \begin{center}
+                    \begin{longtable}{|p{\linewidth}|}
+                        \hline
+                        \textbf{Responsable:} Jon Valdes\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/casos_uso/RedDeAmigos.png}
+                        \end{figure}\\
+                        \hline
+                        \textbf{Nombre:} Red de amigos.\\
+                        \hline
+                        \textbf{Descripción:} Permite al cliente gestionar su perfil, de modo que puede tanto consultar el historial de reservas y de reseñas, como añadir o eliminar amigos. También puede editar sus datos personales.\\
+                        \hline
+                        \textbf{Actores:} Usuario.\\
+                        \hline
+                        \textbf{Precondiciones:} Estar identificado en el sistema.\\
+                        \hline
+                        \textbf{Requisitos no funcionales:} Ninguno\\
+                        \hline
+                        \textbf{Flujo de Eventos:}
+                        \begin{enumerate}
+                            \item El usuario puede consultar todo su historial de reservas realizadas en el sistema, pulsando en el botón “Consultar reservas”.
+                            \item El usuario puede consultar todo su historial de reseñas realizadas en el sistema, pulsando en el botón “Consultar reseñas”.
+                            \item El usuario puede añadir amigos pulsando en el botón “Agregar amigo”. Al pulsar el botón de “Agregar amigo” se abrirá un diálogo de texto donde podremos mandar una solicitud de amigo al usuario proporcionado.
 
-                         [Si el usuario pulsa en modificar]
-                            \item[3c.] Se accede a la interfaz de modificar libro.
-                        \newline
-                         [Si alguno de los campos introducidos es incorrecto]
+                            \item El usuario puede borrar un amigo de la lista de amigos, seleccionando el nombre del amigo en la lista y pulsando el botón “Borrar amigo”. Al pulsar el botón de “Borrar amigo” se abrirá un Frame con un aviso para confirmar la acción.
+                            \item El usuario puede editar los datos personales que desee pulsando en el botón “Editar perfil”. Al pulsar el botón de “Editar perfil” se abrirá un diálogo de texto en los datos personales donde podremos editarlos a nuestro gusto.  
+                        \end{enumerate}\\
+                        \hline
+                        \textbf{Poscondiciones:} Ninguna\\
+                        \hline
+                        \textbf{Interfaz Gráfica:}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazMenu.png}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazAnadrAmigo.png}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/interfazAlertaBorrarAmigo.png}
+                        \end{figure}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/InterfazEditarPerfil.png}
+                        \end{figure}\\
+                    \end{longtable}
+                \end{center}
+                \clearpage
+            \subsection{Administrador}
+                \begin{center}
+                    \begin{longtable}{|p{\linewidth}|}
+                        \hline
+                        \textbf{Responsable:} Janire Veganzones\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.45\textwidth]{./img/casos_uso/CasoDeUsoGestionUsu.png}
+                        \end{figure}\\
+                        \hline
+                        \textbf{Nombre:} Gestionar usuarios\\
+                        \hline
+                        \textbf{Descripción:}  Permite crear, eliminar o modificar un usuario en el sistema.\\
+                        \hline
+                        \textbf{Actores:} Admin\\
+                        \hline
+                        \textbf{Precondiciones:} Estar identificado en el sistema y ser usuario.\\
+                        \hline
+                        \textbf{Requisitos no funcionales:} Ninguno\\
+                        \hline
+                        \textbf{Flujo de Eventos:}
+                        \begin{enumerate}
+                            \item El Usuario se identifica mediante su cuenta, en caso de ser un usuario administrador aparecerá el menú “Home” con el apartado de Administrador.
+                            \item El usuario selecciona en su menú Home “Usuarios” para ver las funcionalidades que puede gestionar del usuario.
+                            \item Se muestran las funcionalidades del usuario que puede gestionar el administrador.
+                            \item[] [Si el usuario pulsa en crear]
+                                \begin{enumerate}
+                                    \item[3.1] Se accede a la interfaz de añadir usuario.
+                                    \item[] [Si el email es incorrecto]
+                                    \begin{enumerate}
+                                        \item[3.1.1] Aparecerá un mensaje que lo indica.
+                                    \end{enumerate}
+                                    \item[] [Si el usuario pulsa en borrar]
+                                    \item[3.2] Se accede a la interfaz de borrar usuario.
+                                    \item[] [Si el usuario no existe]
+                                    \begin{enumerate}
+                                        \item[3.2.1] Aparecerá un mensaje que lo indica.
+                                    \end{enumerate}
+                                    \item[] [Si el usuario pulsa en modificar]
+                                    \item[3.3] Se accede a la interfaz de modificar usuario.
+                                    \item[] [Si alguno de los campos introducidos es incorrecto]
+                                    \begin{enumerate}
+                                        \item[3.3.1] Aparecerá un mensaje que lo indica.
+                                    \end{enumerate}
+                                \end{enumerate}    
+                        \end{enumerate}\\
+                        \hline
+                        \textbf{Poscondiciones:} Ninguna\\
+                        \hline
+                        \textbf{Interfaz Gráfica:}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/MenuAdmin.jpg}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/MenuGestorUsu.jpg}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/AñadirUsu.jpg}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorAñadirUsu.jpg}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/BorrarUsu.jpg}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorBorrarUsu.jpg}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/ModificarUsu.jpg}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorModificarUsu.jpg}
+                        \end{figure}\\
+                        \hline
+                    \end{longtable}
+                \end{center}
+                \clearpage
+                \begin{center}
+                    \begin{longtable}{|p{\linewidth}|}
+                        \hline
+                        \textbf{Responsable:} Janire Veganzones\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.45\textwidth]{./img/casos_uso/CasoDeUsoGestionUsu.png}
+                        \end{figure}\\
+                        \hline
+                        \textbf{Nombre:} Gestionar libros\\
+                        \hline
+                        \textbf{Descripción:}  Permite añadir, eliminar o modificar un libro en el sistema.\\
+                        \hline
+                        \textbf{Actores:} Admin\\
+                        \hline
+                        \textbf{Precondiciones:} Estar identificado en el sistema y ser usuario.\\
+                        \hline
+                        \textbf{Requisitos no funcionales:} Ninguno\\
+                        \hline
+                        \textbf{Flujo de Eventos:}
+                        \begin{enumerate}
+                            \item El Usuario se identifica mediante su cuenta, en caso de ser un usuario administrador aparecerá el menú “Home” con el apartado de Administrador.
+                            \item El usuario selecciona en su menú Home “Libros” para ver las funcionalidades que puede gestionar de los libros.
+                            \item Se muestran las funcionalidades que puede gestionar el administrador sobre los libros.
+                            \item[] [Si el usuario pulsa en añadir]
                             \begin{enumerate}
-                                \item[3.b.a.] Aparecerá un mensaje que lo indica.
+                                \item[3.1] Se accede a la interfaz de añadir libro.
+                                \item[] [Si el libro introducido ya esta en la página]
+                                \begin{enumerate}
+                                    \item[3.1.1] Aparecerá un mensaje que lo indica.
+                                \end{enumerate}
+                                \item[] [Si el usuario pulsa en borrar]
+                                \item[3.2] Se accede a la interfaz de eliminar un libro.
+                                \item[] [Si el libro no existe]
+                                \begin{enumerate}
+                                    \item[3.2.1] Aparecerá un mensaje que lo indica.
+                                \end{enumerate}
+                                \item[] [Si el usuario pulsa en modificar]
+                                \item[3.3] Se accede a la interfaz de modificar libro.
+                                \item[] [Si alguno de los campos introducidos es incorrecto]
+                                \begin{enumerate}
+                                    \item[3.3.1] Aparecerá un mensaje que lo indica.
+                                \end{enumerate}
                             \end{enumerate}
-                        \end{enumerate}
-                    
-                \end{enumerate}\\
-                \hline
-                \textbf{Poscondiciones:} Ninguna\\
-                \hline
-                \textbf{Interfaz Gráfica:}\\
-                \begin{figure}[H]
-                    \centering
-                    \includegraphics[width=0.8\textwidth]{./img/grafico/MenuAdmin.jpg}
-                \end{figure}\\
-                \hline
-                \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/MenuGestorLibros.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/InsertarLibro.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorInsertarLibro.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/EliminarLibro.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorEliminarLibro.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/ModificarLibro.jpg}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorModificarLibro.jpg}
-                    \end{figure}\\
-                    \hline
-            \end{longtable}
-        \end{center}
-        \clearpage
-        
-        
-        \subsection{Foros}
-        \begin{center}
-                \begin{longtable}{|p{\linewidth}|}
-                    \hline
-                    \textbf{Responsable:} Ainhize Martinez\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/casos_uso/casos_foro.jpg}
-                    \end{figure}\\
-                    \hline
-                    \textbf{Nombre:} Ver Foros\\
-                    \hline
-                    \textbf{Descripción:} Permite al usuario acceder al foro, crear temas nuevos, explorar todos los temas, además de hablar y contestar hilos.\\
-                    \hline
-                    \textbf{Actores:} Usuario\\
-                    \hline
-                    \textbf{Precondiciones:} Estar identificado en el sistema.\\
-                    \hline
-                    \textbf{Requisitos no funcionales:} Ninguno\\
-                    \hline
-                    \textbf{Flujo de Eventos:}
-                    \begin{enumerate}
-                        \item[1.] El usuario selecciona "Foro" para acceder a él.
-                        \item[2.] Se le muestra toda la lista de temas.
-                        \newline
-                        \newline
-                        [Si el usuario accede a un tema] 
+                        \end{enumerate}\\
+                        \hline
+                        \textbf{Poscondiciones:} Ninguna\\
+                        \hline
+                        \textbf{Interfaz Gráfica:}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/MenuAdmin.jpg}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/MenuGestorLibros.jpg}
+                            \end{figure}\\
+                            \hline
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/InsertarLibro.jpg}
+                            \end{figure}\\
+                            \hline
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorInsertarLibro.jpg}
+                            \end{figure}\\
+                            \hline
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/EliminarLibro.jpg}
+                            \end{figure}\\
+                            \hline
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorEliminarLibro.jpg}
+                            \end{figure}\\
+                            \hline
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ModificarLibro.jpg}
+                            \end{figure}\\
+                            \hline
+                            \begin{figure}[H]
+                                \centering
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/ErrorModificarLibro.jpg}
+                            \end{figure}\\
+                            \hline
+                    \end{longtable}
+                \end{center}
+                \clearpage
+            \subsection{Foros}
+                \begin{center}
+                    \begin{longtable}{|p{\linewidth}|}
+                        \hline
+                        \textbf{Responsable:} Ainhize Martinez\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/casos_uso/casos_foro.jpg}
+                        \end{figure}\\
+                        \hline
+                        \textbf{Nombre:} Ver Foros\\
+                        \hline
+                        \textbf{Descripción:} Permite al usuario acceder al foro, crear temas nuevos, explorar todos los temas, además de hablar y contestar hilos.\\
+                        \hline
+                        \textbf{Actores:} Usuario\\
+                        \hline
+                        \textbf{Precondiciones:} Estar identificado en el sistema.\\
+                        \hline
+                        \textbf{Requisitos no funcionales:} Ninguno\\
+                        \hline
+                        \textbf{Flujo de Eventos:}
                         \begin{enumerate}
-                            \item[3a.] El usuario puede hablar o contestar un tema.
-                        \end{enumerate}
-                        [Si el usuario pulsa sobre "+tema"]
+                            \item[1.] El usuario selecciona "Foro" para acceder a él.
+                            \item[2.] Se le muestra toda la lista de temas.
+                            \newline
+                            \newline
+                            [Si el usuario accede a un tema] 
+                            \begin{enumerate}
+                                \item[3a.] El usuario puede hablar o contestar un tema.
+                            \end{enumerate}
+                            [Si el usuario pulsa sobre "+tema"]
+                            \begin{enumerate}
+                                \item[3b.] Se añade un nuevo tema
+                            \end{enumerate}
+                        \end{enumerate}\\
+                        \hline
+                        \textbf{Poscondiciones:} Ninguna\\
+                        \hline
+                        \textbf{Interfaz Gráfica:}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/Foro1.png}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/Foro2.png}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/Foro3.png}
+                        \end{figure}\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/Foro4.png}
+                        \end{figure}\\
+                        \hline
+                    \end{longtable}
+                \end{center}
+                \clearpage
+            \subsection{Recomendaciones del sistema}
+                \begin{center}
+                    \begin{longtable}{|p{\linewidth}|}
+                        \hline
+                        \textbf{Responsable:} Xabier Gabiña\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/casos_uso/RecomendacionesLibros.png}
+                        \end{figure}\\
+                        \hline
+                        \textbf{Nombre:} Ver libros recomendados\\
+                        \hline
+                        \textbf{Descripción:} Muestra una lista en la parte superior del catálogo mostrando los libros con más préstamos del sistema en funcion de los gustos del usuario.\\
+                        \hline
+                        \textbf{Actores:} Usuario\\
+                        \hline
+                        \textbf{Precondiciones:} Estar identificado en el sistema y haber tenido un libro registrado\\
+                        \hline
+                        \textbf{Requisitos no funcionales:} Ninguno\\
+                        \hline
+                        \textbf{Flujo de Eventos:}
                         \begin{enumerate}
-                            \item[3b.] Se añade un nuevo tema
-                        \end{enumerate}
-                    \end{enumerate}\\
-                    \hline
-                    \textbf{Poscondiciones:} Ninguna\\
-                    \hline
-                    \textbf{Interfaz Gráfica:}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/Foro1.png}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/Foro2.png}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/Foro3.png}
-                    \end{figure}\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/Foro4.png}
-                    \end{figure}\\
-                    \hline
-            \end{longtable}
-        \end{center}
-        \clearpage
-        \subsection{Recomendaciones del sistema}
-            \begin{center}
-                \begin{longtable}{|p{\linewidth}|}
-                    \hline
-                    \textbf{Responsable:} Xabier Gabiña\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/casos_uso/RecomendacionesLibros.png}
-                    \end{figure}\\
-                    \hline
-                    \textbf{Nombre:} Ver libros recomendados\\
-                    \hline
-                    \textbf{Descripción:} Muestra una lista en la parte superior del catálogo mostrando los libros con más préstamos del sistema en funcion de los gustos del usuario.\\
-                    \hline
-                    \textbf{Actores:} Usuario\\
-                    \hline
-                    \textbf{Precondiciones:} Estar identificado en el sistema y haber tenido un libro registrado\\
-                    \hline
-                    \textbf{Requisitos no funcionales:} Ninguno\\
-                    \hline
-                    \textbf{Flujo de Eventos:}
-                    \begin{enumerate}
-                        \item El Usuario entra en el catalogo para ver las peliculas disponibles.
-                        \item Se le muestra en la parte superior de la pantalla una serie de peliculas basadas en los generos y peliculas que consume el usuario.
-                    \end{enumerate}\\
-                    \hline
-                    \textbf{Poscondiciones:} Ninguna\\
-                    \hline
-                    \textbf{Interfaz Gráfica:}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/recom_lib.png}
-                    \end{figure}\\
-                    \hline
-                \end{longtable}
-            \end{center}
-        \clearpage
-        \subsection{Recomendaciones de amigos}
-                    \begin{center}
-                \begin{longtable}{|p{\linewidth}|}
-                    \hline
-                    \textbf{Responsable:} Kepa Reche\\
-                    \hline
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/casos_uso/CasosDeUsoRecomendacionDeAmigos.PNG}
-                    \end{figure}\\
-                    \hline
-                    \textbf{Nombre:} Ver amigos recomendados\\
-                    \hline
-                    \textbf{Descripción:} Muestra una lista en la parte superior de la lista de amigos mostrando posibles nuevos amigos basados en amigos de tus amigos o personas con las que tengas lecturas relacionadas.\\
-                    \hline
-                    \textbf{Actores:} Usuario\\
-                    \hline
-                    \textbf{Precondiciones:} Estar identificado en el sistema y tener algun amigo o libro guardado en tu perfil\\
-                    \hline
-                    \textbf{Requisitos no funcionales:} Ninguno\\
-                    \hline
-                    \textbf{Flujo de Eventos:}
-                    \begin{enumerate}
-                        \item El Usuario entra en su perfil.
-                        \item Se le muestra en la parte superior de la lista de amigos varias personas recomendadas segun las lecturas en comun y amigos de amigos.
-                    \end{enumerate}\\
-                    \hline
-                    \textbf{Poscondiciones:} Ninguna\\
-                    \hline
-                    \textbf{Interfaz Gráfica:}\\
-                    \begin{figure}[H]
-                        \centering
-                        \includegraphics[width=0.8\textwidth]{./img/grafico/IU Recomendaciones de amigos.PNG}
-                    \end{figure}\\
-                    \hline
-                \end{longtable}
-            \end{center}
-        \clearpage
+                            \item El Usuario entra en el catalogo para ver las peliculas disponibles.
+                            \item Se le muestra en la parte superior de la pantalla una serie de peliculas basadas en los generos y peliculas que consume el usuario.
+                        \end{enumerate}\\
+                        \hline
+                        \textbf{Poscondiciones:} Ninguna\\
+                        \hline
+                        \textbf{Interfaz Gráfica:}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/recom_lib.png}
+                        \end{figure}\\
+                        \hline
+                    \end{longtable}
+                \end{center}
+                \clearpage
+            \subsection{Recomendaciones de amigos}
+                \begin{center}
+                    \begin{longtable}{|p{\linewidth}|}
+                        \hline
+                        \textbf{Responsable:} Kepa Reche\\
+                        \hline
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/casos_uso/CasosDeUsoRecomendacionDeAmigos.PNG}
+                        \end{figure}\\
+                        \hline
+                        \textbf{Nombre:} Ver amigos recomendados\\
+                        \hline
+                        \textbf{Descripción:} Muestra una lista en la parte superior de la lista de amigos mostrando posibles nuevos amigos basados en amigos de tus amigos o personas con las que tengas lecturas relacionadas.\\
+                        \hline
+                        \textbf{Actores:} Usuario\\
+                        \hline
+                        \textbf{Precondiciones:} Estar identificado en el sistema y tener algun amigo o libro guardado en tu perfil\\
+                        \hline
+                        \textbf{Requisitos no funcionales:} Ninguno\\
+                        \hline
+                        \textbf{Flujo de Eventos:}
+                        \begin{enumerate}
+                            \item El Usuario entra en su perfil.
+                            \item Se le muestra en la parte superior de la lista de amigos varias personas recomendadas segun las lecturas en comun y amigos de amigos.
+                        \end{enumerate}\\
+                        \hline
+                        \textbf{Poscondiciones:} Ninguna\\
+                        \hline
+                        \textbf{Interfaz Gráfica:}\\
+                        \begin{figure}[H]
+                            \centering
+                            \includegraphics[width=0.8\textwidth]{./img/grafico/IU Recomendaciones de amigos.PNG}
+                        \end{figure}\\
+                        \hline
+                    \end{longtable}
+                \end{center}
+                \clearpage
     \chapter{Conclusiones} 
 \end{document}
