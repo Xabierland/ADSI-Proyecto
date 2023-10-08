@@ -6,22 +6,16 @@ Proyecto de la asignatura Análisis y Diseño de Sistemas de Información
 
 * Gestion de reservas
     * Mohammed El Basri Dehbi
-
 * Reseñas
     * Javier Criado Garcia
-
 * Red de amigos
     * Jon Valdes Granado
-
 * Administrador
     * Janire Veganzones García
-
 * Foros
     * Ainhize Martinez Duran
-
 * Recomendaciones del sistema
     * Xabier Gabiña Barañano
-
 * Recomendaciones de amigos
     * Kepa Reches Urrutia
 
