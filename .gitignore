@@ -5,4 +5,5 @@ informe/informe.log
 informe/informe.synctex.gz
 informe/informe.toc
 artefactos/diagramas/*vpp.*
+artefactos/diagramas/*/*vpp.*
 artefactos/diagramas/*/.ADSI.vpp.*
