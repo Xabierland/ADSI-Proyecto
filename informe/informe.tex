@@ -577,18 +577,46 @@
         \section{Desarrollo del modelo de dominio}
             \subsection{Entitades}
                 \subsubsection{User}
-                    
+                    La entidad usuario representa a los usuarios de la aplicacion. Dentro almacena sus datos personales como su id, nombre, apellidos, fecha de nacimiento...
                 \subsubsection{Libros}
+                    La entidad libro representa a los libros de la aplicacion. Dentro almacena sus datos como su id, titulo, autor, numero de paginas y genero.
                 \subsubsection{FechaPrestamo}
+                    La entidad fechaPrestamo representa a las fechas de prestamo de los libros. Sirve como clave para diferenciar los diferentes prestamos de un libro que puede hacer un usuario.
                 \subsubsection{Hilo}
-                \subsubsection{Respuestas}
+                    La entidad hilo representa a los hilos del foro. Dentro almacena la id del hilo y un titulo.
                 \subsubsection{FechaHoraRespuestas}
+                    La entidad fechaHoraRespuesta representa la fecha y hora en la que alguien ha dado una respuesta en el foro y sirve como clave para diferenciar del resto de respuestas que pueda dar un mismo usuario en un mismo hilo.
+            \clearpage
             \subsection{Relaciones}
-                \subsubsection{R1}
-                \subsubsection{R2}
-                \subsubsection{R3}
-                \subsubsection{R4}
-                \subsubsection{R5}
-                \subsubsection{R6}
-                \subsubsection{R7}
+                \subsubsection{tomarPrestado}
+                    Esta relacion es la que almacena los datos de los libros que se han tomado prestados y lo usuarios que los han tomado. La entidad fechaPrestamo es la encargada de diferencias las dos claves de usuario y libro y permitir asi que un usuario pueda tomar un mismo libro mas de una vez. El atributo de FechaDevolucion unicamente almacena como dato en la relacion la fecha en la que se devuelve el libro.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=1.0\textwidth]{img/dominio/tomarPrestado.png}
+                        \caption{Diagrama de modelo de dominio de la relación tomarPrestado}
+                    \end{figure}
+                \clearpage
+                \subsubsection{escribirReseña}
+                    Esta relacion es la que permite guardar la reseña que un usuario pueda escribir en un libro. Al solo tener el atributo Reseña el usuario solo puede escribir una unica reseña sobre un libro.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=1.0\textwidth]{img/dominio/escribirReseña.png}
+                        \caption{Diagrama de modelo de dominio de la relación escribirReseña}
+                    \end{figure}
+                \clearpage
+                \subsubsection{amistad}
+                    La relacion amistad es la que permite que los usuarios puedan tener amigos en el sistema y guardar dichas amistades. 
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.5\textwidth]{img/dominio/amistad.png}
+                        \caption{Diagrama de modelo de dominio de la relación amistad}
+                    \end{figure}
+                \clearpage
+                \subsubsection{responderHilo}
+                    Esta relacion permite que los usuarios puedan responder a los hilos del foro. La entidad fechaHoraRespuesta es la encargada de diferenciar las respuestas de un mismo usuario en un mismo hilo.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=1.0\textwidth]{img/dominio/responderHilo.png}
+                        \caption{Diagrama de modelo de dominio de la relación responderHilo}
+                    \end{figure}
 \end{document}
