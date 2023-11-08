@@ -591,8 +591,14 @@
             \subsection{Entitades}
                 \subsubsection{User}
                     La entidad usuario representa a los usuarios de la aplicacion. Dentro almacena sus datos personales como su id, nombre, apellidos, fecha de nacimiento...
+                \subsubsection{Admin}
+                    La entidad admin representa a los administradores de la aplicacion. Dentro almacena su id, nombre, apellidos y su contraseña.
                 \subsubsection{Libros}
                     La entidad libro representa a los libros de la aplicacion. Dentro almacena sus datos como su id, titulo, autor, numero de paginas y genero.
+                \subsubsection{CopiaLibros}
+                    La entidad copiaLibros representa a las copias de los libros que hay en la aplicacion. Dentro almacena su id y el id del libro al que pertenece.
+                \subsubsection{Tema}
+                    La entidad tema representa a los temas de los libros. Dentro almacena su id y el nombre del tema.
                 \subsubsection{FechaPrestamo}
                     La entidad fechaPrestamo representa a las fechas de prestamo de los libros. Sirve como clave para diferenciar los diferentes prestamos de un libro que puede hacer un usuario.
                 \subsubsection{Hilo}
@@ -639,6 +645,22 @@
                         \centering
                         \includegraphics[width=0.7\textwidth]{img/dominio/crearHilo.png}
                         \caption{Diagrama de modelo de dominio de la relación crearHilo}
+                    \end{figure}
+                \clearpage
+                \subsubsection{crean}
+                    Esta relacion almacena los datos de creacion de los usuarios y de los libros por parte de un administrados.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.7\textwidth]{img/dominio/crean.png}
+                        \caption{Diagrama de modelo de dominio de la relación crean}
+                    \end{figure}
+                \clearpage
+                \subsubsection{copiaDe}
+                    Esta relacion almacena los datos de las copias de los libros que hay en el sistema. La entidad copiaLibros es la encargada de diferenciar las copias de un mismo libro.
+                    \begin{figure}[H]
+                        \centering
+                        \includegraphics[width=0.7\textwidth]{img/dominio/copiaDe.png}
+                        \caption{Diagrama de modelo de dominio de la relación copiaDe}
                     \end{figure}
     \chapter{Plan de Pruebas}
         \section{Gestión de reservas}
