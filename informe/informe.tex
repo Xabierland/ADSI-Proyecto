@@ -1,7 +1,14 @@
 ﻿\documentclass{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx, longtable, float}
+\usepackage{graphicx, longtable, float, titlesec, hyperref}
+
+\hypersetup{
+    hidelinks = true
+}
+
+\titleformat{\chapter}[display]
+  {\normalfont\bfseries}{}{0pt}{\Huge}
 
 \begin{document}
     \begin{titlepage}
@@ -628,4 +635,101 @@
                         \includegraphics[width=0.7\textwidth]{img/dominio/crearHilo.png}
                         \caption{Diagrama de modelo de dominio de la relación crearHilo}
                     \end{figure}
+    \chapter{Plan de Pruebas}
+        \section{Gestión de reservas}
+            \begin{center}
+                \textbf{Responsable:} Kepa Reches Urrutia\\
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Codigo de prueba & Descripción & Resultado esperado \\
+                    \hline
+                    \endhead
+                    Contenido 1 & Contenido 2 & Contenido 3 \\
+                    \hline
+                \end{longtable}
+            \end{center}
+            \clearpage
+        \section{Reseñas}
+            \begin{center}
+                \textbf{Responsable:} Mohammed El Basri Dehbi\\
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Codigo de prueba & Descripción & Resultado esperado \\
+                    \hline
+                    \endhead
+                    Contenido 1 & Contenido 2 & Contenido 3 \\
+                    \hline
+                \end{longtable}
+            \end{center}
+            \clearpage
+        \section{Red de amigos} 
+            \begin{center}
+                \textbf{Responsable:} Javier Criado Garcia\\
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Codigo de prueba & Descripción & Resultado esperado \\
+                    \hline
+                    \endhead 
+                    \hline
+                    Contenido 1 & Contenido 2 & Contenido 3 \\
+                    \hline
+                \end{longtable}
+            \end{center}
+            \clearpage
+        \section{Administrador}
+            \begin{center}
+                \textbf{Responsable:} Jon Valdes Granado\\
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Codigo de prueba & Descripción & Resultado esperado \\
+                    \hline
+                    \endhead
+                    \hline
+                    Contenido 1 & Contenido 2 & Contenido 3 \\
+                    \hline
+                \end{longtable}
+            \end{center}
+            \clearpage
+        \section{Foros}
+            \begin{center}
+                \textbf{Responsable:} Janire Veganzones García\\
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Codigo de prueba & Descripción & Resultado esperado \\
+                    \hline
+                    \endhead
+                    \hline
+                    Contenido 1 & Contenido 2 & Contenido 3 \\
+                    \hline
+                \end{longtable}
+            \end{center}
+            \clearpage
+        \section{Recomendaciones del sistema}
+            \begin{center}
+                \textbf{Responsable:} Ainhize Martinez Duran\\
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Codigo de prueba & Descripción & Resultado esperado \\
+                    \hline
+                    \endhead
+                    \hline
+                    Contenido 1 & Contenido 2 & Contenido 3 \\
+                    \hline
+                \end{longtable}
+            \end{center}
+            \clearpage
+        \section{Recomendaciones de amigos}
+            \begin{center}
+                \textbf{Responsable:} Xabier Gabiña Barañano\\
+                \begin{longtable}{|c|c|c|}
+                    \hline
+                    Codigo de prueba & Descripción & Resultado esperado \\
+                    \hline
+                    \endhead
+                    \hline
+                    Contenido 1 & Contenido 2 & Contenido 3 \\
+                    \hline
+                \end{longtable}
+            \end{center}
+            \clearpage
 \end{document}
