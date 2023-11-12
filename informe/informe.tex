@@ -670,9 +670,17 @@
                     \hline
                     Codigo & Descripción & Resultado esperado \\
                     \hline
-                    \endhead
-                    Contenido 1 & Contenido 2 & Contenido 3 \\
+                    \endhead \hline
+                    F1P1 & El usuario selecciona un libro y pulsa reservar & Muestra la interfaz de reserva  \\
                     \hline
+                    F1P1.2 & El usuario selecciona un libro y NO pulsa reservar  & Se mantiene en la interfaz del catálogo  \\
+                    \hline
+                    F1P2 & El usuario selecciona una fecha menor de 2 meses & La reserva es correcta  \\
+                    \hline
+                    F1P2.2 & El usuario selecciona una fecha mayor de 2 meses &  Se abre una interfaz de error en la reserva \\
+                    \hline
+                    F1P2.3 & El usuario no selecciona ninguna fecha & Se abre una interfaz de error en la reserva   \\
+                    \hline          
                 \end{longtable}
             \end{center}
             \clearpage
