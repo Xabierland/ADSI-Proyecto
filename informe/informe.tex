@@ -1,7 +1,7 @@
 ﻿\documentclass{report}
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx, longtable, float, titlesec, hyperref, array}
+\usepackage{graphicx, longtable, float, titlesec, hyperref, array, listings}
 
 \hypersetup{
     hidelinks = true
@@ -869,7 +869,7 @@
     \chapter{Diagrama relacional}
         \begin{figure}[H]
             \centering
-            includegraphics[width=1.0\textwidth]{img/relacional/relacional.png}
+            \includegraphics[width=1.0\textwidth]{img/relacional/relacional.png}
             \caption{Diagrama relacional}
         \end{figure}
     \chapter{Diagrama de clases}
@@ -923,9 +923,83 @@
             \textbf{Xabier Gabiña Barañano}
             \begin{figure}[H]
                 \centering
-                %\includegraphics[width=1.0\textwidth]{img/comunicacion/recomendacionesDelSistema.png}
+                \includegraphics[width=1.0\textwidth]{img/comunicacion/recomendacionesDelSistema.png}
                 \caption{Diagrama de comunicación de las recomendaciones del sistema}
             \end{figure}
+            \begin{verbatim}
+                JSON_Libros{
+                    [
+                        {
+                            "id_libro":int,
+                            "nombre":String
+                        }
+                    ]
+                }
+            \end{verbatim}
+            \clearpage
+            \begin{enumerate}
+                \item \texttt{El usuario selecciona el catálogo en el menú principal.}
+                \item \texttt{new UI\_CATALOGO(user\_id)}.
+                \item \texttt{getRecomendacionesUser(user\_id):JSON\_Libros}
+                \begin{enumerate}
+                    \item[3.1] \texttt{listaLibros=getUserData(user\_id):JSON\_Libros}
+                    \begin{enumerate}
+                        \item[3.1.1] \texttt{execSQL("
+                            SELECT Libro.* 
+                            FROM User 
+                            INNER JOIN Tomar\_prestamo ON User.id\_user = Tomar\_prestamo.id\_user
+                            INNER JOIN CopiaLibro ON Tomar\_prestamo.id\_copia = CopiaLibro.id\_copia
+                            INNER JOIN Libro ON CopiaLibro.id\_libro = Libro.id\_libro
+                            WHERE User.id\_user = \%user\_id\%;
+                            "): ResultadoSQL}
+                        \begin{enumerate}
+                            \item[3.1.1.1] \texttt{new ResultadoSQL()}
+                        \end{enumerate}
+                        \item[3.1.2] \texttt{next()}
+                        \item[3.1.3] \texttt{getInt("id\_libro"):int}
+                        \item[3.1.4] \texttt{getString("nombre"):String}
+                    \end{enumerate}
+                    \item[3.2] \texttt{listaLibros=getFriendsData(user\_id):JSON\_Libros}
+                    \begin{enumerate}
+                        \item[3.2.1] \texttt{execSQL("
+                            SELECT Libro.* 
+                            FROM User 
+                            INNER JOIN Amistad ON User.id\_user = Amistad.id\_user1
+                            INNER JOIN User Amigo ON Amistad.id\_user2 = Amigo.id\_user
+                            INNER JOIN Tomar\_prestamo ON Amigo.id\_user = Tomar\_prestamo.id\_user
+                            INNER JOIN CopiaLibro ON Tomar\_prestamo.id\_copia = CopiaLibro.id\_copia
+                            INNER JOIN Libro ON CopiaLibro.id\_libro = Libro.id\_libro
+                            WHERE User.id\_user = \%user\_id\%;
+                            "): ResultadoSQL}
+                        \begin{enumerate}
+                            \item[3.2.1.1] \texttt{new ResultadoSQL()}
+                        \end{enumerate}
+                        \item[3.2.2] \texttt{next()}
+                        \item[3.2.3] \texttt{getInt(\"id\_libro"):int}
+                        \item[3.2.4] \texttt{getString("nombre"):String}
+                    \end{enumerate}
+                    \item[3.3] \texttt{getRecomendaciones(listaLibros):JSON\_Libros}
+                    \begin{enumerate}
+                        \item[3.3.1] \texttt{execSQL("
+                            SELECT Libro.*
+                            FROM Libro
+                            INNER JOIN Pertenece ON Libro.id\_libro = Pertenece.id\_libro
+                            INNER JOIN Tema ON Pertenece.id\_tema = Tema.id\_tema
+                            WHERE Tema.id\_tema IN (
+                                SELECT Pertenece.id\_tema
+                                FROM Pertenece
+                                WHERE Pertenece.id\_libro = \%libro\_id\%
+                                );
+                            "): ResultadoSQL}
+                        \begin{enumerate}
+                            \item[3.3.1.1] \texttt{new ResultadoSQL()}
+                        \end{enumerate}
+                        \item[3.3.2] \texttt{next()}
+                        \item[3.3.3] \texttt{getInt(\"id\_libro"):int}
+                        \item[3.3.4] \texttt{getString("nombre"):String}
+                    \end{enumerate}
+                \end{enumerate}
+            \end{enumerate}
             \clearpage
         \section{Recomendaciones de amigos}
             \textbf{Kepa Reche Urrutia}
