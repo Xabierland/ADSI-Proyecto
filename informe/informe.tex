@@ -1224,7 +1224,7 @@
             \end{enumerate}
             \end{figure}
             \clearpage
-            \section{Foros}
+        \section{Foros}
             \textbf{Ainhize Martinez Duran}
             \begin{figure}[H]
                 \centering
@@ -1300,23 +1300,30 @@
                         }
                     ]
                 }
+
+                JSON_Usuarios{
+                    [
+                        {
+                            "id_user":int
+                        }
+                    ]
+                }
             \end{verbatim}
             \clearpage
             \begin{enumerate}
-                \item El usuario selecciona el catálogo en el menú principal.
-                \item new Figura\_3.2.6.1(user\_id).
-                \item getRecomendacionesUser(user\_id):JSON\_Libros
+                \item[1] El usuario selecciona el catálogo en el menú principal.
+                \item[2] new Figura\_3.2.6.1(user\_id).
+                \item[3] getRecomendacionesUser(user\_id):JSON\_Libros
                 \begin{enumerate}
-                    \item[3.1] listaLibros=getUserData(user\_id):JSON\_Libros
+                    \item[3.1] listaLibros=getUserPrestamos(user\_id):JSON\_Libros
                     \begin{enumerate}
                         \item[3.1.1] execSQL(''
-                            SELECT Libro.* 
-                            FROM User 
-                            INNER JOIN Tomar\_prestamo ON User.id\_user = Tomar\_prestamo.id\_user
-                            INNER JOIN CopiaLibro ON Tomar\_prestamo.id\_copia = CopiaLibro.id\_copia
-                            INNER JOIN Libro ON CopiaLibro.id\_libro = Libro.id\_libro
-                            WHERE User.id\_user = \%user\_id\%;
-                            ''): ResultadoSQL
+                        SELECT Libro.* 
+                        FROM Tomar\_prestamo
+                        INNER JOIN CopiaLibro ON Tomar\_prestamo.id\_copia = CopiaLibro.id\_copia
+                        INNER JOIN Libro ON CopiaLibro.id\_libro = Libro.id\_libro
+                        WHERE Tomar\_prestamo.id\_user = \%user\_id\%;
+                        ''): new ResultadoSQL()
                         \begin{enumerate}
                             \item[3.1.1.1] new ResultadoSQL()
                         \end{enumerate}
@@ -1324,38 +1331,30 @@
                         \item[3.1.3] getInt('id\_libro'):int
                         \item[3.1.4] getString('nombre'):String
                     \end{enumerate}
-                    \item[3.2] listaLibros=getFriendsData(user\_id):JSON\_Libros
+                    \item[3.2] listaAmigos=getFriends(user\_id):JSON\_Usuarios
                     \begin{enumerate}
                         \item[3.2.1] execSQL(''
-                            SELECT Libro.* 
-                            FROM User 
-                            INNER JOIN Amistad ON User.id\_user = Amistad.id\_user1
-                            INNER JOIN User Amigo ON Amistad.id\_user2 = Amigo.id\_user
-                            INNER JOIN Tomar\_prestamo ON Amigo.id\_user = Tomar\_prestamo.id\_user
-                            INNER JOIN CopiaLibro ON Tomar\_prestamo.id\_copia = CopiaLibro.id\_copia
-                            INNER JOIN Libro ON CopiaLibro.id\_libro = Libro.id\_libro
-                            WHERE User.id\_user = \%user\_id\%;
-                            ''): ResultadoSQL
+                        SELECT U1.id\_user AS id\_amigo, U1.nombre AS nombre\_amigo
+                        FROM User AS U
+                        JOIN Amistad AS A ON U.id\_user = A.id\_user1 OR U.id\_user = A.id\_user2
+                        JOIN User AS U1 ON (U.id\_user = A.id\_user1 AND U1.id\_user = A.id\_user2) OR (U.id\_user = A.id\_user2 AND U1.id\_user = A.id\_user1)
+                        WHERE U.id\_user = \%user\_id\%;
+                        ''): new ResultadoSQL()
                         \begin{enumerate}
                             \item[3.2.1.1] new ResultadoSQL()
                         \end{enumerate}
                         \item[3.2.2] next()
-                        \item[3.2.3] getInt('id\_libro'):int
-                        \item[3.2.4] getString('nombre'):String
+                        \item[3.2.3] getInt('id\_user'):int
                     \end{enumerate}
-                    \item[3.3] getRecomendaciones(listaLibros):JSON\_Libros
+                    \item[3.3] listaLibros+=getUserPrestamos(listaAmigos):JSON\_Libros
                     \begin{enumerate}
                         \item[3.3.1] execSQL(''
-                            SELECT Libro.*
-                            FROM Libro
-                            INNER JOIN Pertenece ON Libro.id\_libro = Pertenece.id\_libro
-                            INNER JOIN Tema ON Pertenece.id\_tema = Tema.id\_tema
-                            WHERE Tema.id\_tema IN (
-                                SELECT Pertenece.id\_tema
-                                FROM Pertenece
-                                WHERE Pertenece.id\_libro = \%libro\_id\%
-                                );
-                            ''): ResultadoSQL
+                        SELECT Libro.* 
+                        FROM Tomar\_prestamo
+                        INNER JOIN CopiaLibro ON Tomar\_prestamo.id\_copia = CopiaLibro.id\_copia
+                        INNER JOIN Libro ON CopiaLibro.id\_libro = Libro.id\_libro
+                        WHERE Tomar\_prestamo.id\_user = \%user\_id\%;
+                        ''): new ResultadoSQL()
                         \begin{enumerate}
                             \item[3.3.1.1] new ResultadoSQL()
                         \end{enumerate}
@@ -1363,8 +1362,28 @@
                         \item[3.3.3] getInt('id\_libro'):int
                         \item[3.3.4] getString('nombre'):String
                     \end{enumerate}
+                    \item[3.4] getRecomendaciones(listaLibros):JSON\_Libros
+                    \begin{enumerate}
+                        \item[3.4.1] execSQL(''
+                        SELECT Libro.*
+                        FROM Libro
+                        INNER JOIN Pertenece ON Libro.id\_libro = Pertenece.id\_libro
+                        INNER JOIN Tema ON Pertenece.id\_tema = Tema.id\_tema
+                        WHERE Tema.id\_tema IN (
+                        SELECT Pertenece.id\_tema
+                        FROM Pertenece
+                        WHERE Pertenece.id\_libro = \%libro\_id\%
+                        );
+                        ''): new ResultadoSQL()
+                        \begin{enumerate}
+                            \item[3.4.1.1] new ResultadoSQL()
+                        \end{enumerate}
+                        \item[3.4.2] next()
+                        \item[3.4.3] getInt('id\_libro'):int
+                        \item[3.4.4] getString('nombre'):String
+                    \end{enumerate}
                 \end{enumerate}
-            \end{enumerate}
+            \end{enumerate}                   
             \clearpage
         \section{Recomendaciones de amigos}
             \textbf{Kepa Reche Urrutia}
