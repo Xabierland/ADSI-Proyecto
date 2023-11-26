@@ -883,9 +883,29 @@
             \textbf{Mohamed El Basri}
             \begin{figure}[H]
                 \centering
-                %\includegraphics[width=1.0\textwidth]{img/comunicacion/gestionDeReservas.png}
+                %\includegraphics[width=1.0\textwidth]{img/comunicacion/reservas.png}
                 \caption{Diagrama de comunicación de la gestión de reservas}
             \end{figure}
+        \begin{enumerate}
+            \item Selecciona un libro y pulsa el botón Reservar.
+            \item reservarLibro(id\_libro, id\_user)
+            \begin{enumerate}
+                \item [2.1] laCopia=buscarCopiaLibro(id\_libro)
+                \begin{enumerate}
+                    \item [2.1.1] execSQL(SELECT id\_copia FROM CopiaLibro WHERE id\_libro = \%id\_libro\% AND Libre=1) : ResultadoSQL
+                    \begin{enumerate}
+                        \item [2.1.1.1] new ResultadoSQL()
+                    \end{enumerate}               
+                    \item [2.1.2] next()
+                    \item [2.1.3] getInt(id_copia): int
+                \end{enumerate}
+                \item [2.2] guardarPrestamo(id\_user, laCopia)
+                \begin{enumerate}
+                     \item [2.2.1] execSQL(INSERT INTO Tomar\_prestamo (fecha\_prestamo, id\_user, id\_copia) VALUES (\%fecha\%,\%id\_user\%, \%laCopia\%))
+                     \item [2.2.2] execSQL(UPDATE CopiaLibro SET Libre=0 WHERE id\_copia=\%laCopia\%)   
+                \end{enumerate} 
+            \end{enumerate}             
+        \end{enumerate}
             \clearpage
         \section{Reseñas}
         \textbf{Javier Criado Garcia}
