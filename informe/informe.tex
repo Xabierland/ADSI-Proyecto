@@ -888,13 +888,123 @@
             \end{figure}
             \clearpage
         \section{Reseñas}
-            \textbf{Javier Criado Garcia}
-            \begin{figure}[H]
-                \centering
-                %\includegraphics[width=1.0\textwidth]{img/comunicacion/resenas.png}
-                \caption{Diagrama de comunicación de las reseñas}
-            \end{figure}
+        \textbf{Javier Criado Garcia}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1.0\textwidth]{img/comunicacion/resenas.png}
+            \caption{Diagrama de comunicación de las reseñas}
+        \end{figure}
+        \begin{verbatim}
+            JSON_Libros{
+                [
+                    {
+                        "id_libro": int,
+                        "nombre":String
+
+                    }
+                ]
+            }
+        \end{verbatim}
+        \begin{verbatim}
+            JSON_Reseñas{
+                [
+                    {
+                        "titulo": String,
+                        "reseña":String
+
+                    }
+                ]
+            }
+        \end{verbatim}
+        \begin{enumerate}
+            \item El usuario selecciona el Catalogo en el menú principal.
+            \item New UI\_CATALOGO(user\_id).
+            \item getLibrosUsuario(user\_id):JSON\_Libros.
             \clearpage
+            \begin{enumerate}
+                \item [3.1] getLibros():JSON\_Libros
+                \begin{enumerate}
+                    \item [3.1.1] execSQL(SELECT Libro From Libros)
+                    \begin{enumerate}
+                        \item [3.1.1.1] new ResultadoSQL
+                    \end{enumerate}               
+                    \item [3.1.2] next()
+                    \item [3.1.3] getInt('id\_libro'):int
+                    \item [3.1.4] getString('nombre'):String
+                \end{enumerate}
+            \end{enumerate}
+            \item El usuario selecciona un libro.
+            \item New UI\_Ver\_Libro(user\_id, id\_libro, nombre).
+            \item getLibro(): Libro.
+            \begin{enumerate}
+                \item [6.1] getLibros():JSON\_Libros
+                \begin{enumerate}
+                   \item [6.1.1]  execSQL(SELECT id\_libro FROM Libros WHERE Libro.id\_libro=\%id\_libro\%): ResultadoSQL
+                   \begin{enumerate}
+                        \item [6.1.1.1] new ResultadoSQL
+                    \end{enumerate}               
+                    \item [6.1.2] next()
+                    \item [6.1.3] getString('nombre'):String
+                \end{enumerate}
+            \end{enumerate}
+            \item El usuario selecciona escribir reseña.
+            \item New UI\_Escribir\_Reseña(user\_id, id\_libro, nombre).
+            \item El usuario pulsa el botón enviar.
+            \item EscribirReseña(user\_id):void.
+            \begin{enumerate}
+                \item [10.1] elTitulo: getTitulo(): String
+                \begin{enumerate}
+                   \item [10.1.1] execSQL(SELECT id\_libro FROM Libros WHERE Libro.id\_libro=\%id\_libro\%): ResultadoSQL
+                   \begin{enumerate}
+                        \item [10.1.1.1] new ResultadoSQL
+                    \end{enumerate}               
+                    \item [10.1.2] next()                       
+                \end{enumerate}
+                \item [10.2] laReseña: getReseña():String
+                \begin{enumerate}
+                   \item [10.2.1] execSQL(INSERT INTO Reseñas.reseña SELECT laReseña where User.id\_user=\%user\_id AND  Libro.id\_libro=\%id\_libro\%): ResultadoSQL
+                   \begin{enumerate}
+                        \item [10.2.1.1] new ResultadoSQL
+                    \end{enumerate}               
+                    \item [10.2.2] next()                       
+                \end{enumerate}
+            \end{enumerate}
+            \item El usuario selecciona ver reseñas
+            \item New UI\_Ver\_Reseñas(id\_libro)
+            \item getReseñas(id\_Libro): JSONReseñas
+            \begin{enumerate}
+                \item [13.1] getReseña(id\_libro):String
+                \begin{enumerate}
+                    \item [13.1.1] execSQL(SELECT Reseña From Reseñas where Libro.id\_libro=\%id\_libro\%): ResultadoSQL     
+                    \begin{enumerate}
+                        \item [16.1.1.1] new ResultadoSQL
+                    \end{enumerate}               
+                    \item [13.1.2] next()
+                    \item [13.1.3] getTitulo(’ id\_titulo’):String
+                    \item [13.1.4] getReseña('id\_reseña'):String
+                \end{enumerate}
+            \end{enumerate}
+            \item El usuario selecciona una reseña 
+            \item New UI\_Ver\_Reseña(id\_libro,id\_reseña)
+            \item getReseña():JSONReseña
+            \begin{enumerate}
+                \item [16.1] getReseña(id\_libro):String
+                \begin{enumerate}
+                    \item [16.1.1] execSQL(SELECT Reseña From Reseñas where Libro.id\_libro=\%id\_libro\%): ResultadoSQL     
+                    \begin{enumerate}
+                        \item [16.1.1.1] new ResultadoSQL
+                    \end{enumerate}               
+                    \item [16.1.2] next()
+                    \item [16.1.3] getTitulo(’ id\_titulo’):String
+                    \item [16.1.4] getReseña('id\_reseña'):String
+                \end{enumerate}
+            \end{enumerate}
+         
+            
+            
+
+        \end{enumerate}
+        \clearpage
         \section{Red de amigos}
             \textbf{Jon Valdes Granado}
             \begin{figure}[H]
