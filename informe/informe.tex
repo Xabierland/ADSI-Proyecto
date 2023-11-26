@@ -1239,17 +1239,23 @@
             \end{verbatim}
             \begin{enumerate}
                 \item El usuario selecciona Foro en el menú principal.
-                \item new Foro()
-                \item getHilos():JSON\_Hilo
+                \item new UI\_Foro(user\_id)
+                \item getHilos(user\_id):JSON\_Hilo
                 \begin{enumerate}
-                    \item [3.1] crearNuevoHilo(user\_id,descripcion)
+                    \item [3.1] crearNuevoHilo(user\_id,titulo)
+                    \begin{enumerate}
+                        \item [3.1.1] execSQL(INSERT INTO Hilo (id\_user,titulo) VALUES(\%user\_id\%,\%titulo\%)):RespusetaSQL
+                        \begin{enumerate}
+                            \item [3.1.1.1] new RespuestaSQL()
+                        \end{enumerate}
+                    \end{enumerate}
                 \end{enumerate}
             \end{enumerate}
             
             \begin{enumerate}
                 \item El usuario selecciona Foro en el menú principal.
-                \item new Foro()
-                \item getHilos():JSON\_Hilo
+                \item new UI\_Foro(user\_id)
+                \item getHilos(user\_id):JSON\_Hilo
                 \begin{enumerate}
                     \item [3.2] mostrarRespuesta(id\_hilo):JSON\_Respuesta
                     \begin{enumerate}
