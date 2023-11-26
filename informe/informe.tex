@@ -1107,6 +1107,41 @@
                 %\includegraphics[width=1.0\textwidth]{img/comunicacion/foros.png}
                 \caption{Diagrama de comunicación de los foros}
             \end{figure}
+            \begin{verbatim}
+                JSON_Hilo{
+                    [
+                        {
+                            "id_hilo":int,
+                            "titulo":String
+                        }
+                    ]
+                }
+            \end{verbatim}
+            \begin{verbatim}
+                JSON_Respuesta{
+                    [
+                        {
+                            "mensaje":Strin,
+                            "user":String
+                        }
+                    ]
+                }
+            \end{verbatim}
+            \begin{enumerate}
+                \item El usuario selecciona Foro en el menú principal.
+                \item new Foro()
+                \item getHilos():JSON\_Hilo
+                \begin{enumerate}
+                    \item [3.1] crearNuevoHilo(user\_id):JSON\_Hilo
+                    \item [3.2] entrarHilo(id\_hilo):JSON\_Respuesta
+                    \begin{enumerate}
+                        \item [3.2.1] mo()
+                    \end{enumerate}
+                    \begin{enumerate}
+                        \item [3.2.1.1] responderHilo()
+                    \end{enumerate}
+                \end{enumerate}
+            \end{enumerate}
             \clearpage
         \section{Recomendaciones del sistema}
             \textbf{Xabier Gabiña Barañano}
