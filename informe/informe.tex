@@ -1224,12 +1224,12 @@
             \end{enumerate}
             \end{figure}
             \clearpage
-        \section{Foros}
+            \section{Foros}
             \textbf{Ainhize Martinez Duran}
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=1.0\textwidth]{img/comunicacion/foros1.png}
-                \caption{Diagrama de comunicación para crear hilo}
+                \caption{Diagrama de comunicación para Foro}
             \end{figure}
             \begin{verbatim}
                 JSON_Hilo{
@@ -1260,26 +1260,10 @@
                     \begin{enumerate}
                         \item [3.1.1] execSQL(INSERT INTO Hilo (id\_user,titulo) VALUES(\%user\_id\%,\%titulo\%))
                     \end{enumerate}
-                \end{enumerate}
-            \end{enumerate}
-            
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=1.0\textwidth]{img/comunicacion/foros2.png}
-                \caption{Diagrama de comunicación para ver y responder hilo}
-            \end{figure}
-           
-            \begin{enumerate}
-                \item El usuario selecciona Foro en el menú principal.
-                \item new UI\_Foro(user\_id)
-                \item getHilos(user\_id):JSON\_Hilo
-                \begin{enumerate}
-                    \item [3.1] mostrarRespuesta(id\_hilo):JSON\_Respuesta
+                    \item [3.2] mostrarRespuesta(id\_hilo):JSON\_Respuesta
+                    \item [3.3] responderHilo(user\_id,mensaje,hilo\_id)
                     \begin{enumerate}
-                        \item [3.1.1] responderHilo(user\_id,mensaje,hilo\_id)
-                        \begin{enumerate}
-                            \item[3.1.1.1] execSQL(INSERT INTO Responder\_Hilo (id\_user,respuesta,id\_hilo) VALUES (\%user\_id\%,\%mensaje\%,\%hilo\_id\%))
-                        \end{enumerate}
+                        \item [3.3.1] execSQL(INSERT INTO Responder\_Hilo (id\_user,respuesta,id\_hilo) VALUES (\%user\_id\%,\%mensaje\%,\%hilo\_id\%))
                     \end{enumerate}
                 \end{enumerate}
             \end{enumerate}
