@@ -1014,7 +1014,7 @@
 
                     \begin{figure}[H]
                 \centering
-                \includegraphics[width=1.1\textwidth]{img/comunicacion/Diagrama4.png}
+                \includegraphics[width=1.5\textwidth]{img/comunicacion/Diagrama4.png}
                 \caption{Diagrama de comunicación Insertar un Libro}
             \clearpage
             \begin{enumerate}
@@ -1132,13 +1132,18 @@
                 \item new Foro()
                 \item getHilos():JSON\_Hilo
                 \begin{enumerate}
-                    \item [3.1] crearNuevoHilo(user\_id):JSON\_Hilo
-                    \item [3.2] entrarHilo(id\_hilo):JSON\_Respuesta
+                    \item [3.1] crearNuevoHilo(user\_id,descripcion)
+                \end{enumerate}
+            \end{enumerate}
+            
+            \begin{enumerate}
+                \item El usuario selecciona Foro en el menú principal.
+                \item new Foro()
+                \item getHilos():JSON\_Hilo
+                \begin{enumerate}
+                    \item [3.2] mostrarRespuesta(id\_hilo):JSON\_Respuesta
                     \begin{enumerate}
-                        \item [3.2.1] mo()
-                    \end{enumerate}
-                    \begin{enumerate}
-                        \item [3.2.1.1] responderHilo()
+                        \item [3.2.1.1] responderHilo(user\_id,mensaje)
                     \end{enumerate}
                 \end{enumerate}
             \end{enumerate}
