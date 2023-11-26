@@ -935,7 +935,7 @@
             \end{enumerate}
             \item El usuario selecciona un libro.
             \item New UI\_Ver\_Libro(user\_id, id\_libro, nombre).
-            \item getLibro(): Libro.
+            \item getLibro(id\_libro): Libro.
             \begin{enumerate}
                 \item [6.1] getLibros():JSON\_Libros
                 \begin{enumerate}
@@ -960,7 +960,7 @@
                     \end{enumerate}               
                     \item [10.1.2] next()                       
                 \end{enumerate}
-                \item [10.2] laReseña: getReseña():String
+                \item [10.2] laReseña: getReseña(id\_libro):String
                 \begin{enumerate}
                    \item [10.2.1] execSQL(INSERT INTO Reseñas.reseña SELECT laReseña where User.id\_user=\%user\_id AND  Libro.id\_libro=\%id\_libro\%): ResultadoSQL
                    \begin{enumerate}
