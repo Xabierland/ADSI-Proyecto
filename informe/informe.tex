@@ -907,10 +907,200 @@
             \textbf{Janire Veganzones García}
             \begin{figure}[H]
                 \centering
-                %\includegraphics[width=1.0\textwidth]{img/comunicacion/administrador.png}
-                \caption{Diagrama de comunicación del administrador}
+                \includegraphics[width=1.0\textwidth]{img/comunicacion/Diagrama1.png}
+                \caption{Diagrama de comunicación general del administrador}
+            \clearpage
+            \begin{enumerate}
+                \item El usuario inicia sesión como Admin.
+                \item new ilustration\_3.2.4.1.2().
+                \item Pulsa ``Usuarios''.
+                \item new ilustration\_3.2.4.1.3().
+                \item Pulsa ``Libros''.
+                \item new ilustration\_3.2.4.2.3().
+            \end{enumerate}
             \end{figure}
             \clearpage
+                        \begin{figure}[H]
+                \centering
+                \includegraphics[width=1.15\textwidth]{img/comunicacion/diagrama2.png}
+                \caption{Diagrama de comunicación Crear un Usuario}
+            \clearpage
+            \begin{enumerate}
+                \item El usuario pulsa ``Crear''.
+                \item new ilustration\_3.2.4.1.4().
+                \item Introducir nombre, apellidos, fecha nacimiento, email, contraseña y contraseña2 y pulsar ``Crear''.
+                \item comprobarDatosRegistro(nombre, apellidos, fecha\_nacimiento, passwd, passwd2, email) : boolean 
+                \newline
+                [Si comprobarDatosRegistro == TRUE]
+                \item  crear(nombre, apellidos, fecha\_nacimiento, email, passwd): void
+                \begin{enumerate}
+                    \item[5.1]  crear(nombre, apellidos, fecha\_nacimiento, email, passwd): void
+                        \begin{enumerate}
+                            \item[5.1.1] execSQL (INSERT INTO User VALUES (\%nombre\%, \%apellidos\%, \%fecha\_nacimiento\%, \%email\%, \%passwd\% ) ): ResultadoSQL
+                        \end{enumerate}
+                    \end{enumerate}
+                    [Si No]
+                \item new ilustration\_3.2.4.1.5().
+            \end{enumerate}
+            \end{figure}
+            
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1.1\textwidth]{img/comunicacion/diagrama3.png}
+                \caption{Diagrama de comunicación Borrar un Usuario}
+            \clearpage
+            \begin{enumerate}
+                \item El usuario pulsa ``Borrar''.
+                \item new ilustration\_3.2.4.1.6().
+                \item Escribir el email del usuario que desees eliminar y pulsar ``Borrar''.
+                \item usuarioBuscado = encontrarUser(email): int
+                \begin{enumerate}
+                    \item[4.1] encontrarUser(email)
+                        \begin{enumerate}
+                            \item[4.1.1] execSQL( SELECT id\_user FROM User WHERE email = \%email\%): ResultadoSQL
+                                \begin{enumerate}
+                                    \item[4.1.1.1] new ResultadoSQL()
+                                \end{enumerate}
+                            \item[4.1.2] next()
+                            \item[4.1.3] getInt(id\_user): int
+                        \end{enumerate}
+                \end{enumate}
+                [SI usuarioBuscado != NULL]
+                \item eliminarUsuario(id\_user)
+                 \begin{enumerate}
+                    \item[5.1] eliminarUsuario(id\_user)
+                        \begin{enumerate}
+                            \item[5.1.1] execSQL( DELETE * FROM Reseña WHERE id\_user= usuarioBuscado ) 
+                            \item[5.1.2] execSQL( DELETE * FROM Responder\_hilo WHERE id\_user= usuarioBuscado ) 
+                            \item[5.1.3] execSQL( DELETE * FROM Tomar\_prestamo WHERE id\_user = usuarioBuscado ) 
+                            \item[5.1.4] execSQL( DELETE * FROM User WHERE id\_user= UsuarioAElimiar) 
+                        \end{enumerate}
+                \end{enumerate}
+                    [Si No]
+                \item new ilustration\_3.2.4.1.7().
+            \end{enumerate}
+            \end{figure}
+            \clearpage
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1.1\textwidth]{img/comunicacion/diagrama6.png}
+                \caption{Diagrama de comunicación Modificar un Usuario}
+            \clearpage
+            \begin{enumerate}
+                \item El usuario pulsa ``Modificar''.
+                \item new ilustration\_3.2.4.1.8().
+                \item Introducir Nombre, Apellidos, Fecha nacimiento, Email, Nuevo nombre, Nuevos Apellidos, Nueva fecha nacimiento, Nueva contraseña, Repetir nueva contraseña y pulsar ``Modificar''.
+                \item encontrarUser(email) [Función desarrollada en el diagrama anterior]
+                \newline
+                [SI usuarioBuscado != NULL]
+                \newline
+                [SI \%Nueva contraseña\% == \%Repetir nueva contraseña\%]
+                \item modificarUsuario(id\_user)
+                \begin{enumerate}
+                    \item[5.1] modificarUsuario(id\_user)
+                        \begin{enumerate}
+                            \item[5.1.1] execSQL(UPDATE User SET nombre = \%Nuevo nombre\%,\ apellidos = \%Nuevos apellidos\%, fecha\_nacimiento = \%Nueva fecha nacimiento\%, passwd = \%Nueva contraseña\% WHERE id\_user = id\_user)
+                        \end{enumerate}
+                    [Si No]
+                \end{enumate}
+                \item new ilustration\_3.2.4.1.9().
+                \newline
+                [Si No]
+                \item new ilustration\_3.2.4.1.9().
+            \end{enumerate}
+            \end{figure}
+            \clearpage
+
+                    \begin{figure}[H]
+                \centering
+                \includegraphics[width=1.5\textwidth]{img/comunicacion/Diagrama4.png}
+                \caption{Diagrama de comunicación Insertar un Libro}
+            \clearpage
+            \begin{enumerate}
+                \item El usuario pulsa ``Añadir''.
+                \item new ilustration\_3.2.4.2.4().
+                \item Rellenar los campos Título y autor y pulsar ``Insertar''.
+                \item comprobarDatosLibro(título, autor): boolean 
+                \newline
+                [Si comprobarDatosLibro == TRUE]
+                \item  añadirLibro(titulo,autor): void
+                \begin{enumerate}
+                    \item[5.1]  añadirLibro(titulo,autor): void
+                        \begin{enumerate}
+                            \item[5.1.1] exectSQL (INSERT INTO Libros (\%titulo\%, \%autor\%): ResultadoSQL
+                        \end{enumerate}
+                    \end{enumerate}
+                    [Si No]
+                \item new ilustration\_3.2.4.2.5().
+            \end{enumerate}
+            \end{figure}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1.1\textwidth]{img/comunicacion/diagrama5.png}
+                \caption{Diagrama de comunicación Borrar un Libro}
+            \clearpage
+            \begin{enumerate}
+                \item El usuario pulsa ``Eliminar''.
+                \item new ilustration\_3.2.4.2.6().
+                \item Escribir el titulo y autor del libro que desees eliminar  y pulsar ``Eliminar''.
+                \item libroBuscado= encontrarLibro(titulo): int
+                \begin{enumerate}
+                    \item[4.1] encontrarLibro(titulo)
+                        \begin{enumerate}
+                            \item[4.1.1] execSQL( SELECT id\_libro FROM Libro WHERE titulo = \%titulo\%): ResultadoSQL
+                                \begin{enumerate}
+                                    \item[4.1.1.1] new ResultadoSQL()
+                                \end{enumerate}
+                            \item[4.1.2] next()
+                            \item[4.1.3] getInt(id\_libro): int
+                        \end{enumerate}
+                \end{enumate}
+                [SI libroBuscado != NULL]
+                \item eliminarLibro(id\_libro)
+                 \begin{enumerate}
+                    \item[5.1] eliminarLibro(id\_libro)
+                        \begin{enumerate}
+                            \item[5.1.1] execSQL( DELETE * FROM Reseña WHERE id\_libro= libroBuscado) 
+                            \item[5.1.2] execSQL( DELETE * FROM CopiaLibro WHERE id\_libro= libroBuscado) 
+                            \item[5.1.3] execSQL( DELETE * FROM Libro WHERE id\_libro= libroBuscado) 
+                        \end{enumerate}
+                \end{enumerate}
+                    [Si No]
+                \item new ilustration\_3.2.4.2.7().
+            \end{enumerate}
+            \end{figure}
+            \clearpage
+
+        \begin{figure}[H]
+                \centering
+                \includegraphics[width=1.1\textwidth]{img/comunicacion/diagrama7.png}
+                \caption{Diagrama de comunicación Modificar un Libro}
+            \clearpage
+            \begin{enumerate}
+                \item El usuario pulsa ``Modificar''.
+                \item new ilustration\_3.2.4.2.8().
+                \item Introducir titulo anterior, autor anterior, titulo nuevo y autor nuevo y pulsar ``Modificar''.
+                \item encontrarLibro(titulo) [Función desarrollada en el diagrama anterior]
+                \newline
+                [SI libroBuscado != NULL]
+                \item modificarLibro(id\_libro)
+                \begin{enumerate}
+                    \item[5.1] modificarLibro(id\_libro)
+                        \begin{enumerate}
+                            \item[5.1.1] execSQL(UPDATE Libro SET titulo= \%titulo nuevo\%, autor= \%autor nuevo\%)
+                        \end{enumerate}
+                    [Si No]
+                \end{enumate}
+                \item new ilustration\_3.2.4.2.9().
+                \newline
+                [Si No]
+                \item new ilustration\_3.2.4.2.9().
+            \end{enumerate}
+            \end{figure}
+            \clearpage
+
         \section{Foros}
             \textbf{Ainhize Martinez Duran}
             \begin{figure}[H]
@@ -919,6 +1109,7 @@
                 \caption{Diagrama de comunicación de los foros}
             \end{figure}
             \clearpage
+        
         \section{Recomendaciones del sistema}
             \textbf{Xabier Gabiña Barañano}
             \begin{figure}[H]
