@@ -1138,7 +1138,7 @@
                 \begin{enumerate}
                     \item[5.1]  añadirLibro(titulo,autor): void
                         \begin{enumerate}
-                            \item[5.1.1] exectSQL (INSERT INTO Libros (\%titulo\%, \%autor\%): ResultadoSQL
+                            \item[5.1.1] exectSQL (INSERT INTO Libros (\%titulo\%, \%autor\%)): ResultadoSQL
                         \end{enumerate}
                     \end{enumerate}
                     [Si No]
@@ -1262,9 +1262,8 @@
                         \item [3.2.1] responderHilo(user\_id,mensaje,hilo\_id)
                         \begin{enumerate}
                             \item[3.2.1.1] execSQL(INSERT INTO Responder\_Hilo (id\_user,respuesta,id\_hilo) VALUES (\%user\_id\%,\%mensaje\%,\%hilo\_id\%)):RespuestaSQL
-                            \begin{enumerate}
-                                \item [3.2.1.1.1]new RespuestaSQL()
-                            \end{enumerate}
+                            \item [3.2.1.2]new RespuestaSQL()
+                        \end{enumerate}
                     \end{enumerate}
                 \end{enumerate}
             \end{enumerate}
