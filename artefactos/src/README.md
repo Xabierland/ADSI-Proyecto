@@ -9,5 +9,5 @@ python -m venv .venv
 ## Activar entorno virtual
 
 ```bash
-.\venv\Scripts\activate
+.\.venv\Scripts\activate
 ```
