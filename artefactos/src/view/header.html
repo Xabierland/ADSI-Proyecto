@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Library</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <script src="js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          <span class="fs-4">Library</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="/catalogue" class="nav-link {% if request.path == '/catalogue' %}active{% endif %}">Catalogue</a></li>
+          {% if 'user' in request.__dict__ and request.user and request.user.token: %}
+          <li class="nav-item"><span class="nav-link disabled">{{request.user.username}}</span></li>
+          <li class="nav-item"><a href="/logout?path={{request.path}}" class="nav-link"><i class="fa fa-sign-out fa-lg"></i></a></li>
+          {% else %}
+          <li class="nav-item"><a href="/login" class="nav-link {% if request.path == '/login' %}active{% endif %}">Login</a></li>
+          {% endif %}
+
+
+
+
+
+        </ul>
+      </header>
+    </div>
