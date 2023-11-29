@@ -60,7 +60,7 @@ for user in usuarios:
 
 
 #### Insert books
-with open('libros.tsv', 'r') as f:
+with open('libros.tsv', 'r',encoding="UTF-8") as f:
 	libros = [x.split("\t") for x in f.readlines()]
 
 for author, title, cover, description in libros:

@@ -1,8 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% if 'user' in request.__dict__ and request.user and request.user.token: %}
 <div class="container p-5 my-5 border">
-
+    <h1 class="display-4">Recomendaciones</h1>
+    {% for recomendacion in recommended_books %}
+        <div class="card my-2">
+            <div class="card-body">
+                <h5 class="card-title">{{recomendacion.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{recomendacion.author}}</h6>
+                {% if recomendacion.description: %}
+                <p class="card-text">{{recomendacion.description}}</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="container p-5 my-5 border">
     <form class="form-inline">
       <div class="input-group mb-2 mr-sm-2">
         <label for="title" class="col-sm-2 col-form-label">Title</label>

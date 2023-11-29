@@ -48,3 +48,16 @@ class LibraryController:
 			return User(user[0][0], user[0][1], user[0][2])
 		else:
 			return None
+		
+	def get_recommended_books(self):
+		res = db.select("""
+				SELECT b.* 
+				FROM Book b, Author a 
+				WHERE b.author=a.id 
+				ORDER BY RANDOM() LIMIT 3
+		""")
+		books = [
+			Book(b[0],b[1],b[2],b[3],b[4])
+			for b in res
+		]
+		return books
