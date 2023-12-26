@@ -12,6 +12,9 @@ python -m venv .venv
 .\.venv\Scripts\activate
 ```
 
+> [!WARNING]
+> Puedes necesitar ejecutar el siguiente comando en modo administrador para poder activar el entorno virtual: set-executionpolicy remotesigned
+
 ## Instalar dependencias
 
 ```bash
