@@ -17,3 +17,9 @@ python -m venv .venv
 ```bash
 pip install -r requirements.txt
 ```
+
+## Ejecutar aplicación
+
+```bash
+python main.py
+```
