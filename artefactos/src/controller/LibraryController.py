@@ -1,3 +1,4 @@
+import random
 from model import Connection, Book, User
 from model.tools import hash_password
 
@@ -105,8 +106,10 @@ class LibraryController:
 				WHERE b.user_id = ? AND b.copy_id = c.id
 			""", [user.id])
 
-			filtered_books = [book for book in books if book[0] not in {b[0] for b in read_books}]
+			filtered_books = [book for book in books if book[0] not in {b[0] for b in read_books}]	# Tremenda linea de código
 
 			# Devulene 0-3 libros aleatorios
-			return [ Book(b[0],b[1],b[2],b[3],b[4]) for b in filtered_books ]
+			random_books = random.sample(filtered_books, min(3, len(filtered_books)))
+			sorted_books = sorted(random_books, key=lambda b: b[0])
+			return [ Book(b[0],b[1],b[2],b[3],b[4]) for b in sorted_books ]
 	# ===================================
