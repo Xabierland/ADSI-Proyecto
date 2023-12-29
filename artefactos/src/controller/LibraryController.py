@@ -52,6 +52,7 @@ class LibraryController:
 	# === Recomendaciones del sistema ===
 	def get_recommended_books(self, user=None):
 		if user is None:
+			"""Si no hay usuario del que obtener recomendaciones, se obtienen libros aleatorios"""
 			res = db.select("""
 				SELECT b.* 
 				FROM Book b, Author a 
@@ -64,23 +65,48 @@ class LibraryController:
 			]
 			return books
 		else:
-			# Lista de prestamos del usuario
-			res = db.select("""
-				SELECT b.* 
-				FROM Book b, Author a 
-				WHERE b.author=a.id 
-					AND b.id IN (
-						SELECT c.book_id
-						FROM Copy c, Borrow l
-						WHERE c.id = l.copy_id
-							AND l.user_id = ?
-					)
-			""", (user.id,))
+			"""En caso de que haya un usuario, se obtienen libros recomendados
+			Para ello:
+			  1. Se obtienen los temas de los libros que ha leido el usuario
+			  2. Se obtienen los temas de los libros que ha leido los amigos del usuario
+			  3. Se sacan todos los libros de los temas anteriores
+			  4. Se eliminan los libros que ya ha leido el usuario
+			"""
+			# 1. Obtener los temas de los libros que ha leído el usuario
+			user_themes = db.select("""
+				SELECT DISTINCT theme_id
+				FROM Borrow b, Copy c, BookTheme bt
+				WHERE b.user_id = ? AND b.copy_id = c.id AND c.book_id = bt.book_id
+			""", [user.id])
 
-			# Lista de prestamos de los amigos del usuario
-			# Elegir 3 libros al azar de la lista
-			return [
-				Book(b[0],b[1],b[2],b[3],b[4])
-				for b in res
-			]
+			# 2. Obtener los temas de los libros que han leído los amigos del usuario
+			friend_themes = db.select("""
+				SELECT DISTINCT theme_id
+				FROM Friend f, Borrow b, Copy c, BookTheme bt
+				WHERE f.user_id = ? AND f.friend_id = b.user_id AND b.copy_id = c.id AND c.book_id = bt.book_id
+			""", [user.id])
+
+			# Combinar las listas de temas
+			themes = list(set().union(*user_themes, *friend_themes))
+
+			# 3. Obtener los libros de los temas anteriores
+			placeholders = ', '.join('?' for theme in themes)
+			query = f"""
+				SELECT b.*
+				FROM Book b, BookTheme bt
+				WHERE bt.book_id = b.id AND bt.theme_id IN ({placeholders})
+			"""
+			books = db.select(query, themes)
+
+			# 4. Eliminar los libros que ya ha leído el usuario
+			read_books = db.select("""
+				SELECT c.book_id
+				FROM Borrow b, Copy c
+				WHERE b.user_id = ? AND b.copy_id = c.id
+			""", [user.id])
+
+			filtered_books = [book for book in books if book[0] not in {b[0] for b in read_books}]
+
+			# Devulene 0-3 libros aleatorios
+			return [ Book(b[0],b[1],b[2],b[3],b[4]) for b in filtered_books ]
 	# ===================================
