@@ -1,34 +1,24 @@
 {
   "usuarios": [
     {
-      "id": "a1",
-      "nombres": "James Gomez",
-      "email": "james@gmail.com",
-      "password": "123456"
+      "nombres": "Admin",
+      "email": "admin@gmail.com",
+      "password": "admin"
     },
     {
-      "nombres": "Jhon Doe",
-      "email": "jhon@gmail.com",
-      "password": "123",
-      "id": "IPB7fSC"
+      "nombres": "Usuario",
+      "email": "user@gmail.com",
+      "password": "user"
     },
     {
-      "nombres": "Juan Ejemplo",
-      "email": "ejemplo@gmail.com",
-      "password": "123456",
-      "id": "NgbZCib"
+      "nombres": "Usuario2",
+      "email": "user2@gmail.com",
+      "password": "user2"
     },
     {
-      "nombres": "Juan Ejemplo",
-      "email": "ejemplo@gmail.com",
-      "password": "123456",
-      "id": "S_Faisg"
-    },
-    {
-      "nombres": "Xabier Gabina",
-      "email": "xgabina001@ehu.eus",
-      "password": "123456",
-      "id": "Xabier"
+      "nombres": "Usuario3",
+      "email": "user3@gmail.com",
+      "password": "user3"
     }
   ]
 }

@@ -48,16 +48,39 @@ class LibraryController:
 			return User(user[0][0], user[0][1], user[0][2])
 		else:
 			return None
-		
-	def get_recommended_books(self):
-		res = db.select("""
+		 
+	# === Recomendaciones del sistema ===
+	def get_recommended_books(self, user=None):
+		if user is None:
+			res = db.select("""
 				SELECT b.* 
 				FROM Book b, Author a 
 				WHERE b.author=a.id 
 				ORDER BY RANDOM() LIMIT 3
-		""")
-		books = [
-			Book(b[0],b[1],b[2],b[3],b[4])
-			for b in res
-		]
-		return books
+			""")
+			books = [
+				Book(b[0],b[1],b[2],b[3],b[4])
+				for b in res
+			]
+			return books
+		else:
+			# Lista de prestamos del usuario
+			res = db.select("""
+				SELECT b.* 
+				FROM Book b, Author a 
+				WHERE b.author=a.id 
+					AND b.id IN (
+						SELECT c.book_id
+						FROM Copy c, Borrow l
+						WHERE c.id = l.copy_id
+							AND l.user_id = ?
+					)
+			""", (user.id,))
+
+			# Lista de prestamos de los amigos del usuario
+			# Elegir 3 libros al azar de la lista
+			return [
+				Book(b[0],b[1],b[2],b[3],b[4])
+				for b in res
+			]
+	# ===================================

@@ -38,7 +38,14 @@ def catalogue():
 	author = request.values.get("author", "")
 	page = int(request.values.get("page", 1))
 	books, nb_books = library.search_books(title=title, author=author, page=page - 1)
-	recommended_books = library.get_recommended_books()
+	# === Recomendaciones del sistema ===
+	if 'user' in dir(request) and request.user and request.user.token:
+		user = request.user
+		# Obtener libros recomendados
+		recommended_books = library.get_recommended_books(user)
+	else:
+		recommended_books = []
+	# ===================================
 	total_pages = (nb_books // 6) + 1
 	return render_template('catalogue.html', books=books, title=title, author=author, current_page=page,
 	                       total_pages=total_pages, recommended_books=recommended_books, max=max, min=min)
