@@ -33,7 +33,8 @@ cur.execute("""
 		id integer primary key AUTOINCREMENT,
 		name varchar(20),
 		email varchar(30),
-		password varchar(32)
+		password varchar(32),
+		admin integer
 	)
 """)
 
@@ -55,7 +56,7 @@ for user in usuarios:
 	dataBase_password = user['password'] + salt
 	hashed = hashlib.md5(dataBase_password.encode())
 	dataBase_password = hashed.hexdigest()
-	cur.execute(f"""INSERT INTO User VALUES (NULL, '{user['nombres']}', '{user['email']}', '{dataBase_password}')""")
+	cur.execute(f"""INSERT INTO User VALUES (NULL, '{user['nombres']}', '{user['email']}', '{dataBase_password}', '{user['admin']}')""")
 	con.commit()
 
 
