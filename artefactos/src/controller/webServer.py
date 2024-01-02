@@ -73,4 +73,20 @@ def logout():
 	if 'user' in dir(request) and request.user and request.user.token:
 		request.user.delete_session(request.user.token)
 		request.user = None
-	return resp
+
+	return redirect('/')
+
+
+@app.route('/administrador')
+def administrador():
+	return render_template('administrador.html')
+
+@app.route('/crearUsuario', methods=['GET', 'POST'])
+def crearUsuario():
+	if request.method == 'POST':
+		nombre = request.values.get("nombre")
+
+		return redirect('/administrador')
+	else:
+		return render_template('crearUsuario.html')
+
