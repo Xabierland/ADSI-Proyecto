@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if 'user' in request.__dict__ and request.user and request.user.token: %}
+{% if request.user.admin == 1 %}
+
+<div>
+    <u><h1 style="text-align: center;">Gestor de usuarios</h1></u>
+    <br>
+</div>
+<div class="text-center">
+    <a class="btn btn-primary" href="/crearUsuario">Crear</a>
+    <br>
+    <br>
+    <a class="btn btn-primary" href="/borrarUsuario">Borrar</a>
+</div>
+
+{% endif %}
+{% else %}
+<div><h2>No eres admin no tienes acceso</h2></div>
+{% endif %}
+
+{% endblock %}

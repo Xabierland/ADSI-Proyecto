@@ -5,11 +5,11 @@
 {% if 'user' in request.__dict__ and request.user and request.user.token: %}
 {% if request.user.admin == 1 %}
 <div>
-    <h2>Opciones de usuario</h2>
+    <u><h1 style="text-align: center;">Crear Usuario</h1></u>
 </div>
 
 <div class="container p-5 my-5 border">
-<form class="form-inline" method="POST">
+<form class="form-inline text-left" method="POST">
     <div class="form-group row">
         <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
         <div class="col-sm-10">
@@ -46,8 +46,11 @@
             <input type="password" class="form-control" id="repetirContrasena" placeholder="Repetir Contraseña">
         </div>
     </div>
-    <div class="form-group row">
+    
+    <div class="text-center">
         <div class="col-sm-10 offset-sm-2">
+            <br>
+            <br>
             <button type="submit" class="btn btn-primary float-right">Crear</button>
         </div>
     </div>

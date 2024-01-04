@@ -90,3 +90,22 @@ def crearUsuario():
 	else:
 		return render_template('crearUsuario.html')
 
+@app.route('/gestorUsuarios')
+def gestorUsuarios():
+	return render_template('gestorUsuarios.html')
+
+@app.route('/gestorLibros')
+def gestorLibros():
+	return render_template('gestorLibros.html')
+
+@app.route('/borrarUsuario')
+def borrarUsuario():
+	return render_template('borrarUsuario.html')
+
+@app.route('/añadirLibro')
+def añadirLibro():
+	return render_template('añadirLibro.html')
+
+@app.route('/borrarLibro')
+def borrarLibro():
+	return render_template('borrarLibro.html')
