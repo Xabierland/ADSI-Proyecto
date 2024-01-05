@@ -11,6 +11,13 @@
       "email": "admin@gmail.com",
       "password": "admin",
       "admin" : 1
+    },
+    {
+      "nombres": "a",
+      "email": "a@gmail.com",
+      "password": "a",
+      "admin" : 0
     }
+
   ]
 }
