@@ -156,8 +156,8 @@ for author, title, cover, description, theme in libros:
 
 
 ### Insert friends
-# Usuario1 friend of Usuario2
-cur.execute("INSERT INTO Friend VALUES (?, ?)", (2, 3))
+# Usuario1 friend of Usuario3
+cur.execute("INSERT INTO Friend VALUES (?, ?)", (2, 4))
 # Usuario2 friend of Usuario3
 cur.execute("INSERT INTO Friend VALUES (?, ?)", (3, 4))
 con.commit()

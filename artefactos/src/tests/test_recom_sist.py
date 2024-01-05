@@ -95,8 +95,10 @@ class TestRS(BaseTestClass):
         self.assertEqual(1, len(page.find_all('h1', class_='display-4')), format(page.prettify()))
 
         # Se deberia mostrar 3 recomendaciones
-        # La primera en base al prestamo del usuario del libro1, que como comparte tema con el libro2, saldra el libro2
-        # La segunda en base al prestamo del usuario2 que es su amigo, este tiene como prestamo el libro2 que tambien comparte tema con el libro1 ya alquilado por lo que UNICAMENTE, mostrara el libro2
+        # La primera en base al prestamo del usuario1 (nosotros) del libro1, que como comparte tema con el libro2, saldra el libro2 pero no el libro1 porque ya ha sido leido.
+        # La segunda en base al prestamo del usuario3 que es su amigo, este tiene como prestamo el libro3 que tambien comparte tema con el libro4 por tanto, el libro3 y el libro4 saldran como recomendaciones.
         recomendaciones_div = page.find('div', id='Recomendaciones')
-        self.assertEqual(1, len(recomendaciones_div.find_all('div', class_='card')), format(page.prettify()))
-        self.assertEqual('Libro 02', recomendaciones_div.find('div', class_='card').find('h5').get_text())
+        self.assertEqual(3, len(recomendaciones_div.find_all('div', class_='card')), format(page.prettify()))
+        self.assertEqual('Libro 02', recomendaciones_div.find_all('div', class_='card')[0].find('h5').get_text())
+        self.assertEqual('Libro 03', recomendaciones_div.find_all('div', class_='card')[1].find('h5').get_text())
+        self.assertEqual('Libro 04', recomendaciones_div.find_all('div', class_='card')[2].find('h5').get_text())
