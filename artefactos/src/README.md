@@ -42,3 +42,9 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+
+## Ejecutar tests
+
+```bash
+python -m unittest -v
+```

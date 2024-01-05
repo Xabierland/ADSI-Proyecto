@@ -5,15 +5,14 @@ import os
 
 salt = "library"
 
-# Check if the database file exists
+### Borra la base de datos
 if os.path.exists("datos.db"):
-	# Delete the existing database file
 	os.remove("datos.db")
 
 con = sqlite3.connect("datos.db")
 cur = con.cursor()
 
-### Create tables
+### Crea la base de datos
 cur.execute("""
 	CREATE TABLE Session(
 		session_hash varchar(32) primary key,
@@ -105,7 +104,7 @@ for user in usuarios:
 	cur.execute(f"""INSERT INTO User VALUES (NULL, '{user['nombres']}', '{user['email']}', '{dataBase_password}')""")
 	con.commit()
 
-#### Insert books, copies, authors and themes
+### Insert books, copies, authors and themes
 with open('libros.tsv', 'r', encoding="UTF-8") as f:
 	libros = [x.split("\t") for x in f.readlines()]
 
@@ -157,14 +156,15 @@ for author, title, cover, description, theme in libros:
 
 
 ### Insert friends
-# User friend of user1
+# Usuario1 friend of Usuario2
 cur.execute("INSERT INTO Friend VALUES (?, ?)", (2, 3))
-# User friend of user2
-cur.execute("INSERT INTO Friend VALUES (?, ?)", (2, 4))
+# Usuario2 friend of Usuario3
+cur.execute("INSERT INTO Friend VALUES (?, ?)", (3, 4))
 con.commit()
 
 ### Insert Borrow
+# Usuario1 borrow copy1 from book1
 cur.execute("INSERT INTO Borrow VALUES (?, ?, ?, ?)", (2, 1, '2022-01-01', '2022-01-15'))
-cur.execute("INSERT INTO Borrow VALUES (?, ?, ?, ?)", (3, 4, '2022-02-01', '2022-02-15'))
+# Usuario3 borrow copy7 from book3
 cur.execute("INSERT INTO Borrow VALUES (?, ?, ?, ?)", (4, 7, '2022-03-01', '2022-03-15'))
 con.commit()

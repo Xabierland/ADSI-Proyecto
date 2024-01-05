@@ -19,16 +19,16 @@ class TestCatalogo(BaseTestClass):
 		page = BeautifulSoup(res.data, features="html.parser")
 		self.assertEqual(0, len(page.find('div', class_='row').find_all('div', class_='card')))
 
-	def test_busquedaHarryPotter(self):
+	def test_busqueda(self):
 		params = {
-			'title': "Harry Potter"
+			'title': "Libro 01"
 		}
 		res = self.client.get('/catalogue', query_string = params)
 		page = BeautifulSoup(res.data, features="html.parser")
-		self.assertEqual(6, len(page.find('div', class_='row').find_all('div', class_='card')))
+		self.assertEqual(1, len(page.find('div', class_='row').find_all('div', class_='card')))
 		for card in page.find('div', class_='row').find_all('div', class_='card'):
 			self.assertIn(params['title'].lower(), card.find(class_='card-title').get_text().lower())
-		self.assertEqual(2, len(page.find('ul', class_='pagination').find_all('li', class_='page-item')))
+		self.assertEqual(1, len(page.find('ul', class_='pagination').find_all('li', class_='page-item')))
 
 
 		

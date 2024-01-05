@@ -14,7 +14,7 @@ class TestLogin(BaseTestClass):
 		self.assertIsNotNone(page.find('form').find('button', type='submit'))
 
 	def test_login_success(self):
-		res = self.login('jhon@gmail.com', '123')
+		res = self.login('user1@gmail.com', 'user1')
 		self.assertEqual(302, res.status_code)
 		self.assertEqual('/', res.location)
 		self.assertIn('token', ''.join(res.headers.values()))
@@ -26,17 +26,17 @@ class TestLogin(BaseTestClass):
 		self.assertEqual(2, res[0][0])
 		res2 = self.client.get('/')
 		page = BeautifulSoup(res2.data, features="html.parser")
-		self.assertEqual('Jhon Doe', page.find('header').find('ul').find_all('li')[-2].get_text())
+		self.assertEqual('Usuario1', page.find('header').find('ul').find_all('li')[-2].get_text())
 
 	def test_login_failure(self):
-		res = self.login('jhon@gmail.com', 'badpassword')
+		res = self.login('user1@gmail.com', 'badpassword')
 		self.assertEqual(302, res.status_code)
 		self.assertEqual('/login', res.location)
 		self.assertNotIn('token', ''.join(res.headers.values()))
 		self.assertNotIn('time', ''.join(res.headers.values()))
 
 	def test_log_out(self):
-		res = self.login('jhon@gmail.com', '123')
+		res = self.login('user1@gmail.com', 'user1')
 		self.assertEqual(302, res.status_code)
 		self.assertEqual('/', res.location)
 		res2 = self.client.get('/')
@@ -48,5 +48,3 @@ class TestLogin(BaseTestClass):
 		res4 = self.client.get('/')
 		self.assertNotIn('token', ''.join(res4.headers.values()))
 		self.assertNotIn('time', ''.join(res4.headers.values()))
-
-

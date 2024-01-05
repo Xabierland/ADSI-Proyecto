@@ -1,14 +1,14 @@
 {
   "usuarios": [
     {
-      "nombres": "Admin",
+      "nombres": "Administrador",
       "email": "admin@gmail.com",
       "password": "admin"
     },
     {
-      "nombres": "Usuario",
-      "email": "user@gmail.com",
-      "password": "user"
+      "nombres": "Usuario1",
+      "email": "user1@gmail.com",
+      "password": "user1"
     },
     {
       "nombres": "Usuario2",
@@ -19,6 +19,11 @@
       "nombres": "Usuario3",
       "email": "user3@gmail.com",
       "password": "user3"
+    },
+    {
+      "nombres": "Usuario4",
+      "email": "user4@gmail.com",
+      "password": "user4"
     }
   ]
 }
