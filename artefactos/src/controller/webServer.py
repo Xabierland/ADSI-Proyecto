@@ -100,12 +100,21 @@ def gestorLibros():
 
 @app.route('/borrarUsuario')
 def borrarUsuario():
-	return render_template('borrarUsuario.html')
+    email = request.form.get("email")
+    library.delete_user(email)
+    return render_template('borrarUsuario.html', email = email)
 
-@app.route('/añadirLibro')
+@app.route('/añadirLibro', methods=['GET', 'POST'])
 def añadirLibro():
-	return render_template('añadirLibro.html')
+    if request.method == 'POST':
+        titulo = request.form.get("titulo")
+        autor = request.form.get("autor")
+        library.add_book(titulo, autor)
+        return redirect('/añadirLibro')
+    else:
+        return render_template('añadirLibro.html')
 
 @app.route('/borrarLibro')
 def borrarLibro():
 	return render_template('borrarLibro.html')
+
