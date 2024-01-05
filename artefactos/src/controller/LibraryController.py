@@ -61,3 +61,13 @@ class LibraryController:
 			for b in res
 		]
 		return books
+
+	def add_book(self, title, author):
+		db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
+		author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+		db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, "", ""))
+
+	def delete_user(self, email):
+		db.execute("DELETE FROM User WHERE email = ?", (email,))
+	
+	
