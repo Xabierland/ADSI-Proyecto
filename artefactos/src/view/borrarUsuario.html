@@ -9,7 +9,7 @@
 </div>
 
 <div class="container p-5 my-5 border">
-<form class="form-inline text-left" method="POST">       
+<form class="form-inline text-left" method="POST" onsubmit="return validateForm()">       
     <div class="form-group row">
         <label for="email" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
@@ -25,11 +25,13 @@
         </div>
     </div>
 </form>
+
 </div>
 
 {% endif %}
 {% else %}
-<div><h2>No eres admin, no tienes acceso</h2></div>
-{% endif %}
+<div style="text-align: center; color: red;">
+    <h2>¡No tienes acceso, no eres administrador!</h2>
+</div>{% endif %}
 
 {% endblock %}

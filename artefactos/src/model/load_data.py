@@ -81,7 +81,7 @@ cur.execute("""
 		name varchar(20),
         last_name varchar(50),
 		birth_date DATE,
-		email varchar(30),
+		email varchar(30) UNIQUE,
 		password varchar(32),
         admin integer
 	)

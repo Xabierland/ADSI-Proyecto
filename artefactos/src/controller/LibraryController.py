@@ -1,8 +1,10 @@
+import hashlib
 import random
 from model import Connection, Book, User
 from model.tools import hash_password
 
 db = Connection()
+salt = "library"
 
 class LibraryController:
 	__instance = None
@@ -114,10 +116,10 @@ class LibraryController:
 			return [ Book(b[0],b[1],b[2],b[3],b[4]) for b in sorted_books ]
 	# ===================================
 
-	def add_book(self, title, author):
+	def add_book(self, title, author, cover, description):
 		db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
 		author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
-		db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, "", ""))
+		db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, cover, description))
 
 	def delete_book(self, title, author):
 		author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
@@ -125,8 +127,20 @@ class LibraryController:
 		db.delete("DELETE FROM Book WHERE id = ?", (book_id,))
 
 	def add_user(self, name, last_name, birth_date, email, password):
-		db.insert("INSERT INTO User VALUES (NULL, ?, ?, ?, ?, ?, ?)", (name, last_name, birth_date, email, password, 0))
+		try:
+			dataBase_password = str(password) + salt
+			hashed = hashlib.md5(dataBase_password.encode())
+			dataBase_password = hashed.hexdigest()
+			db.insert("INSERT INTO User VALUES (NULL, ?, ?, ?, ?, ?, ?)", (name, last_name, birth_date, email, dataBase_password, 0))
+			return("Usuario creado correctamente")
+			
+		except:
+			return("Usuario ya existe")
 
 	def delete_user(self, email):
-		db.delete("DELETE FROM User WHERE email = ?", (email,))
-	
+		id_user = db.select("SELECT id FROM User WHERE email = ?", (email,))
+		if len(id_user) != 0 and id_user[0][0] != 1:			
+			db.delete("DELETE FROM User WHERE email = ?", (email,))
+			print("Usuario borrado correctamente")
+		else:
+			print("El email no existe o es admin")
