@@ -107,8 +107,8 @@ def crearUsuario():
 def borrarUsuario():
 	if request.method == 'POST':
 		email = request.form.get("email")
-		library.delete_user(email)
-		return redirect('/administrador')
+		mensaje = library.delete_user(email)
+		return redirect('/msg?mensaje=' + mensaje)
 	else:
 		return render_template('borrarUsuario.html')
 

@@ -141,6 +141,6 @@ class LibraryController:
 		id_user = db.select("SELECT id FROM User WHERE email = ?", (email,))
 		if len(id_user) != 0 and id_user[0][0] != 1:			
 			db.delete("DELETE FROM User WHERE email = ?", (email,))
-			print("Usuario borrado correctamente")
+			return("Usuario borrado correctamente")
 		else:
-			print("El email no existe o es admin")
+			return("El email no existe o es admin")
