@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if 'user' in request.__dict__ and request.user and request.user.token: %}
+{% if request.user.admin == 1 %}
+<div>
+    <u><h1 style="text-align: center;">Borrar Usuarios</h1></u>
+</div>
+
+<div class="container p-5 my-5 border">
+<form class="form-inline text-left" method="POST">       
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" name ="email" id="email" placeholder="Email">
+        </div>
+    </div>
+    
+    <div class="text-center">
+        <div class="col-sm-10 offset-sm-2">
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary float-right">Borrar</button>
+        </div>
+    </div>
+</form>
+</div>
+
+{% endif %}
+{% else %}
+<div><h2>No eres admin, no tienes acceso</h2></div>
+{% endif %}
+
+{% endblock %}

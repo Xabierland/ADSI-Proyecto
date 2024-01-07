@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!--- === Recomendaciones del sistema === --->
 {% if 'user' in request.__dict__ and request.user and request.user.token: %}
-<div id="Recomendaciones" class="container p-5 my-5 border">
+<div class="container p-5 my-5 border">
     <h1 class="display-4">Recomendaciones</h1>
     {% for recomendacion in recommended_books %}
         <div class="card my-2">
@@ -18,7 +17,6 @@
     {% endfor %}
 </div>
 {% endif %}
-<!--- =================================== --->
 <div class="container p-5 my-5 border">
     <form class="form-inline">
       <div class="input-group mb-2 mr-sm-2">

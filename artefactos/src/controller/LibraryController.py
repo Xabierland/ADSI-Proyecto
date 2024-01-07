@@ -39,14 +39,14 @@ class LibraryController:
 	def get_user(self, email, password):
 		user = db.select("SELECT * from User WHERE email = ? AND password = ?", (email, hash_password(password)))
 		if len(user) > 0:
-			return User(user[0][0], user[0][1], user[0][2])
+			return User(user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], user[0][6])
 		else:
 			return None
 
 	def get_user_cookies(self, token, time):
 		user = db.select("SELECT u.* from User u, Session s WHERE u.id = s.user_id AND s.last_login = ? AND s.session_hash = ?", (time, token))
 		if len(user) > 0:
-			return User(user[0][0], user[0][1], user[0][2])
+			return User(user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], user[0][6])
 		else:
 			return None
 		 
@@ -113,3 +113,20 @@ class LibraryController:
 			sorted_books = sorted(random_books, key=lambda b: b[0])
 			return [ Book(b[0],b[1],b[2],b[3],b[4]) for b in sorted_books ]
 	# ===================================
+
+	def add_book(self, title, author):
+		db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
+		author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+		db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, "", ""))
+
+	def delete_book(self, title, author):
+		author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+		book_id = db.select("SELECT id FROM Book WHERE title = ? AND author = ?", (title, author_id))[0][0]
+		db.delete("DELETE FROM Book WHERE id = ?", (book_id,))
+
+	def add_user(self, name, last_name, birth_date, email, password):
+		db.insert("INSERT INTO User VALUES (NULL, ?, ?, ?, ?, ?, ?)", (name, last_name, birth_date, email, password, 0))
+
+	def delete_user(self, email):
+		db.delete("DELETE FROM User WHERE email = ?", (email,))
+	

@@ -2,28 +2,27 @@
   "usuarios": [
     {
       "nombres": "Administrador",
+      "apellidos": "Sistema",
+      "fecha_nac": "2000-01-01",
       "email": "admin@gmail.com",
-      "password": "admin"
+      "password": "admin",
+      "admin" : 1
     },
     {
-      "nombres": "Usuario1",
-      "email": "user1@gmail.com",
-      "password": "user1"
+      "nombres": "Usuario",
+      "apellidos": "Uno",
+      "fecha_nac": "2002-02-02",
+      "email": "user@gmail.com",
+      "password": "user",
+      "admin" : 0
     },
     {
-      "nombres": "Usuario2",
-      "email": "user2@gmail.com",
-      "password": "user2"
-    },
-    {
-      "nombres": "Usuario3",
-      "email": "user3@gmail.com",
-      "password": "user3"
-    },
-    {
-      "nombres": "Usuario4",
-      "email": "user4@gmail.com",
-      "password": "user4"
+      "nombres": "Borrar",
+      "apellidos": "Prueba",
+      "fecha_nac": "1999-09-09",
+      "email": "borrar@gmail.com",
+      "password": "borrar",
+      "admin" : 0
     }
   ]
 }

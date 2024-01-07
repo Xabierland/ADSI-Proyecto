@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if 'user' in request.__dict__ and request.user and request.user.token: %}
+{% if request.user.admin == 1 %}
+<div>
+    <u><h1 style="text-align: center;">Crear Usuario</h1></u>
+</div>
+
+<div class="container p-5 my-5 border">
+<form class="form-inline text-left" method="POST" onsubmit="return validateForm()">
+    <div class="form-group row">
+        <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="fechaNacimiento" class="col-sm-2 col-form-label">Fecha de Nacimiento</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" name="fecha_nac" id="fechaNacimiento">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="contrasena" class="col-sm-2 col-form-label">Contraseña</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Contraseña">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="repetirContrasena" class="col-sm-2 col-form-label">Repetir Contraseña</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="repetirContrasena" placeholder="Repetir Contraseña">
+        </div>
+    </div>
+    
+    <div class="text-center">
+        <div class="col-sm-10 offset-sm-2">
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary float-right">Crear</button>
+        </div>
+    </div>
+</form>
+</div>
+
+<script>
+function validateForm() {
+    var nombre = document.getElementById("nombre").value;
+    var apellidos = document.getElementById("apellidos").value;
+    var fechaNacimiento = document.getElementById("fechaNacimiento").value;
+    var email = document.getElementById("email").value;
+    var contrasena = document.getElementById("contrasena").value;
+    var repetirContrasena = document.getElementById("repetirContrasena").value;
+    
+    if (nombre === "" || apellidos === "" || fechaNacimiento === "" || email === "" || contrasena === "" || repetirContrasena === "") {
+        alert("Campos vacíos");
+        return false;
+    }
+    
+    if (contrasena !== repetirContrasena) {
+        alert("Las contraseñas no coinciden");
+        return false;
+    }
+
+    if (!email.includes("@gmail.com") && !email.includes("@hotmail.com") && !email.includes("@ikasle.ehu.eus")) {
+        alert("Email no válido");
+        return false;
+    }
+    
+    var fechaNacimientoDate = new Date(fechaNacimiento);
+    var eighteenYearsAgo = new Date();
+    eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
+    
+    if (fechaNacimientoDate > eighteenYearsAgo) {
+        alert("Tienes que ser mayor de edad");
+        return false;
+    }
+    
+    return true;
+}
+</script>
+    
+</form>
+</div>
+
+{% endif %}
+{% else %}
+<div><h2>No eres admin no tienes acceso</h2></div>
+{% endif %}
+
+{% endblock %}

@@ -81,3 +81,58 @@ def logout():
 		request.user.delete_session(request.user.token)
 		request.user = None
 	return resp
+
+
+@app.route('/administrador')
+def administrador():
+	return render_template('administrador.html')
+
+@app.route('/gestorUsuarios')
+def gestorUsuarios():
+	return render_template('gestorUsuarios.html')
+
+@app.route('/crearUsuario', methods=['GET', 'POST'])
+def crearUsuario():
+	if request.method == 'POST':
+		nombre = request.values.get("nombre")
+		apellidos = request.values.get("apellidos")
+		fecha_nac= request.values.get("fecha_nac")
+		email = request.values.get("email")
+		password = request.values.get("password")
+		library.add_user(nombre, apellidos, fecha_nac, email, password)
+		return redirect('/administrador')
+	else:
+		return render_template('crearUsuario.html')
+
+@app.route('/borrarUsuario', methods=['GET', 'POST'])
+def borrarUsuario():
+	if request.method == 'POST':
+		email = request.form.get("email")
+		library.delete_user(email)
+		return redirect('/administrador')
+	else:
+		return render_template('borrarUsuario.html')
+
+@app.route('/gestorLibros')
+def gestorLibros():
+	return render_template('gestorLibros.html')
+
+@app.route('/añadirLibro', methods=['GET', 'POST'])
+def añadirLibro():
+    if request.method == 'POST':
+        titulo = request.form.get("titulo")
+        autor = request.form.get("autor")
+        library.add_book(titulo, autor)
+        return redirect('/administrador')
+    else:
+        return render_template('añadirLibro.html')
+
+@app.route('/borrarLibro', methods=['GET', 'POST'])
+def borrarLibro():
+	if request.method == 'POST':
+		titulo = request.form.get("titulo")
+		autor = request.form.get("autor")
+		library.delete_book(titulo, autor)
+		return redirect('/administrador')
+	else:
+		return render_template('borrarLibro.html')
