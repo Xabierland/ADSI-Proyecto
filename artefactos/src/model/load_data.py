@@ -84,7 +84,6 @@ cur.execute("""
 		email varchar(30),
 		password varchar(32),
 		admin integer
-        
 	)
 """)
 
