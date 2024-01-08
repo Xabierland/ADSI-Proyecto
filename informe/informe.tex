@@ -807,34 +807,22 @@
             \clearpage
         \section{Recomendaciones del sistema}
             \begin{center}
-                \textbf{Responsable:} Xabier Gabiña Barañano\\
-                \begin{longtable}{|m{2cm}|m{4cm}|m{4cm}|}
+                \textbf{Responsable:} Ainhize Martinez Duran\\
+                \begin{longtable}{|m{1.5cm}|m{2cm}|m{2cm}|m{2cm}|m{2cm}|}
                     \hline
-                    Codigo & Descripción & Resultado esperado \\
+                    Codigo & Descripción & Resultado esperado & Resultado obtenido & Observaciones \\
                     \hline
                     \endhead
                     \hline
-                    F6.P1 & Usuario entra catalogo sin sesion & No se cargan recomendaciones \\
+                    F6.P1 & Entrar en el catálogo sin haber iniciado sesión & Muestra el catálogo pero no mostrará ninguna recomendación & Muestra el catálogo pero no mostrará ninguna recomendación & Funciona\\
                     \hline
-                    F6.P2 & Usuario entra catalogo con sesion, sin prestamos y sin amigos & Se cargan recomendaciones vacias \\
+                    F6.P2 & Entrar en el catálogo habiendo iniciado sesión pero sin haber hecho ninguna reserva & Muestra el catálogo pero no mostrará ninguna recomendación & Muestra el catálogo pero no mostrará ninguna recomendación & Funciona\\
                     \hline
-                    F6.P3 & Usuario entra catalogo con sesion, sin prestamos, con amigos y sin libros de sus amigos & Se cargan las recomendaciones vacias \\
+                    F6.P3 & Entrar en el catálogo habiendo iniciado sesión y reservado un único libro & Muestra el catálogo y las recomendaciones asociadas al único libro que ha reservado & Muestra el catálogo y las recomendaciones asociadas al único libro que ha reservado & Funciona\\
                     \hline
-                    F6.P4 & Usuario entra catalogo con sesion, sin prestamos, con amigos, con libros de sus amigos pero no comparten tema con otros libros & Se cargan las recomendaciones vacias \\
+                    F6.P3.1 & Entrar en el catálogo habiendo iniciado sesión y reservado el único libro que existe de un tema & Muestra el catálogo pero no mostrará ninguna recomendación & Muestra el catálogo pero no mostrará ninguna recomendación & Funciona\\
                     \hline
-                    F6.P5 & Usuario entra catalogo con sesion, sin prestamo, con amigos, con libros de sus amigos y comparten tema con otros libros & Se cargan las recomendaciones \\
-                    \hline
-                    F6.P6 & Usuario entra catalogo con sesion, con prestamo pero no comparten tema con otros libros y sin amigos & Se cargan las recomendaciones vacias\\
-                    \hline
-                    F6.P7 & Usuario entra catalogo con sesion, con prestamo, comparten tema con otros libros y sin amigos & Se cargan las recomendaciones \\
-                    \hline
-                    F6.P8 & Usuario entra catalogo con sesion, con prestamo pero no comparten tema con otros libros y con amigos pero sin libros & Se cargan las recomendaciones vacias \\
-                    \hline
-                    F6.P9 & Usuario entra catalogo con sesion, con prestamo, comparten tema con otros libros y con amigos pero sin libros & Se cargan las recomendaciones \\
-                    \hline
-                    F6.P10 & Usuario entra catalogo con sesion, con prestamo, comparten tema con otros libros y con amigos y con libros pero no comparten tema con otros libros & Se cargan las recomendaciones \\
-                    \hline
-                    F6.P11 & Usuario entra catalogo con sesion, con prestamo, comparten tema con otros libros y con amigos y con libros y comparten tema con otros libros & Se cargan las recomendaciones \\
+                    F6.P4 & Entrar en el catálogo habiendo iniciado sesión y reservado varios libros & Muestra el catálogo y las recomendaciones asociadas a los libros que ha reservado & Muestra el catálogo y las recomendaciones asociadas a los libros que ha reservado & Funciona\\
                     \hline
                 \end{longtable}
             \end{center}
@@ -1474,6 +1462,19 @@
         \section{Recomendaciones de amigos}
             \textbf{Kepa Reche Urrutia}
             \clearpage
+    \chapter{Problemas de implementación}
+        \section{Gestión de reservas}
+        \section{Reseñas}
+        \section{Red de amigos}
+        \section{Administrador}
+        \section{Foros}
+        \section{Recomendaciones del sistema}
+            \textbf{Xabier Gabiña Barañano}\\
+            Principalmente los problemas y limitaciones vienen dada del hecho de que varios integrantes del grupo han abandonado el proyecto haciendo que funciones como el tomar prestamos o añadir amigos no esten implementadas por lo que han tenido que se hechas "hardcodeadas" en la base de datos.\\
+            Esto ha realentizado sobre todo la parte de las pruebas unitarias ya que no se podian realizar pruebas de las funciones que no estaban implementadas.\\
+            De la parte de recomendaciones del sistema, la mayor dificultad la he encontrado en las SELECT que he implementado ya que buscando hacer las minimas busquedas posibles he tenido que hacer consultas complejas que ha llevado mas tiempo en implementarse.\\
+                
+        \section{Recomendaciones de amigos}
     \chapter{Conclusiones}
         Por último, se va a profundizar en las conclusiones obtenidas durante la realización de la práctica.\\
         
