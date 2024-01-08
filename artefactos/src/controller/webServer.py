@@ -123,8 +123,8 @@ def añadirLibro():
 		autor = request.form.get("autor")
 		cover = request.form.get("cover")
 		descripccion = request.form.get("descripcion")
-		library.add_book(titulo, autor, cover, descripccion)
-		return redirect('/administrador')
+		mensaje = library.add_book(titulo, autor, cover, descripccion)
+		return redirect('/msg?mensaje=' + mensaje)
 	else:
 		return render_template('añadirLibro.html')
 
@@ -133,8 +133,8 @@ def borrarLibro():
 	if request.method == 'POST':
 		titulo = request.form.get("titulo")
 		autor = request.form.get("autor")
-		library.delete_book(titulo, autor)
-		return redirect('/administrador')
+		mensaje = library.delete_book(titulo, autor)
+		return redirect('/msg?mensaje=' + mensaje)
 	else:
 		return render_template('borrarLibro.html')
 

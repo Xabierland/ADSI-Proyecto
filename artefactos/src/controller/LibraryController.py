@@ -117,9 +117,13 @@ class LibraryController:
 	# ===================================
 
 	def add_book(self, title, author, cover, description):
-		db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
-		author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
-		db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, cover, description))
+		try:
+			db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
+			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+			db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, cover, description))
+			return("El libro se ha añadido correctamente")
+		except:
+			return("El libro no es posible insertarlo")
 
 	def delete_book(self, title, author):
 		try:
