@@ -122,7 +122,7 @@ def añadirLibro():
 		titulo = request.form.get("titulo")
 		autor = request.form.get("autor")
 		cover = request.form.get("cover")
-		descripccion = request.form.get("descripccion")
+		descripccion = request.form.get("descripcion")
 		library.add_book(titulo, autor, cover, descripccion)
 		return redirect('/administrador')
 	else:

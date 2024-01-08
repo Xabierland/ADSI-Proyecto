@@ -70,3 +70,32 @@ class TestAdmin(BaseTestClass):
         text = "Usuario ya existe"
         # Se tiene que mostrar el siguiente h1: Opciones de administrador
         #self.assertEqual(1, len(page.find_all(lambda tag: tag.name == "h2" and text in tag.text)))
+    
+    def test_borrarUsuarioCampos(self):
+        self.login("admin@gmail.com","admin")
+        res = self.client.get('/borrarUsuario')
+        self.assertEqual(200, res.status_code)
+        page = BeautifulSoup(res.data, features="html.parser")
+        self.assertIsNotNone(page.find('form').find('input', id='email'))
+        self.assertIsNotNone(page.find('form').find('button', type='submit'))
+
+    def test_añadirLibroCampos(self):
+        self.login("admin@gmail.com","admin")
+        res = self.client.get('/añadirLibro')
+        self.assertEqual(200, res.status_code)
+        page = BeautifulSoup(res.data, features="html.parser")
+        self.assertIsNotNone(page.find('form').find('input', id='titulo'))
+        self.assertIsNotNone(page.find('form').find('input', id='autor'))
+        self.assertIsNotNone(page.find('form').find('input', id='cover'))
+        self.assertIsNotNone(page.find('form').find('input', id='descripcion'))
+        self.assertIsNotNone(page.find('form').find('button', type='submit'))
+
+    
+    def test_BorrarLibroCampos(self):
+        self.login("admin@gmail.com","admin")
+        res = self.client.get('/borrarLibro')
+        self.assertEqual(200, res.status_code)
+        page = BeautifulSoup(res.data, features="html.parser")
+        self.assertIsNotNone(page.find('form').find('input', id='titulo'))
+        self.assertIsNotNone(page.find('form').find('input', id='autor'))
+        self.assertIsNotNone(page.find('form').find('button', type='submit'))

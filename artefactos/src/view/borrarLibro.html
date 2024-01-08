@@ -8,7 +8,7 @@
     <u><h1 style="text-align: center;">Borrar Usuarios</h1></u>
 </div>
 
-<div class="container p-5 my-5 border">
+<div class="container p-5 my-5 border"  onsubmit="return validarFormulario()">
 <form class="form-inline text-left" method="POST">       
     <div class="form-group row">
         <label for="título" class="col-sm-2 col-form-label">Título</label>
@@ -30,6 +30,17 @@
     </div>
 </form>
 </div>
+<script>
+    function validarFormulario() {
+        var titulo = document.getElementById("titulo").value;
+        var autor = document.getElementById("autor").value;
+
+        if (titulo === "" || autor === "") {
+            alert("Faltan campos por rellenar");
+            return false;
+        }
+    }
+</script>
 
 {% endif %}
 {% else %}

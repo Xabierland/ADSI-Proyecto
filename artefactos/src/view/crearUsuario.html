@@ -9,7 +9,7 @@
 </div>
 
 <div class="container p-5 my-5 border">
-<form class="form-inline text-left" method="POST" onsubmit="return validateForm()">
+<form class="form-inline text-left" method="POST" id ="form" onsubmit="validateForm()">
     <div class="form-group row">
         <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
         <div class="col-sm-10">
@@ -51,21 +51,30 @@
         <div class="col-sm-10 offset-sm-2">
             <br>
             <br>
-            <button type="submit" class="btn btn-primary float-right">Crear</button>
+            <button type="submit" id="submit" class="btn btn-primary float-right">Crear</button>
         </div>
     </div>
 </form>
 </div>
 
 <script>
+var form = document.getElementById("form");
+form.addEventListener("submit", function (event) {
+    var res = validateForm();
+    if (res == false) {
+        event.preventDefault();
+    }
+});
 function validateForm() {
+
     var nombre = document.getElementById("nombre").value;
     var apellidos = document.getElementById("apellidos").value;
-    var fechaNacimiento = document.getElementById("fechaNacimiento").value;
+    var fechaNacimiento = document.getElementById("fecha_nac").value;
     var email = document.getElementById("email").value;
     var contrasena = document.getElementById("contrasena").value;
     var repetirContrasena = document.getElementById("repetirContrasena").value;
-    
+   
+
     if (nombre === "" || apellidos === "" || fechaNacimiento === "" || email === "" || contrasena === "" || repetirContrasena === "") {
         alert("Campos vacíos");
         return false;
@@ -76,6 +85,7 @@ function validateForm() {
         return false;
     }
 
+    
     if (!email.includes("@gmail.com") && !email.includes("@hotmail.com") && !email.includes("@ikasle.ehu.eus")) {
         alert("Email no válido");
         return false;

@@ -122,9 +122,13 @@ class LibraryController:
 		db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, cover, description))
 
 	def delete_book(self, title, author):
-		author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
-		book_id = db.select("SELECT id FROM Book WHERE title = ? AND author = ?", (title, author_id))[0][0]
-		db.delete("DELETE FROM Book WHERE id = ?", (book_id,))
+		try:
+			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+			book_id = db.select("SELECT id FROM Book WHERE title = ? AND author = ?", (title, author_id))[0][0]
+			db.delete("DELETE FROM Book WHERE id = ?", (book_id,))
+			return("El libro se ha borrado correctamente")
+		except:
+			return("El libro no existe")
 
 	def add_user(self, name, last_name, birth_date, email, password):
 		try:
@@ -133,7 +137,6 @@ class LibraryController:
 			dataBase_password = hashed.hexdigest()
 			db.insert("INSERT INTO User VALUES (NULL, ?, ?, ?, ?, ?, ?)", (name, last_name, birth_date, email, dataBase_password, 0))
 			return("Usuario creado correctamente")
-			
 		except:
 			return("Usuario ya existe")
 
