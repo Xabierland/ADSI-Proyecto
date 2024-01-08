@@ -2,6 +2,7 @@
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx, longtable, float, titlesec, hyperref, array, listings}
+\usepackage[top=2cm]{geometry}
 
 \hypersetup{
     hidelinks = true
@@ -60,7 +61,9 @@
             \end{itemize}
         \section{Versión 5 (2024-01-08)}
             \begin{itemize}
+                \item Añadido diagrama de secuencia.
                 \item Añadido conclusiones.
+                \item Correcciones varias.
             \end{itemize}
     \chapter{Introducción}
     En un mundo cada vez más digitalizado, las bibliotecas modernas están buscando formas innovadoras de adaptarse a las necesidades cambiantes de sus usuarios. La biblioteca que nos ocupa se encuentra en este proceso de transformación, reconociendo la importancia de expandir sus servicios en línea y brindar a sus usuarios una experiencia más enriquecedora y conectada. Para llevar a cabo esta ambiciosa misión, han solicitado la colaboración de nuestro equipo de desarrollo.\\
@@ -822,22 +825,34 @@
             \clearpage
         \section{Recomendaciones del sistema}
             \begin{center}
-                \textbf{Responsable:} Ainhize Martinez Duran\\
+                \textbf{Responsable:} Xabier Gabiña Barañano\\
                 \begin{longtable}{|m{2cm}|m{4cm}|m{4cm}|}
                     \hline
                     Codigo & Descripción & Resultado esperado \\
                     \hline
                     \endhead
                     \hline
-                    F6.P1 & Entrar en el catálogo sin haber iniciado sesión & Muestra el catálogo pero no mostrará ninguna recomendación \\
+                    F6.P1 & Usuario entra catalogo sin sesion & No se cargan recomendaciones \\
                     \hline
-                    F6.P2 & Entrar en el catálogo habiendo iniciado sesión pero sin haber hecho ninguna reserva & Muestra el catálogo pero no mostrará ninguna recomendación \\
+                    F6.P2 & Usuario entra catalogo con sesion, sin prestamos y sin amigos & Se cargan recomendaciones vacias \\
                     \hline
-                    F6.P3 & Entrar en el catálogo habiendo iniciado sesión y reservado un único libro & Muestra el catálogo y las recomendaciones asociadas al único libro que ha reservado \\
+                    F6.P3 & Usuario entra catalogo con sesion, sin prestamos, con amigos y sin libros de sus amigos & Se cargan las recomendaciones vacias \\
                     \hline
-                    F6.P3.1 & Entrar en el catálogo habiendo iniciado sesión y reservado el único libro que existe de un tema & Muestra el catálogo pero no mostrará ninguna recomendación \\
+                    F6.P4 & Usuario entra catalogo con sesion, sin prestamos, con amigos, con libros de sus amigos pero no comparten tema con otros libros & Se cargan las recomendaciones vacias \\
                     \hline
-                    F6.P4 & Entrar en el catálogo habiendo iniciado sesión y reservado varios libros & Muestra el catálogo y las recomendaciones asociadas a los libros que ha reservado \\
+                    F6.P5 & Usuario entra catalogo con sesion, sin prestamo, con amigos, con libros de sus amigos y comparten tema con otros libros & Se cargan las recomendaciones \\
+                    \hline
+                    F6.P6 & Usuario entra catalogo con sesion, con prestamo pero no comparten tema con otros libros y sin amigos & Se cargan las recomendaciones vacias\\
+                    \hline
+                    F6.P7 & Usuario entra catalogo con sesion, con prestamo, comparten tema con otros libros y sin amigos & Se cargan las recomendaciones \\
+                    \hline
+                    F6.P8 & Usuario entra catalogo con sesion, con prestamo pero no comparten tema con otros libros y con amigos pero sin libros & Se cargan las recomendaciones vacias \\
+                    \hline
+                    F6.P9 & Usuario entra catalogo con sesion, con prestamo, comparten tema con otros libros y con amigos pero sin libros & Se cargan las recomendaciones \\
+                    \hline
+                    F6.P10 & Usuario entra catalogo con sesion, con prestamo, comparten tema con otros libros y con amigos y con libros pero no comparten tema con otros libros & Se cargan las recomendaciones \\
+                    \hline
+                    F6.P11 & Usuario entra catalogo con sesion, con prestamo, comparten tema con otros libros y con amigos y con libros y comparten tema con otros libros & Se cargan las recomendaciones \\
                     \hline
                 \end{longtable}
             \end{center}
@@ -1478,16 +1493,44 @@
                     \end{enumerate}
                 \end{enumerate}
             \end{enumerate}
+    \chapter{Diagrama de secuencias}
+        \section{Gestión de reservas}
+            \textbf{Mohamed El Basri}
+            \clearpage
+        \section{Reseñas}
+            \textbf{Javier Criado Garcia}
+            \clearpage
+        \section{Red de amigos}
+            \textbf{Jon Valdes Granado}
+            \clearpage
+        \section{Administrador}
+            \textbf{Janire Veganzones García}
+            \clearpage
+        \section{Foros}
+            \textbf{Ainhize Martinez Duran}
+            \clearpage
+        \section{Recomendaciones del sistema}
+            \textbf{Xabier Gabiña Barañano}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1.0\textwidth]{img/secuencia/recomendacionesDelSistema.png}
+                \caption{Diagrama de secuencia de las recomendaciones del sistema}
+            \end{figure}
+            \clearpage
+        \section{Recomendaciones de amigos}
+            \textbf{Kepa Reche Urrutia}
+            \clearpage
     \chapter{Conclusiones}
-    Por último, se va a profundizar en las conclusiones obtenidas durante la realización de la práctica.\\
-    
-    Cómo se desarrolla en el apartado introductorio del trabajo, nos encontrábamos con una biblioteca en proceso de transformación digital y expansión de sus servicios en línea. En la web de esta biblioteca, se han integrado nuevas funcionalidades para mejorar la experiencia digital de los usuarios como la gestión de reservas, la red de amistades, la capacidad de dejar reseñas y comentarios y la implementación de sistemas de recomendación.\\
-    
-    Del mismo modo, también se ha integrado la inclusión de un rol de administrador con capacidades de gestión, los foros para discusión y la consideración de sistemas de recomendación basados en afinidades de intereses entre usuarios.\\
-    
-    Para poder implementar las funcionalidades anteriormente mencionadas, se ha seguido la siguiente metodología: primero se desarrolló un caso de uso general que dio lugar a los casos de uso extendidos, donde se pretendía definir y describir los requerimientos funcionales del sistema; posteriormente, se realizó el modelo de dominio para capturar los elementos del contexto y sus relaciones, donde había que tener en cuenta que datos tendría que almacenar el sistema; después, se ideó un plan de pruebas para cada funcionalidad, teniendo en cuenta los puntos críticos de cada una; a continuación, se creó el diagrama relacional utilizando como base el modelo de dominio mencionado; más tarde, se desarrollaron los diagramas de clases y de comunicación; finalmente, se realizaron los diagramas de secuencia, y se implementaron tanto el código correspondiente como las pruebas.\\
-    
-    En resumen, este proyecto ha sido una gran oportunidad para aprender sobre el desarrollo software, ofreciendo una experiencia práctica y enriquecedora al aplicar una metodología estructurada en la creación de una plataforma web funcional. De hecho, no solo nos ha permitido aprender sobre los procesos y técnicas involucradas en el desarrollo de software, sino también aplicar esos conocimientos en un entorno práctico. Además, a través de este proyecto, hemos podido comprender la importancia de la planificación detallada, el diseño cuidadoso y la implementación.
-
+        Por último, se va a profundizar en las conclusiones obtenidas durante la realización de la práctica.\\
+        
+        Cómo se desarrolla en el apartado introductorio del trabajo, nos encontrábamos con una biblioteca en proceso de transformación digital y expansión de sus servicios en línea. En la web de esta biblioteca, se han integrado nuevas funcionalidades para mejorar la experiencia digital de los usuarios como la gestión de reservas, la red de amistades, la capacidad de dejar reseñas y comentarios y la implementación de sistemas de recomendación.\\
+        
+        Del mismo modo, también se ha integrado la inclusión de un rol de administrador con capacidades de gestión, los foros para discusión y la consideración de sistemas de recomendación basados en afinidades de intereses entre usuarios.\\
+        
+        Para poder implementar las funcionalidades anteriormente mencionadas, se ha seguido la siguiente metodología: primero se desarrolló un caso de uso general que dio lugar a los casos de uso extendidos, donde se pretendía definir y describir los requerimientos funcionales del sistema; posteriormente, se realizó el modelo de dominio para capturar los elementos del contexto y sus relaciones, donde había que tener en cuenta que datos tendría que almacenar el sistema; después, se ideó un plan de pruebas para cada funcionalidad, teniendo en cuenta los puntos críticos de cada una; a continuación, se creó el diagrama relacional utilizando como base el modelo de dominio mencionado; más tarde, se desarrollaron los diagramas de clases y de comunicación; finalmente, se realizaron los diagramas de secuencia, y se implementaron tanto el código correspondiente como las pruebas.\\
+        
+        En resumen, este proyecto ha sido una gran oportunidad para aprender sobre el desarrollo software, ofreciendo una experiencia práctica y enriquecedora al aplicar una metodología estructurada en la creación de una plataforma web funcional. De hecho, no solo nos ha permitido aprender sobre los procesos y técnicas involucradas en el desarrollo de software, sino también aplicar esos conocimientos en un entorno práctico. Además, a través de este proyecto, hemos podido comprender la importancia de la planificación detallada, el diseño cuidadoso y la implementación.
+    \chapter{Repositorio}
+        
 \end{document}
 

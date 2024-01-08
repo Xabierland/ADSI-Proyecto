@@ -81,3 +81,27 @@ def logout():
 		request.user.delete_session(request.user.token)
 		request.user = None
 	return resp
+
+# === Administracion ===
+
+@app.route('/crearUsuario', methods=['GET', 'POST'])
+def crearUsuario():
+	if request.method == 'POST':
+		nombre = request.values.get("nombre")
+		apellidos = request.values.get("apellidos")
+		fecha_nac= request.values.get("fecha_nac")
+		email = request.values.get("email")
+		password = request.values.get("password")
+		mensaje = library.add_user(nombre, apellidos, fecha_nac, email, password)
+		return redirect('/msg?mensaje=' + mensaje) 
+	else:
+		return render_template('crearUsuario.html')
+	
+@app.route('/borrarUsuario', methods=['GET', 'POST'])
+def borrarUsuario():
+	if request.method == 'POST':
+		email = request.form.get("email")
+		mensaje = library.delete_user(email)
+		return redirect('/msg?mensaje=' + mensaje)
+	else:
+		return render_template('borrarUsuario.html')

@@ -79,8 +79,11 @@ cur.execute("""
 	CREATE TABLE User(
 		id integer primary key AUTOINCREMENT,
 		name varchar(20),
+		last_name varchar(20)
 		email varchar(30),
 		password varchar(32)
+		
+        
 	)
 """)
 

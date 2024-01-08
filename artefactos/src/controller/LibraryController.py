@@ -1,8 +1,10 @@
 import random
+import hashlib
 from model import Connection, Book, User
 from model.tools import hash_password
 
 db = Connection()
+salt = "library"
 
 class LibraryController:
 	__instance = None
@@ -49,7 +51,40 @@ class LibraryController:
 			return User(user[0][0], user[0][1], user[0][2])
 		else:
 			return None
-		 
+	
+	# === Administracion ===
+	def add_book(self, title, author, cover, description):
+		db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
+		author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+		db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, cover, description))
+
+	def delete_book(self, title, author):
+		try:
+			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+			book_id = db.select("SELECT id FROM Book WHERE title = ? AND author = ?", (title, author_id))[0][0]
+			db.delete("DELETE FROM Book WHERE id = ?", (book_id,))
+			return("El libro se ha borrado correctamente")
+		except:
+			return("El libro no existe")
+
+	def add_user(self, name, last_name, birth_date, email, password):
+		try:
+			dataBase_password = str(password) + salt
+			hashed = hashlib.md5(dataBase_password.encode())
+			dataBase_password = hashed.hexdigest()
+			db.insert("INSERT INTO User VALUES (NULL, ?, ?, ?, ?, ?, ?)", (name, last_name, birth_date, email, dataBase_password, 0))
+			return("Usuario creado correctamente")
+		except:
+			return("Usuario ya existe")
+
+	def delete_user(self, email):
+		id_user = db.select("SELECT id FROM User WHERE email = ?", (email,))
+		if len(id_user) != 0 and id_user[0][0] != 1:			
+			db.delete("DELETE FROM User WHERE email = ?", (email,))
+			return("Usuario borrado correctamente")
+		else:
+			return("El email no existe o es admin")
+
 	# === Recomendaciones del sistema ===
 	def get_recommended_books(self, user=None):
 		if user is None:
@@ -108,7 +143,7 @@ class LibraryController:
 
 			filtered_books = [book for book in books if book[0] not in {b[0] for b in read_books}]	# Tremenda linea de código
 
-			# Devulene 0-3 libros aleatorios
+			# Devuelve 0-3 libros aleatorios
 			random_books = random.sample(filtered_books, min(3, len(filtered_books)))
 			sorted_books = sorted(random_books, key=lambda b: b[0])
 			return [ Book(b[0],b[1],b[2],b[3],b[4]) for b in sorted_books ]

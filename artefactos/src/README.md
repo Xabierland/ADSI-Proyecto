@@ -46,5 +46,11 @@ python main.py
 ## Ejecutar tests
 
 ```bash
-python -m unittest -v
+python -m unittest          # Ejecuta todos los tests
+```
+
+o
+
+```bash
+python -m unittest <File>   # Ejecuta un test
 ```

@@ -38,6 +38,8 @@ Proyecto de la asignatura Análisis y Diseño de Sistemas de Información
 * Instalar extensiones
   * LaTeX Workshop
   * latexindent
+  * Python
+  * SQLite Viewer
 
 ### Documentación
 
@@ -58,3 +60,9 @@ Proyecto de la asignatura Análisis y Diseño de Sistemas de Información
 * Para los diagramas usamos Visual Paradigm 17.0 [LA VERSION IMPORTA]
   * <https://www.visual-paradigm.com/download/archive/>
 * Cada uno usar un archivo PROPIO .vpp porque no acepta control de versiones y puede provocar que se corrompa si mas de uno edita a la vez en él. Dentro de artefactos hay una carpeta personal para cada uno. Usadla para guardar vuestros archivos.
+
+### Codigo
+
+* Instalar Python3
+* Las instrucciones del codigo estan en el archivo README.md de la carpeta del codigo.
+  * [Instrucciones](artefactos\src\README.md)
