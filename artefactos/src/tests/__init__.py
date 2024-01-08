@@ -25,3 +25,22 @@ class BaseTestClass(unittest.TestCase):
 			email = email,
 			password=password
 		))
+	
+	def borrarUsuario(self, email):
+		return self.client.post('/borrarUsuario', data=dict(
+			email=email
+		))
+	
+	def añadirLibro(self, titulo, autor, cover, descripcion):
+		return self.client.post('/añadirLibro', data=dict(
+			titulo=titulo,
+			autor=autor,
+			cover=cover,
+			descripcion=descripcion
+		))
+	
+	def borrarLibro(self, titulo, autor):
+		return self.client.post('/borrarLibro', data=dict(
+			titulo=titulo,
+			autor=autor
+		))

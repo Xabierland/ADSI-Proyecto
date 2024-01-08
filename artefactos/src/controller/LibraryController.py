@@ -115,25 +115,7 @@ class LibraryController:
 			sorted_books = sorted(random_books, key=lambda b: b[0])
 			return [ Book(b[0],b[1],b[2],b[3],b[4]) for b in sorted_books ]
 	# ===================================
-
-	def add_book(self, title, author, cover, description):
-		try:
-			db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
-			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
-			db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, cover, description))
-			return("El libro se ha añadido correctamente")
-		except:
-			return("El libro no es posible insertarlo")
-
-	def delete_book(self, title, author):
-		try:
-			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
-			book_id = db.select("SELECT id FROM Book WHERE title = ? AND author = ?", (title, author_id))[0][0]
-			db.delete("DELETE FROM Book WHERE id = ?", (book_id,))
-			return("El libro se ha borrado correctamente")
-		except:
-			return("El libro no existe")
-
+	
 	def add_user(self, name, last_name, birth_date, email, password):
 		try:
 			dataBase_password = str(password) + salt
@@ -151,3 +133,22 @@ class LibraryController:
 			return("Usuario borrado correctamente")
 		else:
 			return("El email no existe o es admin")
+		
+	def add_book(self, title, author, cover, description):
+		try:
+			db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
+			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+			db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, cover, description))
+			return("El libro se ha añadido correctamente")
+		except:
+			return("El libro ya existe")
+
+	def delete_book(self, title, author):
+		try:
+			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+			book_id = db.select("SELECT id FROM Book WHERE title = ? AND author = ?", (title, author_id))[0][0]
+			db.delete("DELETE FROM Book WHERE id = ?", (book_id,))
+			return("El libro se ha borrado correctamente")
+		except:
+			return("El libro no existe")
+
