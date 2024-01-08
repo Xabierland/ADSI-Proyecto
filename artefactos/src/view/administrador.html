@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if 'user' in request.__dict__ and request.user and request.user.token: %}
+{% if request.user.admin == 1 %}
+
+<div>
+    <u><h1 style="text-align: center;">Opciones de administrador</h1></u>
+    <br>
+</div>
+<div class="text-center">
+    <a class="btn btn-primary" href="/gestorUsuarios">Usuarios</a>
+    <br>
+    <br>
+    <a class="btn btn-primary" href="/gestorLibros">Libros</a>
+</div>
+
+{% endif %}
+{% else %}
+<div style="text-align: center; color: red;">
+    <h2>¡No tienes acceso, no eres administrador!</h2>
+</div>{% endif %}
+
+{% endblock %}

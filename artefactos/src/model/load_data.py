@@ -79,9 +79,9 @@ cur.execute("""
 	CREATE TABLE User(
 		id integer primary key AUTOINCREMENT,
 		name varchar(20),
-		last_name varchar(20),
-		birth_date date,
-		email varchar(30),
+        last_name varchar(50),
+        birth_date DATE,
+        email varchar(30) UNIQUE,
 		password varchar(32),
 		admin integer
 	)

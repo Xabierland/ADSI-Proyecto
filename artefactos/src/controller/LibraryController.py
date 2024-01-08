@@ -41,32 +41,18 @@ class LibraryController:
 	def get_user(self, email, password):
 		user = db.select("SELECT * from User WHERE email = ? AND password = ?", (email, hash_password(password)))
 		if len(user) > 0:
-			return User(user[0][0], user[0][1], user[0][2])
+			return User(user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], user[0][6])
 		else:
 			return None
 
 	def get_user_cookies(self, token, time):
 		user = db.select("SELECT u.* from User u, Session s WHERE u.id = s.user_id AND s.last_login = ? AND s.session_hash = ?", (time, token))
 		if len(user) > 0:
-			return User(user[0][0], user[0][1], user[0][2])
+			return User(user[0][0], user[0][1], user[0][2], user[0][3], user[0][4], user[0][6])
 		else:
 			return None
 	
 	# === Administracion ===
-	def add_book(self, title, author, cover, description):
-		db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
-		author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
-		db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, cover, description))
-
-	def delete_book(self, title, author):
-		try:
-			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
-			book_id = db.select("SELECT id FROM Book WHERE title = ? AND author = ?", (title, author_id))[0][0]
-			db.delete("DELETE FROM Book WHERE id = ?", (book_id,))
-			return("El libro se ha borrado correctamente")
-		except:
-			return("El libro no existe")
-
 	def add_user(self, name, last_name, birth_date, email, password):
 		try:
 			dataBase_password = str(password) + salt
@@ -84,6 +70,24 @@ class LibraryController:
 			return("Usuario borrado correctamente")
 		else:
 			return("El email no existe o es admin")
+		
+	def add_book(self, title, author, cover, description):
+		try:
+			db.insert("INSERT INTO Author VALUES (NULL, ?)", (author,))
+			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+			db.insert("INSERT INTO Book VALUES (NULL, ?, ?, ?, ?)", (title, author_id, cover, description))
+			return("El libro se ha añadido correctamente")
+		except:
+			return("El libro ya existe")
+
+	def delete_book(self, title, author):
+		try:
+			author_id = db.select("SELECT id FROM Author WHERE name = ?", (author,))[0][0]
+			book_id = db.select("SELECT id FROM Book WHERE title = ? AND author = ?", (title, author_id))[0][0]
+			db.delete("DELETE FROM Book WHERE id = ?", (book_id,))
+			return("El libro se ha borrado correctamente")
+		except:
+			return("El libro no existe")
 
 	# === Recomendaciones del sistema ===
 	def get_recommended_books(self, user=None):

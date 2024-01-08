@@ -2,7 +2,7 @@ from .LibraryController import LibraryController
 from flask import Flask, render_template, request, make_response, redirect
 
 app = Flask(__name__, static_url_path='', static_folder='../view/static', template_folder='../view/')
-
+app.secret_key = "library"
 
 library = LibraryController()
 
@@ -84,6 +84,14 @@ def logout():
 
 # === Administracion ===
 
+@app.route('/administrador')
+def administrador():
+	return render_template('administrador.html')
+
+@app.route('/gestorUsuarios')
+def gestorUsuarios():
+	return render_template('gestorUsuarios.html')
+
 @app.route('/crearUsuario', methods=['GET', 'POST'])
 def crearUsuario():
 	if request.method == 'POST':
@@ -105,3 +113,34 @@ def borrarUsuario():
 		return redirect('/msg?mensaje=' + mensaje)
 	else:
 		return render_template('borrarUsuario.html')
+	
+@app.route('/gestorLibros')
+def gestorLibros():
+	return render_template('gestorLibros.html')
+
+@app.route('/añadirLibro', methods=['GET', 'POST'])
+def añadirLibro():
+	if request.method == 'POST':
+		titulo = request.form.get("titulo")
+		autor = request.form.get("autor")
+		cover = request.form.get("cover")
+		descripccion = request.form.get("descripcion")
+		mensaje = library.add_book(titulo, autor, cover, descripccion)
+		return redirect('/msg?mensaje=' + mensaje)
+	else:
+		return render_template('añadirLibro.html')
+
+@app.route('/borrarLibro', methods=['GET', 'POST'])
+def borrarLibro():
+	if request.method == 'POST':
+		titulo = request.form.get("titulo")
+		autor = request.form.get("autor")
+		mensaje = library.delete_book(titulo, autor)
+		return redirect('/msg?mensaje=' + mensaje)
+	else:
+		return render_template('borrarLibro.html')
+
+@app.route('/msg', methods=['GET'])
+def mensaje():
+	mensaje = request.values.get("mensaje","")
+	return render_template('msg.html', mensaje=mensaje)
