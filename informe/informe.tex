@@ -567,7 +567,7 @@
                         \textbf{Interfaz Gráfica:}\\
                         \begin{figure}[H]
                             \centering
-                            \includegraphics[width=0.8\textwidth]{./img/grafico/IU Recomendaciones de amigos.PNG}
+                                \includegraphics[width=0.8\textwidth]{./img/grafico/IU Recomendaciones de amigos.jpeg}
                             \\Figura 3.2.7.2: Interfaz de recomendaciones de amigos.
                         \end{figure}\\
                         \hline
@@ -829,28 +829,28 @@
             \clearpage
         \section{Recomendaciones de amigos}
             \begin{center}
-                \textbf{Responsable:} Xabier Gabiña Barañano\\
-                \begin{longtable}{|m{2cm}|m{4cm}|m{4cm}|}
+                \textbf{Responsable:} Ainhize Martinez Duran\\
+                \begin{longtable}{|m{1.5cm}|m{2cm}|m{2cm}|m{2cm}|m{2cm}|}
                     \hline
-                    Codigo & Descripción & Resultado esperado \\
+                    Codigo & Descripción & Resultado esperado & Resultado obtenido & Observaciones \\
                     \hline
                     \endhead
                     \hline
-                    F7P1 & Ver perfil sin iniciar sesion & Muestra el perfil sin recomendaciones \\
+                    F7P1 & Ver perfil sin iniciar sesion & Muestra el perfil sin recomendaciones & Muestra el perfil sin recomendaciones & Funciona \\
                     \hline
-                    F7P1.1 & Ver otro perfil al de la sesion & Muestra el otro perfil sin recomendaciones \\
+                    F7P1.1 & Ver otro perfil al de la sesion & Muestra el otro perfil sin recomendaciones & Muestra el otro perfil sin recomendaciones& Funciona \\
                     \hline
-                    F7P2 & Ver perfil con sesion pero sin amigos ni libros alquilados previamente/actualmente & Muestra el perfil sin recomendaciones \\
+                    F7P2 & Ver perfil con sesion pero sin amigos ni libros alquilados previamente/actualmente & Muestra el perfil sin recomendaciones & Muestra el perfil sin recomendaciones & Funciona\\
                     \hline
-                    F7P3 & Ver perfil con sesion y amigos pero sin libros alquilados previamente/actualmente & Muestra el perfil sin recomendaciones con recomendaciones basadas en los amigos \\
+                    F7P3 & Ver perfil con sesion y amigos pero sin libros alquilados previamente/actualmente & Muestra el perfil sin recomendaciones con recomendaciones basadas en los amigos & Muestra el perfil sin recomendaciones con recomendaciones basadas en los amigos & Funciona\\
                     \hline
-                    F7P3.1 & Ver perfil con sesion y amigos pero sin libros alquilados previamente/acutlamente y tus amigos no tienen otros amigos & Muestra el perfil sin recomendaciones \\
+                    F7P3.1 & Ver perfil con sesion y amigos pero sin libros alquilados previamente/acutlamente y tus amigos no tienen otros amigos & Muestra el perfil sin recomendaciones & Muestra el perfil sin recomendaciones & Funciona \\
                     \hline
-                    F7P4 & Ver perfil con sesion y libros alquilados previamente/actualmente pero sin amigos & Muestra las recomendaciones en base a los libros aliquilados previamente/actualmente \\
+                    F7P4 & Ver perfil con sesion y libros alquilados previamente/actualmente pero sin amigos & Muestra las recomendaciones en base a los libros aliquilados previamente/actualmente & Muestra las recomendaciones en base a los libros aliquilados previamente/actualmente & Funciona \\
                     \hline
-                    F7P4.1 & Ver perfil con sesion y libros alquilados perviamente/actualmente pero sin amigos y el libro es el unico de su tema & Muestra el perfil sin recomendaciones \\
+                    F7P4.1 & Ver perfil con sesion y libros alquilados perviamente/actualmente pero sin amigos y el libro es el unico de su tema & Muestra el perfil sin recomendaciones & Muestra el perfil sin recomendaciones & Funciona \\
                     \hline
-                    F7P5 & Ver perfil con sesion, amigos y libros alquilados previamente/actualmente & Muestra las recomendaciones en base a los libros alquilados previamente/actualmente y los amigos \\
+                    F7P5 & Ver perfil con sesion, amigos y libros alquilados previamente/actualmente & Muestra las recomendaciones en base a los libros alquilados previamente/actualmente y los amigos & Muestra las recomendaciones en base a los libros alquilados previamente/actualmente y los amigos & Funciona\\
                     \hline
                 \end{longtable}
             \end{center}
@@ -1409,21 +1409,12 @@
     \chapter{Diagrama de secuencias}
         \section{Gestión de reservas}
             \textbf{Mohamed El Basri}
-            \begin{figure}[H]
-                \centering
-                \includegraphics[width=1.0\textwidth]{img/secuencia/secuenciamoha.png}
-                \caption{Diagrama de secuencia de la gestion de reservas}
-            \end{figure}
             \clearpage
         \section{Reseñas}
             \textbf{Javier Criado Garcia}
             \clearpage
         \section{Red de amigos}
             \textbf{Jon Valdes Granado}
-            \centering
-                \includegraphics[width=1.0\textwidth]{img/secuencia/secuenciajon.png}
-                \caption{Diagrama de secuencia de la red de amigos}
-            \end{figure}
             \clearpage
         \section{Administrador}
             \textbf{Janire Veganzones García}
@@ -1470,6 +1461,11 @@
             \clearpage
         \section{Recomendaciones de amigos}
             \textbf{Kepa Reche Urrutia}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=1.0\textwidth]{img/secuencia/DSRecomendacionesAmigos.jpg}
+                \caption{Diagrama de secuencia de las Recomendaciones de amigos}
+            \end{figure}
             \clearpage
     \chapter{Problemas de implementación}
         \section{Gestión de reservas}
@@ -1484,6 +1480,13 @@
             De la parte de recomendaciones del sistema, la mayor dificultad la he encontrado en las SELECT que he implementado ya que buscando hacer las minimas busquedas posibles he tenido que hacer consultas complejas que ha llevado mas tiempo en implementarse.\\
                 
         \section{Recomendaciones de amigos}
+            \textbf{Kepa Reche Urrutia}\\
+            En el desarrollo de la funcionalidad de recomendación de amigos he tenido varios problemas que citare a continuación:\\
+            A la hora de crear amistades por ejemplo el User1 era amigo del User2 y eso deberia servir para que el User2 tambien fuese del User1, pero no era asi. 
+            Del problema anterior, derivaba el de la obtencion de los amigos de tus amigos, intentaba obtenerlos utilizando una unica Select pero no conseguia el resultado esperado.
+            La solucion que encontré era un poco liosa ya que habia estructuras con tuplas anidadas y resultaba tedioso seguir el orden.
+            Una vez conseguido el resultado, no sabia muy bien como enviar el resultado al HTML y mostrarlo de forma atractiva visualmente.\\
+            Con la ayuda de mis compañeros Xabi y Janire y consultando información en foros y herramientas como Copilot he conseguido resolver todos los problemas mencionados.\\
     \chapter{Conclusiones}
         Por último, se va a profundizar en las conclusiones obtenidas durante la realización de la práctica.\\
         
