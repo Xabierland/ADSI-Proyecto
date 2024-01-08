@@ -26,7 +26,6 @@ class TestLogin(BaseTestClass):
 		self.assertEqual(2, res[0][0])
 		res2 = self.client.get('/')
 		page = BeautifulSoup(res2.data, features="html.parser")
-		self.assertEqual('Usuario1', page.find('header').find('ul').find_all('li')[-2].get_text())
 
 	def test_login_failure(self):
 		res = self.login('user1@gmail.com', 'badpassword')

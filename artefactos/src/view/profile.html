@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container p-5 my-5 border">
+
+    <h2>Perfil de Usuario</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Información del Usuario</h5>
+            <p class="card-text">Nombre: <strong>{{ request.user.username }}</strong></p>
+            <p class="card-text">Email: <strong>{{ request.user.email }}</strong></p>
+        </div>
+    </div>
+
+    <!-- Mensajes de depuración -->
+    {% if recommended_friends %}
+        <div class="mt-4">
+            <h5 class="display-4"> Amigos Recomendados:</h5>
+            <div class="row">
+                {% for friend in recommended_friends %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ friend }}</h5>
+                                <!-- Agrega tu lógica y contenido específico para cada amigo recomendado -->
+                                <button class="btn btn-primary">Agregar Amigo</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p class="mt-4">No se encontraron amigos recomendados.</p>
+    {% endif %}
+
+</div>
+{% endblock %}

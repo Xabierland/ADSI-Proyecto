@@ -88,6 +88,49 @@ class LibraryController:
 			return("El libro se ha borrado correctamente")
 		except:
 			return("El libro no existe")
+		
+
+		# === Recomendaciones de amigos===
+
+	def recomendar_amigos(self, user=None, limite=3):
+		# Lista de tus amigos
+		lista_amigos = db.select("""SELECT * FROM Friend WHERE user_id = ? or friend_id=?""", [user.id,user.id])
+		
+		# Lista auxiliar para mantener el orden original
+		lista_amigos_sin_duplicados = set()
+
+		# Eliminar duplicados y mantener el orden original
+		for amigo in lista_amigos:
+			for aid in amigo:
+				if aid != user.id:
+					lista_amigos_sin_duplicados.add(aid)
+
+		# Lista de amigos de amigos
+		lista_amigos_de_amigos = set()
+
+		lista_amigos_amigos_provisional = []
+		for amigo_id in lista_amigos_sin_duplicados:
+			amigos_de_amigo = db.select("""SELECT * FROM Friend WHERE user_id = ? OR friend_id = ?""", [amigo_id, amigo_id])
+			lista_amigos_amigos_provisional = lista_amigos_amigos_provisional + amigos_de_amigo
+
+		valores = [valor for tupla in lista_amigos_amigos_provisional for valor in tupla]
+
+		for valor in valores:
+			if( valor not in lista_amigos_sin_duplicados and valor!= user.id):
+				lista_amigos_de_amigos.add(valor)
+
+		# Elimina duplicados y amigos directos
+		lista_recomendados = list(lista_amigos_de_amigos - lista_amigos_sin_duplicados)
+
+		# Limita la lista según el parámetro "limite"
+		lista_recomendados = lista_recomendados[:limite]
+
+		#Cambiamos las id por el nombre usuario
+		lista_nombres_recomendados = []
+		for id in lista_recomendados:
+			nombre = db.select("""SELECT user.name FROM User WHERE id = ?""", [id])
+			lista_nombres_recomendados.append(nombre[0][0])			
+		return lista_nombres_recomendados
 
 	# === Recomendaciones del sistema ===
 	def get_recommended_books(self, user=None):

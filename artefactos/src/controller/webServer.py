@@ -51,6 +51,17 @@ def catalogue():
 	                       total_pages=total_pages, recommended_books=recommended_books, max=max, min=min)
 
 
+@app.route('/profile')
+def profile():
+    if 'user' in dir(request) and request.user and request.user.token:
+        user = request.user
+        # Obtener amigos recomendados
+        recommended_friends = library.recomendar_amigos(user)
+        return render_template('profile.html', recommended_friends=recommended_friends)
+    else:
+        return redirect('/login')
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	if 'user' in dir(request) and request.user and request.user.token:
