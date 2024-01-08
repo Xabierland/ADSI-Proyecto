@@ -2,28 +2,51 @@
   "usuarios": [
     {
       "nombres": "Administrador",
+      "apellidos": "Sistema",
+      "fecha_nac": "1990-01-01",
       "email": "admin@gmail.com",
-      "password": "admin"
+      "password": "admin",
+      "admin": 1
     },
     {
       "nombres": "Usuario1",
+      "apellidos": "Sistema",
+      "fecha_nac": "1990-01-01",
       "email": "user1@gmail.com",
-      "password": "user1"
+      "password": "user1",
+      "admin": 0
     },
     {
       "nombres": "Usuario2",
+      "apellidos": "Sistema",
+      "fecha_nac": "1990-01-01",
       "email": "user2@gmail.com",
-      "password": "user2"
+      "password": "user2",
+      "admin": 0
     },
     {
       "nombres": "Usuario3",
+      "apellidos": "Sistema",
+      "fecha_nac": "1990-01-01",
       "email": "user3@gmail.com",
-      "password": "user3"
+      "password": "user3",
+      "admin": 0
     },
     {
       "nombres": "Usuario4",
+      "apellidos": "Sistema",
+      "fecha_nac": "1990-01-01",
       "email": "user4@gmail.com",
-      "password": "user4"
+      "password": "user4",
+      "admin": 0
+    },
+    {
+      "nombres": "Usuario5",
+      "apellidos": "Sistema",
+      "fecha_nac": "1990-01-01",
+      "email": "user5@gmail.com",
+      "password": "user5",
+      "admin": 0
     }
   ]
 }

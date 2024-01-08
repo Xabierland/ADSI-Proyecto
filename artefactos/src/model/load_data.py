@@ -79,10 +79,11 @@ cur.execute("""
 	CREATE TABLE User(
 		id integer primary key AUTOINCREMENT,
 		name varchar(20),
-		last_name varchar(20)
+		last_name varchar(20),
+		birth_date date,
 		email varchar(30),
-		password varchar(32)
-		
+		password varchar(32),
+		admin integer
         
 	)
 """)
@@ -104,7 +105,7 @@ for user in usuarios:
 	dataBase_password = user['password'] + salt
 	hashed = hashlib.md5(dataBase_password.encode())
 	dataBase_password = hashed.hexdigest()
-	cur.execute(f"""INSERT INTO User VALUES (NULL, '{user['nombres']}', '{user['email']}', '{dataBase_password}')""")
+	cur.execute(f"""INSERT INTO User VALUES (NULL, '{user['nombres']}', '{user['apellidos']}', '{user['fecha_nac']}', '{user['email']}', '{dataBase_password}', '{user['admin']}')""")
 	con.commit()
 
 ### Insert books, copies, authors and themes
@@ -158,16 +159,16 @@ for author, title, cover, description, theme in libros:
         con.rollback()
 
 
-### Insert friends
-# Usuario1 friend of Usuario3
-cur.execute("INSERT INTO Friend VALUES (?, ?)", (2, 4))
-# Usuario2 friend of Usuario3
-cur.execute("INSERT INTO Friend VALUES (?, ?)", (3, 4))
-con.commit()
-
 ### Insert Borrow
 # Usuario1 borrow copy1 from book1
 cur.execute("INSERT INTO Borrow VALUES (?, ?, ?, ?)", (2, 1, '2022-01-01', '2022-01-15'))
 # Usuario3 borrow copy7 from book3
 cur.execute("INSERT INTO Borrow VALUES (?, ?, ?, ?)", (4, 7, '2022-03-01', '2022-03-15'))
+con.commit()
+
+### Insert friends
+# Usuario1 friend of Usuario3
+cur.execute("INSERT INTO Friend VALUES (?, ?)", (2, 4))
+# Usuario2 friend of Usuario3
+cur.execute("INSERT INTO Friend VALUES (?, ?)", (3, 4))
 con.commit()
